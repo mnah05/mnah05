@@ -30,6 +30,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			<h1>mnah</h1>
 			<p class="tagline">builds things</p>
 
+			<div id="now-playing" class="now-playing hidden">
+				<div class="np-indicator">
+					<span class="np-dot"></span>
+					<span class="np-label">now playing</span>
+				</div>
+				<a id="np-link" href="#" target="_blank" rel="noopener noreferrer">
+					<img id="np-img" src="" alt="" width="40" height="40" />
+					<div class="np-info">
+						<span id="np-title"></span>
+						<span id="np-artist" class="np-artist"></span>
+					</div>
+				</a>
+			</div>
+
 			<div class="links">
 				<a href="https://github.com/mnah05/kv">kv</a>
 				<a href="https://github.com/mnah05/go-analytics">go-analytics</a>
@@ -67,6 +81,71 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				margin: 0.5em 0 2em;
 				font-size: 1.2em;
 			}
+
+			.now-playing {
+				margin-bottom: 2.5em;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.5em;
+			}
+			.now-playing.hidden { display: none; }
+			.np-indicator {
+				display: flex;
+				align-items: center;
+				gap: 0.4em;
+				font-size: 0.75em;
+				color: var(--cursor-accent);
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			.np-dot {
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background: var(--cursor-accent);
+				animation: np-pulse 1.5s ease-in-out infinite;
+			}
+			@keyframes np-pulse {
+				0%, 100% { opacity: 1; transform: scale(1); }
+				50% { opacity: 0.4; transform: scale(0.8); }
+			}
+			.now-playing a {
+				display: flex;
+				align-items: center;
+				gap: 0.75em;
+				text-decoration: none;
+				color: var(--cursor-fg);
+				padding: 0.5em 1em;
+				border: 1px solid var(--cursor-border);
+				border-radius: 8px;
+				transition: all 0.15s;
+			}
+			.now-playing a:hover {
+				border-color: var(--cursor-accent);
+				background: rgba(101, 163, 13, 0.05);
+			}
+			.now-playing img {
+				border-radius: 4px;
+				width: 40px;
+				height: 40px;
+				object-fit: cover;
+			}
+			.np-info {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				text-align: left;
+			}
+			.np-info span:first-child {
+				font-size: 0.9em;
+				font-weight: 600;
+			}
+			.np-artist {
+				font-size: 0.8em;
+				color: var(--cursor-muted);
+			}
+
 			.links {
 				display: flex;
 				flex-wrap: wrap;
@@ -108,5 +187,30 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				color: var(--cursor-accent);
 			}
 		</style>
+
+		<script>
+			async function fetchNowPlaying() {
+				try {
+					const res = await fetch("/api/now-playing");
+					const data = await res.json();
+					const el = document.getElementById("now-playing");
+					if (!data.isPlaying) {
+						el?.classList.add("hidden");
+						return;
+					}
+					el?.classList.remove("hidden");
+					document.getElementById("np-title")!.textContent = data.title;
+					document.getElementById("np-artist")!.textContent = data.artist;
+					document.getElementById("np-link")!.href = data.songUrl;
+					const img = document.getElementById("np-img") as HTMLImageElement;
+					img.src = data.albumImage;
+					img.alt = data.album;
+				} catch {
+					document.getElementById("now-playing")?.classList.add("hidden");
+				}
+			}
+			fetchNowPlaying();
+			setInterval(fetchNowPlaying, 30000);
+		</script>
 	</body>
 </html>
