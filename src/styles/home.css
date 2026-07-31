@@ -1,84 +1,63 @@
-:root {
-	--cursor-bg: #0a0a0b;
-	--cursor-fg: #f5f5f7;
-	--cursor-muted: #6b6b70;
-	--cursor-border: #1f1f23;
-	--cursor-accent: #65a30d;
-	--cursor-hover: #84cc16;
+.hero {
+	padding: 4rem 0 3.5rem;
 }
-
-.home-theme {
-	background: var(--cursor-bg);
-	color: var(--cursor-fg);
-	font-family: "Atkinson", ui-monospace, monospace;
-	min-height: 100vh;
-}
-.home-theme ::selection {
-	background: rgba(101, 163, 13, 0.3);
-}
-.home-theme a {
-	color: var(--cursor-fg);
-}
-.home {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-	padding: 2em 1em;
-	text-align: center;
-}
-.home h1 {
-	font-size: 4em;
-	margin: 0;
-	line-height: 1;
+.hero h1 {
+	font-size: 4.5rem;
+	margin: 0 0 0.25rem;
 	letter-spacing: -0.03em;
-	font-weight: 700;
-	color: #fafafa;
 }
 .tagline {
-	color: var(--cursor-muted);
-	margin: 0.5em 0 2.5em;
-	font-size: 1.2em;
+	color: var(--muted);
+	font-size: 1.25rem;
+	margin: 0;
 }
-.links {
+.projects {
 	list-style: none;
+	margin: 0;
 	padding: 0;
-	margin: 0 0 3em;
+}
+.projects li {
+	border-bottom: 1px solid var(--hairline);
+}
+.projects li:first-child {
+	border-top: 1px solid var(--hairline);
+}
+.projects a {
 	display: flex;
-	flex-direction: column;
-	gap: 0.4em;
-}
-.links a {
-	color: var(--cursor-fg);
+	align-items: center;
+	justify-content: space-between;
+	min-height: 64px;
+	padding: 0 0.25rem;
+	color: var(--ink);
 	text-decoration: none;
-	font-size: 1.1em;
-	padding: 0.3em 0.6em;
-	display: inline-block;
-	border-bottom: 1px solid transparent;
-	transition: all 0.15s;
+	font-size: 1.1rem;
 }
-.links a:hover {
-	color: var(--cursor-accent);
-	border-bottom-color: var(--cursor-accent);
+.projects a:hover {
+	color: var(--accent);
 }
-.resume {
-	color: var(--cursor-accent) !important;
+.project-arrow {
+	color: var(--accent);
+	opacity: 0;
+	transform: translateX(-4px);
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
 }
-.resume:hover {
-	color: var(--cursor-hover) !important;
-	border-bottom-color: var(--cursor-hover) !important;
+.projects a:hover .project-arrow,
+.projects a:focus-visible .project-arrow {
+	opacity: 1;
+	transform: translateX(0);
 }
-.social {
-	display: flex;
-	gap: 1.5em;
-}
-.social a {
-	color: var(--cursor-muted);
-	text-decoration: none;
-	font-size: 0.9em;
-	transition: color 0.15s;
-}
-.social a:hover {
-	color: var(--cursor-accent);
+
+@media (max-width: 720px) {
+	.hero {
+		padding: 2.5rem 0 2.5rem;
+	}
+	.hero h1 {
+		font-size: 3rem;
+	}
+	.projects a {
+		min-height: 56px;
+		font-size: 1rem;
+	}
 }

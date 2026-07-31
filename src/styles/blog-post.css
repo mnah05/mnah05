@@ -1,37 +1,41 @@
-main {
-	width: calc(100% - 2em);
-	max-width: 100%;
-	margin: 0;
-}
 .hero-image {
 	width: 100%;
+	margin-bottom: 2.5rem;
 }
 .hero-image img {
 	display: block;
 	margin: 0 auto;
-	border-radius: 12px;
-	box-shadow: var(--box-shadow);
+	border-radius: 8px;
+	border: 1px solid var(--hairline);
 }
 .prose {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 1em;
-	color: rgb(var(--gray-dark));
+	max-width: var(--measure);
+	margin: 0 auto;
+	color: var(--ink);
 }
 .title {
-	margin-bottom: 1em;
-	padding: 1em 0;
-	text-align: center;
-	line-height: 1;
+	margin-bottom: 2.5rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid var(--hairline);
 }
 .title h1 {
-	margin: 0 0 0.5em 0;
+	margin: 0.25rem 0 0;
+	font-size: 2.75rem;
 }
 .date {
-	margin-bottom: 0.5em;
-	color: rgb(var(--gray));
+	color: var(--muted);
+	font-size: 0.95em;
 }
 .last-updated-on {
 	font-style: italic;
+	margin-top: 0.25rem;
+}
+.prose p {
+	margin-bottom: 1.5em;
+}
+
+@media (max-width: 720px) {
+	.title h1 {
+		font-size: 2.1rem;
+	}
 }
