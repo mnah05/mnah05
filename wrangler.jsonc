@@ -1,0 +1,14 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "domain-page",
+	"compatibility_date": "2026-07-31",
+	"assets": {
+		"directory": "dist",
+		"not_found_handling": "single-page-application"
+	},
+	"build": {
+		"command": "npm run build",
+		"cwd": ".",
+		"watch_dir": "./src"
+	}
+}
