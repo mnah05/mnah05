@@ -18,8 +18,7 @@
 }
 .projects li {
 	border-bottom: 1px solid var(--hairline);
-	opacity: 0;
-	animation: project-enter 0.45s ease forwards;
+	animation: project-enter 0.45s ease backwards;
 }
 .projects li:first-child {
 	border-top: 1px solid var(--hairline);
