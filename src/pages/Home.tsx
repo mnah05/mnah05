@@ -8,6 +8,7 @@ const SITE_DESCRIPTION = "mnah — builds things";
 
 const PROJECTS = [
 	{ name: "link", href: "https://link.mnah.dev/", desc: "my hub — all my links in one place" },
+	{ name: "envitoo", href: "https://envitoo.mnah.dev/", desc: "event management platform" },
 	{ name: "kv", href: "https://github.com/mnah05/kv" },
 	{ name: "go-analytics", href: "https://github.com/mnah05/go-analytics" },
 	{ name: "boiler-go", href: "https://github.com/mnah05/boiler-go" },
