@@ -18,9 +18,21 @@
 }
 .projects li {
 	border-bottom: 1px solid var(--hairline);
+	opacity: 0;
+	animation: project-enter 0.45s ease forwards;
 }
 .projects li:first-child {
 	border-top: 1px solid var(--hairline);
+}
+@keyframes project-enter {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 .projects a {
 	display: flex;
@@ -32,15 +44,11 @@
 	color: var(--ink);
 	text-decoration: none;
 	font-size: 1.1rem;
+	transition: padding-left 0.2s ease;
 }
-.project-desc {
-	color: var(--muted);
-	font-size: 0.9rem;
-	font-weight: normal;
-	margin-left: 0.75rem;
-}
-.projects a:hover {
-	color: var(--accent);
+.projects a:hover,
+.projects a:focus-visible {
+	padding-left: 0.75rem;
 }
 .project-arrow {
 	color: var(--accent);

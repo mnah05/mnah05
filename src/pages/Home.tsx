@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -9,29 +10,26 @@ const SITE_DESCRIPTION = "mnah — builds things";
 type Project = {
 	name: string;
 	href: string;
-	desc?: string;
 	priority?: number;
 	stars?: number;
 	year?: number;
 };
 
 const PROJECTS: Project[] = [
-	{ name: "envitoo", href: "https://envitoo.mnah.dev/", desc: "event management platform", priority: 10, year: 2026 },
-	{ name: "go-analytics", href: "https://github.com/mnah05/go-analytics", desc: "url shortener with real-time analytics", priority: 9, year: 2026 },
-	{ name: "tripnest", href: "https://github.com/mnah05/tripnest", desc: "travel backend with REST APIs", priority: 8, year: 2026 },
-	{ name: "kv", href: "https://github.com/mnah05/kv", desc: "key-value store", priority: 6 },
-	{ name: "boiler-go", href: "https://github.com/mnah05/boiler-go", desc: "go project boilerplate", priority: 5 },
-	{ name: "dotfiles", href: "https://github.com/mnah05/dotfiles", desc: "shell & tooling configs", priority: 4 },
+	{ name: "envitoo", href: "https://envitoo.mnah.dev/", priority: 10, year: 2026 },
+	{ name: "go-analytics", href: "https://github.com/mnah05/go-analytics", priority: 9, year: 2026 },
+	{ name: "tripnest", href: "https://github.com/mnah05/tripnest", priority: 8, year: 2026 },
+	{ name: "kv", href: "https://github.com/mnah05/kv", priority: 6 },
+	{ name: "boiler-go", href: "https://github.com/mnah05/boiler-go", priority: 5 },
+	{ name: "dotfiles", href: "https://github.com/mnah05/dotfiles", priority: 4 },
 	{
 		name: "read",
 		href: "https://raindrop.io/workwithnauman/reads-72899412",
-		desc: "my reading list",
 		priority: 2,
 	},
 	{
 		name: "resume",
 		href: "/resume",
-		desc: "my resume on the site",
 		priority: 3,
 	},
 ];
@@ -57,21 +55,30 @@ export default function Home() {
 
 				<section aria-label="Projects">
 					<ul className="projects">
-						{ORDERED_PROJECTS.map((project) => (
-							<li key={project.name}>
-								<a
-									href={project.href}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-								<span className="project-name">{project.name}</span>
-								{project.desc && (
-									<span className="project-desc">{project.desc}</span>
+						{ORDERED_PROJECTS.map((project, i) => (
+							<li
+								key={project.name}
+								style={{ animationDelay: `${i * 60}ms` }}
+							>
+								{project.href.startsWith("/") ? (
+									<Link to={project.href}>
+										<span className="project-name">{project.name}</span>
+										<span className="project-arrow" aria-hidden="true">
+											&rarr;
+										</span>
+									</Link>
+								) : (
+									<a
+										href={project.href}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<span className="project-name">{project.name}</span>
+										<span className="project-arrow" aria-hidden="true">
+											&rarr;
+										</span>
+									</a>
 								)}
-								<span className="project-arrow" aria-hidden="true">
-									&rarr;
-								</span>
-								</a>
 							</li>
 						))}
 					</ul>
