@@ -17,19 +17,21 @@ type Project = {
 
 const PROJECTS: Project[] = [
 	{ name: "envitoo", href: "https://envitoo.mnah.dev/", desc: "event management platform", priority: 10, year: 2026 },
-	{ name: "go-analytics", href: "https://github.com/mnah05/go-analytics", priority: 9, year: 2026 },
-	{ name: "tripnest", href: "https://github.com/mnah05/tripnest", priority: 8, year: 2026 },
-	{ name: "kv", href: "https://github.com/mnah05/kv", priority: 6 },
-	{ name: "boiler-go", href: "https://github.com/mnah05/boiler-go", priority: 5 },
-	{ name: "dotfiles", href: "https://github.com/mnah05/dotfiles", priority: 4 },
+	{ name: "go-analytics", href: "https://github.com/mnah05/go-analytics", desc: "url shortener with real-time analytics", priority: 9, year: 2026 },
+	{ name: "tripnest", href: "https://github.com/mnah05/tripnest", desc: "travel backend with REST APIs", priority: 8, year: 2026 },
+	{ name: "kv", href: "https://github.com/mnah05/kv", desc: "key-value store", priority: 6 },
+	{ name: "boiler-go", href: "https://github.com/mnah05/boiler-go", desc: "go project boilerplate", priority: 5 },
+	{ name: "dotfiles", href: "https://github.com/mnah05/dotfiles", desc: "shell & tooling configs", priority: 4 },
 	{
 		name: "read",
 		href: "https://raindrop.io/workwithnauman/reads-72899412",
+		desc: "my reading list",
 		priority: 2,
 	},
 	{
 		name: "resume",
 		href: "https://www.overleaf.com/read/dxbtbmgqdrbg#973621",
+		desc: "current resume",
 		priority: 3,
 	},
 ];
