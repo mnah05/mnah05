@@ -13,7 +13,6 @@ const PROJECTS = [
 	{ name: "kv", href: "https://github.com/mnah05/kv" },
 	{ name: "boiler-go", href: "https://github.com/mnah05/boiler-go" },
 	{ name: "dotfiles", href: "https://github.com/mnah05/dotfiles" },
-	{ name: "link", href: "https://link.mnah.dev/", desc: "my hub — all my links in one place" },
 	{
 		name: "read",
 		href: "https://raindrop.io/workwithnauman/reads-72899412",
