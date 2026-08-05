@@ -47,13 +47,13 @@ export const resume = {
 	projects: [
 		{
 			name: "Envitoo",
-			tech: "Go, PostgreSQL, Redis, NATS JetStream, Clerk, Razorpay",
+			tech: "Go, PostgreSQL, Redis, NATS JetStream, Clerk",
 			link: { label: "Live", href: "https://envitoo.mnah.dev/" },
 			year: "2026",
 			points: [
 				"Built a production-grade event management platform with a transactional outbox pattern over NATS JetStream, powering reliable async delivery of OTP and ticket-confirmation emails via Resend",
 				"Implemented Clerk-based auth with lazy user provisioning, Redis-backed OTP verification (HMAC-SHA256), and QR-code check-in via signed access tokens for guest registration and ticketing",
-				"Integrated Razorpay for payments and built volunteer management and kanban-based task modules; deployed on a DigitalOcean droplet behind Caddy with automatic HTTPS",
+				"Built a volunteer applications module for event coordination; deployed on a Linode server behind Caddy with automatic HTTPS",
 			],
 		},
 		{
