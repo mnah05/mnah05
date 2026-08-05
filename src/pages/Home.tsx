@@ -7,6 +7,7 @@ const SITE_TITLE = "mnah";
 const SITE_DESCRIPTION = "mnah — builds things";
 
 const PROJECTS = [
+	{ name: "link", href: "https://link.mnah.dev/", desc: "my hub — all my links in one place" },
 	{ name: "kv", href: "https://github.com/mnah05/kv" },
 	{ name: "go-analytics", href: "https://github.com/mnah05/go-analytics" },
 	{ name: "boiler-go", href: "https://github.com/mnah05/boiler-go" },
@@ -18,7 +19,7 @@ const PROJECTS = [
 	},
 	{
 		name: "resume",
-		href: "https://drive.google.com/file/d/1gUsJzs93HxYxz3EQhQPpnsIAQC58hEAC/view?usp=sharing",
+		href: "https://www.overleaf.com/read/dxbtbmgqdrbg#973621",
 	},
 ];
 
@@ -42,10 +43,13 @@ export default function Home() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<span className="project-name">{project.name}</span>
-									<span className="project-arrow" aria-hidden="true">
-										&rarr;
-									</span>
+								<span className="project-name">{project.name}</span>
+								{project.desc && (
+									<span className="project-desc">{project.desc}</span>
+								)}
+								<span className="project-arrow" aria-hidden="true">
+									&rarr;
+								</span>
 								</a>
 							</li>
 						))}

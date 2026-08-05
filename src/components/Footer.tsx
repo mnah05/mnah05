@@ -9,7 +9,7 @@ const SOCIALS = [
 	},
 	{
 		label: "resume",
-		href: "https://drive.google.com/file/d/1gUsJzs93HxYxz3EQhQPpnsIAQC58hEAC/view?usp=sharing",
+		href: "https://www.overleaf.com/read/dxbtbmgqdrbg#973621",
 	},
 ];
 
