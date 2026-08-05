@@ -1,0 +1,94 @@
+.resume-header {
+	padding-bottom: 1.5rem;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid var(--hairline);
+}
+.resume-header h1 {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+}
+.resume-contact {
+	color: var(--muted);
+	font-size: 0.95em;
+	line-height: 2;
+}
+.resume-contact a {
+	margin: 0 0.35rem;
+}
+.resume-section {
+	margin-bottom: 2.25rem;
+}
+.resume-section h2 {
+	font-size: 1.15rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	border-bottom: 1px solid var(--ink);
+	padding-bottom: 0.35rem;
+	margin-bottom: 1.25rem;
+}
+.resume-entry {
+	margin-bottom: 1.5rem;
+}
+.resume-entry-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+}
+.resume-entry-head h3 {
+	font-size: 1.15rem;
+	margin: 0;
+}
+.resume-entry-head .year {
+	color: var(--muted);
+	font-size: 0.9em;
+	white-space: nowrap;
+}
+.resume-entry-head .year::before {
+	content: "\2014";
+	margin-right: 0.5rem;
+}
+.resume-subline {
+	font-style: italic;
+	color: var(--muted);
+	font-size: 0.95em;
+	margin-bottom: 0.5rem;
+}
+.resume-bullets {
+	margin: 0.5rem 0 0;
+	padding-left: 1.1rem;
+}
+.resume-bullets li {
+	margin-bottom: 0.4rem;
+	font-size: 0.95em;
+}
+.resume-project-tech {
+	font-size: 0.9em;
+}
+.resume-project-link {
+	margin-left: 0.5rem;
+	font-size: 0.9em;
+}
+.resume-skills {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.25rem 1rem;
+	font-size: 0.95em;
+}
+.resume-skills .skill-category {
+	font-weight: 700;
+	white-space: nowrap;
+}
+.resume-skills .skill-items {
+	color: var(--ink);
+}
+@media (max-width: 720px) {
+	.resume-entry-head {
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+	.resume-entry-head .year::before {
+		content: "";
+		margin: 0;
+	}
+}

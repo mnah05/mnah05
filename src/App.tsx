@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Resume from "./pages/Resume";
 import BlogIndex from "./pages/BlogIndex";
 import BlogPost from "./pages/BlogPost";
 import Header from "./components/Header";
@@ -12,6 +13,7 @@ export default function App() {
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/about" element={<About />} />
+			<Route path="/resume" element={<Resume />} />
 			<Route path="/blog" element={<BlogIndex />} />
 			<Route path="/blog/:slug" element={<BlogPost />} />
 			<Route

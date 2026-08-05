@@ -30,8 +30,8 @@ const PROJECTS: Project[] = [
 	},
 	{
 		name: "resume",
-		href: "https://www.overleaf.com/read/dxbtbmgqdrbg#973621",
-		desc: "current resume",
+		href: "/resume",
+		desc: "my resume on the site",
 		priority: 3,
 	},
 ];
