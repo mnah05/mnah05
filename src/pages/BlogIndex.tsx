@@ -6,8 +6,8 @@ import Seo from "../components/Seo";
 import { posts } from "../posts";
 import "../styles/blog-index.css";
 
-const SITE_TITLE = "mnah";
-const SITE_DESCRIPTION = "mnah's personal site";
+const SITE_TITLE = "Blog | mnah";
+const SITE_DESCRIPTION = "Thoughts, notes, and write-ups from mnah.";
 
 export default function BlogIndex() {
 	return (

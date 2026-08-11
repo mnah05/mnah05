@@ -3,30 +3,43 @@
 	margin: 0;
 	padding: 0;
 }
+
 .post-list li {
 	border-bottom: 1px solid var(--hairline);
+	transition: background 0.2s ease;
 }
+
 .post-list li:first-child {
 	border-top: 1px solid var(--hairline);
 }
+
 .post-list a {
 	display: block;
 	padding: 1.25rem 0.25rem;
 	text-decoration: none;
 	color: var(--ink);
+	transition: padding-left 0.2s ease;
 }
-.post-list a:hover {
+
+.post-list a:hover,
+.post-list a:focus-visible {
 	color: var(--accent);
+	padding-left: 0.75rem;
 }
+
 .post-list .title {
 	margin: 0 0 0.25rem;
 	font-size: 1.25rem;
+	font-family: "Atkinson", sans-serif;
+	font-weight: 700;
 }
+
 .post-list .date {
 	margin: 0;
 	color: var(--muted);
 	font-size: 0.9em;
 }
+
 .empty-state {
 	color: var(--muted);
 }

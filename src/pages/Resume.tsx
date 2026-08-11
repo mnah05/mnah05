@@ -15,12 +15,11 @@ export default function Resume() {
 					<h1>{resume.name}</h1>
 					<div className="resume-contact">
 						<span>{resume.location}</span>
-						<span> | </span>
+						<span className="sep"> | </span>
 						<a href={`mailto:${resume.email}`}>{resume.email}</a>
 						{resume.links.map((link) => (
 							<span key={link.label}>
-								{" "}
-								|{" "}
+								<span className="sep"> | </span>
 								<a href={link.href} target="_blank" rel="noopener noreferrer">
 									{link.label}
 								</a>

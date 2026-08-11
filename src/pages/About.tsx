@@ -3,11 +3,16 @@ import BlogLayout from "../components/BlogLayout";
 export default function About() {
 	return (
 		<BlogLayout title="About" description="About mnah" pubDate={new Date("August 08 2021")}>
-			{/* TODO: personalize this bio with your own story. */}
 			<p>
-				Hi, I&apos;m mnah (Nauman Hasan). I build things &mdash; mostly small
-				tools and experiments, from a key-value store and a Go analytics
-				service to this very site.
+				Hi, I&apos;m mnah (Nauman Hasan). I build backend systems, developer tools,
+				and small experiments on the web. Most of my work lives in Go, TypeScript,
+				and the Cloudflare ecosystem.
+			</p>
+
+			<p>
+				I care about clean APIs, reliable async workflows, and shipping things that
+				last. When I am not coding, I am probably reading, writing, or learning
+				something new about systems design.
 			</p>
 
 			<p>

@@ -80,12 +80,12 @@ export const resume = {
 		},
 	] satisfies Project[],
 	skills: [
-		{ category: "Languages", items: "Go, TypeScript, JavaScript, Java, Python, SQL" },
-		{ category: "Backend", items: "Chi, Express.js, Node.js, REST APIs, JWT Authentication" },
-		{ category: "Databases", items: "PostgreSQL, MySQL, Redis, SQLC, Database Design" },
+		{ category: "Languages", items: "Go, TypeScript, JavaScript, SQL" },
+		{ category: "Backend", items: "Go, Hono, Node.js, REST APIs, JWT Authentication, Clerk" },
+		{ category: "Databases", items: "PostgreSQL, MySQL, Redis, SQLC, Supabase, Database Design" },
 		{
-			category: "Infra & Tools",
-			items: "Docker, Docker Compose, NATS JetStream, Git, Linux, golang-migrate, zerolog, GitHub Actions",
+			category: "Cloud & Infra",
+			items: "Cloudflare Workers, Cloudflare R2, Wrangler, Docker, Docker Compose, NATS JetStream, Git, Linux, golang-migrate, zerolog, GitHub Actions",
 		},
 		{
 			category: "Concepts",

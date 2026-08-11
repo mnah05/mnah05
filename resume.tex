@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper, margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{parskip}
+
+\setmainfont{Helvetica}
+
+\definecolor{accent}{RGB}{168, 68, 31}
+\definecolor{muted}{RGB}{111, 104, 92}
+
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries\uppercase}{\thesection}{1em}{}[\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+
+\newcommand{\resumeheader}[3]{%
+  \begin{center}
+    {\LARGE\bfseries #1}\\[0.3em]
+    #2 \\n    #3
+  \end{center}
+}
+
+\newcommand{\resumeentry}[3]{%
+  \noindent
+  \textbf{#1} \hfill #2\\
+  \textit{#3}
+}
+
+\begin{document}
+
+\resumeheader
+  {Md Nauman Athar Hasan}
+  {Kolkata, India}
+  {\href{mailto:workwithnauman@gmail.com}{workwithnauman@gmail.com} \\textbar{} \href{https://mnah.dev}{mnah.dev} \\textbar{} \href{https://github.com/mnah05}{GitHub} \\textbar{} \href{https://www.linkedin.com/in/nauman-hasan-53a66630a/}{LinkedIn} \\textbar{} \href{https://leetcode.com/u/mnah05}{LeetCode}}
+
+\section{Education}
+\resumeentry{Dehradun Institute of Technology (DIT)}{2024 -- 2028}{B.Tech in Computer Science and Engineering, Dehradun, India}
+
+\textit{Relevant Coursework: Data Structures \& Algorithms, Operating Systems, DBMS}
+
+\resumeentry{St.\ Thomas' Day School}{2024}{Higher Secondary (10+2), Kolkata, India}
+
+\section{Projects}
+
+\textbf{Envitoo} \hfill \href{https://envitoo.mnah.dev/}{Live}\\
+\textit{Go, PostgreSQL, Redis, NATS JetStream, Clerk}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item Built a production-grade event management platform with a transactional outbox pattern over NATS JetStream, powering reliable async delivery of OTP and ticket-confirmation emails via Resend.
+  \item Implemented Clerk-based auth with lazy user provisioning, Redis-backed OTP verification (HMAC-SHA256), and QR-code check-in via signed access tokens for guest registration and ticketing.
+  \item Built volunteer application management system; deployed on a Linode server behind Caddy with automatic HTTPS.
+\end{itemize}
+
+\vspace{0.6em}
+
+\textbf{go-analytics} \hfill \href{https://github.com/mnah05/go-analytics}{GitHub}\\
+\textit{Go, PostgreSQL, Redis, Asynq, Chi}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item Built a high-performance URL shortener with real-time click analytics achieving 4,500 req/s sustained throughput and 0.8ms p50 redirect latency, validated via k6 benchmarks on a production-grade setup.
+  \item Architected an async event pipeline using Redis Streams and Asynq workers to batch-write click events into PostgreSQL, decoupling hot redirect paths from analytics writes and eliminating database bottlenecks under load.
+  \item Implemented pre-computed analytics rollups using PostgreSQL JSONB, collapsing millions of raw event rows into approx.~30 rows per dashboard query, and designed a Redis caching layer with 30-day TTL for slug lookups.
+\end{itemize}
+
+\vspace{0.6em}
+
+\textbf{tripnest} \hfill \href{https://github.com/mnah05/tripnest}{GitHub}\\
+\textit{Go, MySQL, SQLC, Chi, JWT, Docker}
+\begin{itemize}[nosep, leftmargin=1.5em]
+  \item Built a travel-focused backend platform with RESTful APIs covering user management, trip planning, and itinerary workflows; implemented JWT-based auth middleware with secure route protection and token expiration handling.
+  \item Leveraged SQLC for type-safe query generation and golang-migrate for version-controlled schema migrations, eliminating a class of runtime type errors common in raw SQL workflows.
+  \item Containerized the full stack with Docker Compose and structured the codebase with strict separation between handlers, services, and data access layers for maintainability and testability.
+\end{itemize}
+
+\section{Technical Skills}
+
+\begin{tabular}{@{}l@{\hspace{1em}}p{0.75\linewidth}@{}}
+  \textbf{Languages} & Go, TypeScript, JavaScript, SQL \\
+  \textbf{Backend} & Go, Hono, Node.js, REST APIs, JWT Authentication, Clerk \\
+  \textbf{Databases} & PostgreSQL, MySQL, Redis, SQLC, Supabase, Database Design \\
+  \textbf{Cloud \& Infra} & Cloudflare Workers, Cloudflare R2, Wrangler, Docker, Docker Compose, NATS JetStream, Git, Linux, golang-migrate, zerolog, GitHub Actions \\
+  \textbf{Concepts} & Async Job Processing, Redis Streams, Write-Behind Caching, Rate Limiting, Idempotency, Graceful Shutdown \\
+\end{tabular}
+
+\end{document}

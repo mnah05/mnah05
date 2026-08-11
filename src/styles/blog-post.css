@@ -2,40 +2,51 @@
 	width: 100%;
 	margin-bottom: 2.5rem;
 }
+
 .hero-image img {
 	display: block;
 	margin: 0 auto;
-	border-radius: 8px;
+	border-radius: 12px;
 	border: 1px solid var(--hairline);
 }
+
 .prose {
 	max-width: var(--measure);
 	margin: 0 auto;
 	color: var(--ink);
 }
-.title {
+
+.prose > .title {
 	margin-bottom: 2.5rem;
 	padding-bottom: 1.5rem;
 	border-bottom: 1px solid var(--hairline);
 }
-.title h1 {
+
+.prose > .title h1 {
 	margin: 0.25rem 0 0;
 	font-size: 2.75rem;
 }
-.date {
+
+.prose .date {
 	color: var(--muted);
 	font-size: 0.95em;
 }
-.last-updated-on {
+
+.prose .last-updated-on {
 	font-style: italic;
 	margin-top: 0.25rem;
 }
+
 .prose p {
 	margin-bottom: 1.5em;
 }
 
+.prose a {
+	font-weight: 700;
+}
+
 @media (max-width: 720px) {
-	.title h1 {
+	.prose > .title h1 {
 		font-size: 2.1rem;
 	}
 }
