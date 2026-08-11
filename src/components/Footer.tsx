@@ -7,6 +7,7 @@ const SOCIALS = [
 		label: "in",
 		href: "https://www.linkedin.com/in/nauman-hasan-53a66630a/",
 	},
+	{ label: "email", href: "mailto:workwithnauman@gmail.com" },
 	{
 		label: "resume",
 		href: "/resume",
