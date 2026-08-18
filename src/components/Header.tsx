@@ -41,6 +41,7 @@ export default function Header() {
 						Home
 					</NavLink>
 					<NavLink to="/about">About</NavLink>
+					<NavLink to="/blog">Blog</NavLink>
 					<NavLink to="/resume">Resume</NavLink>
 					<ThemeToggle />
 				</div>
