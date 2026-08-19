@@ -24,7 +24,7 @@ func main() {
 }
 ```
 
-## TypeScript (Bun)
+## TypeScript
 
 ```ts
 console.log("Hello, World!");
