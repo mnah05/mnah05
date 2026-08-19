@@ -1,4 +1,4 @@
-import matter from "gray-matter";
+import frontMatter from "front-matter";
 
 export interface Post {
 	slug: string;
@@ -27,8 +27,8 @@ const modules = import.meta.glob("./content/blog/*.md", {
 export const posts: Post[] = Object.entries(modules)
 	.map(([path, raw]) => {
 		const slug = path.split("/").pop()!.replace(/\.md$/, "");
-		const { data, content } = matter(raw as string);
-		return { slug, ...(data as Frontmatter), content };
+		const { attributes, body } = frontMatter(raw as string);
+		return { slug, ...(attributes as Frontmatter), content: body };
 	})
 	.sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf());
 
