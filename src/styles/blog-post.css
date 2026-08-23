@@ -24,7 +24,7 @@
 
 .prose > .title h1 {
 	margin: 0.25rem 0 0;
-	font-size: 2.75rem;
+	font-weight: 600;
 }
 
 .prose .date {
@@ -39,10 +39,6 @@
 
 .prose p {
 	margin-bottom: 1.5em;
-}
-
-.prose a {
-	font-weight: 700;
 }
 
 @media (max-width: 720px) {

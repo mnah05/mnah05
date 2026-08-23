@@ -1,38 +1,83 @@
 .home section {
-	margin-bottom: 4rem;
+	margin-bottom: 4.5rem;
 }
 
 .hero {
-	padding: 4rem 0 1.5rem;
+	padding: 3rem 0 1rem;
 	animation: fade-in 0.6s ease both;
 }
 
+.hero-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 1.25rem;
+	padding: 0.3rem 0.85rem;
+	color: var(--muted);
+	font-size: 0.82em;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	background: var(--surface);
+	border: 1px solid var(--hairline);
+	border-radius: 999px;
+	box-shadow: var(--shadow-sm);
+}
+
+.hero-eyebrow::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--accent);
+	box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
 .hero h1 {
-	font-size: 4.5rem;
-	margin: 0 0 0.25rem;
+	font-size: clamp(4rem, 12vw, 6.5rem);
+	font-weight: 600;
+	margin: 0;
 	letter-spacing: -0.03em;
+	line-height: 1;
 }
 
 .tagline {
 	color: var(--muted);
-	font-size: 1.35rem;
-	margin: 0 0 1.25rem;
 	font-family: var(--display);
 	font-style: italic;
+	font-weight: 400;
+	font-size: clamp(1.35rem, 3vw, 1.7rem);
+	letter-spacing: -0.01em;
+	margin: 0.5rem 0 1.5rem;
+}
+
+.tagline em,
+.tagline .accent {
+	color: var(--accent);
+}
+
+.hero-rule {
+	width: 3.5rem;
+	height: 2px;
+	background: var(--accent);
+	border: none;
+	margin: 0 0 1.5rem;
+	border-radius: 2px;
 }
 
 .intro {
-	max-width: 56ch;
-	color: var(--ink);
+	max-width: 54ch;
+	color: var(--muted);
 	font-size: 1.05rem;
 	line-height: 1.75;
-	margin: 0 0 1.75rem;
+	margin: 0 0 2rem;
 }
 
 .hero-actions {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.75rem;
+	gap: 0.65rem;
+	animation: fade-in 0.6s 0.15s ease backwards;
 }
 
 .button {
@@ -40,36 +85,40 @@
 	align-items: center;
 	justify-content: center;
 	min-height: 44px;
-	padding: 0.5rem 1.1rem;
+	padding: 0.55rem 1.25rem;
 	font-size: 0.95rem;
 	font-weight: 700;
-	color: var(--surface);
+	color: var(--bg);
 	background: var(--ink);
 	border: 1px solid var(--ink);
-	border-radius: 8px;
+	border-radius: 999px;
 	text-decoration: none;
 	transition:
 		background 0.2s ease,
-		color 0.2s ease,
-		transform 0.15s ease;
+		border-color 0.2s ease,
+		transform 0.15s ease,
+		box-shadow 0.2s ease;
 }
 
 .button:hover {
-	color: var(--surface);
+	color: var(--bg);
 	background: var(--accent-strong);
 	border-color: var(--accent-strong);
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-sm);
 }
 
 .button-secondary {
 	color: var(--ink);
-	background: transparent;
-	border: 1px solid var(--hairline);
+	background: var(--surface);
+	border: 1px solid var(--hairline-strong);
+	box-shadow: var(--shadow-sm);
 }
 
 .button-secondary:hover {
-	background: var(--accent-subtle);
+	color: var(--accent);
+	background: var(--surface);
 	border-color: var(--accent);
-	color: var(--ink);
 }
 
 .section-header {
@@ -77,19 +126,33 @@
 	align-items: baseline;
 	justify-content: space-between;
 	gap: 1rem;
-	margin-bottom: 1.25rem;
+	margin-bottom: 1.5rem;
 }
 
 .section-header h2 {
-	font-size: 1.25rem;
-	font-family: "Atkinson", sans-serif;
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-size: 1.1rem;
+	font-family: var(--body);
+	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 0.06em;
+	letter-spacing: 0.09em;
+	color: var(--muted);
 	margin: 0;
 }
 
+.section-header h2::before {
+	content: "";
+	width: 1.25rem;
+	height: 2px;
+	background: var(--accent);
+	border-radius: 2px;
+	flex-shrink: 0;
+}
+
 .section-link {
-	font-size: 0.95rem;
+	font-size: 0.92rem;
 	font-weight: 700;
 	white-space: nowrap;
 }
@@ -99,8 +162,9 @@
 	margin: 0;
 	padding: 0;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-	gap: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+	gap: 0.9rem;
+	perspective: 800px;
 }
 
 .projects > li {
@@ -112,51 +176,88 @@
 	height: 100%;
 	color: var(--ink);
 	text-decoration: none;
+	border-radius: var(--radius-lg);
 }
 
 .project-card {
+	position: relative;
 	height: 100%;
-	padding: 1.25rem;
+	padding: 1.35rem 1.35rem 1.25rem;
 	background: var(--surface);
 	border: 1px solid var(--hairline);
-	border-radius: 12px;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-sm);
+	overflow: hidden;
 	transition:
-		transform 0.2s ease,
-		border-color 0.2s ease,
-		box-shadow 0.2s ease;
+		transform 0.25s cubic-bezier(0.2, 0.7, 0.3, 1),
+		border-color 0.25s ease,
+		box-shadow 0.25s ease;
+}
+
+.project-card::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 2px;
+	background: linear-gradient(90deg, var(--accent), transparent);
+	opacity: 0;
+	transition: opacity 0.25s ease;
 }
 
 .project-card:hover,
 .project-card:focus-visible {
 	transform: translateY(-3px);
-	border-color: var(--accent);
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+	border-color: var(--hairline-strong);
+	box-shadow: var(--shadow-md);
+}
+
+.project-card:hover::before,
+.project-card:focus-visible::before {
+	opacity: 1;
 }
 
 .project-head {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	gap: 0.75rem;
-	margin-bottom: 0.75rem;
+	margin-bottom: 0.6rem;
 }
 
 .project-name {
-	font-weight: 700;
-	font-size: 1.15rem;
+	font-family: var(--display);
+	font-weight: 600;
+	font-size: 1.3rem;
+	letter-spacing: -0.01em;
+	flex: 1;
 }
 
 .project-year {
 	color: var(--muted);
-	font-size: 0.85rem;
+	font-size: 0.8rem;
 	white-space: nowrap;
 	font-variant-numeric: tabular-nums;
+	padding: 0.15rem 0.55rem;
+	background: var(--accent-subtle);
+	border-radius: 999px;
+}
+
+.project-arrow {
+	color: var(--muted);
+	font-size: 1rem;
+	line-height: 1;
+	transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.projects a:hover .project-arrow,
+.projects a:focus-visible .project-arrow {
+	transform: translate(2px, -2px);
+	color: var(--accent);
 }
 
 .project-description {
 	margin: 0;
 	color: var(--muted);
-	font-size: 0.95rem;
+	font-size: 0.93rem;
 	line-height: 1.6;
 }
 
@@ -164,7 +265,7 @@
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.6rem;
+	gap: 0.55rem;
 	margin: 0;
 	padding: 0;
 }
@@ -172,12 +273,21 @@
 .stack-list li {
 	display: inline-flex;
 	align-items: center;
-	padding: 0.35rem 0.8rem;
-	font-size: 0.95rem;
-	color: var(--ink);
+	padding: 0.4rem 0.9rem;
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: var(--muted);
 	background: var(--surface);
 	border: 1px solid var(--hairline);
 	border-radius: 999px;
+	box-shadow: var(--shadow-sm);
+	transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.stack-list li:hover {
+	color: var(--ink);
+	border-color: var(--accent);
+	transform: translateY(-1px);
 }
 
 .writing-list {
@@ -196,11 +306,11 @@
 
 .writing-list a {
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-between;
 	gap: 1rem;
 	min-height: 56px;
-	padding: 0.85rem 0.25rem;
+	padding: 1rem 0.25rem;
 	color: var(--ink);
 	text-decoration: none;
 	transition: padding-left 0.2s ease;
@@ -209,32 +319,32 @@
 .writing-list a:hover,
 .writing-list a:focus-visible {
 	padding-left: 0.75rem;
-	color: var(--accent);
 }
 
 .writing-title {
-	font-weight: 700;
+	font-family: var(--display);
+	font-weight: 500;
+	font-size: 1.15rem;
+	letter-spacing: -0.01em;
+	transition: color 0.2s ease;
+}
+
+.writing-list a:hover .writing-title,
+.writing-list a:focus-visible .writing-title {
+	color: var(--accent);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 4px;
 }
 
 .writing-date {
 	color: var(--muted);
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	white-space: nowrap;
 	font-variant-numeric: tabular-nums;
 }
 
 @keyframes fade-in {
-	from {
-		opacity: 0;
-		transform: translateY(8px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes project-enter {
 	from {
 		opacity: 0;
 		transform: translateY(10px);
@@ -245,13 +355,20 @@
 	}
 }
 
+@keyframes project-enter {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 @media (max-width: 720px) {
 	.hero {
-		padding: 2.5rem 0 1rem;
-	}
-
-	.hero h1 {
-		font-size: 3rem;
+		padding: 1.5rem 0 0.5rem;
 	}
 
 	.projects {
@@ -261,6 +378,6 @@
 	.writing-list a {
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 0.25rem;
+		gap: 0.2rem;
 	}
 }

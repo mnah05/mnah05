@@ -91,8 +91,10 @@ export default function Home() {
 			<Header />
 			<main className="home">
 				<section className="hero">
+					<span className="hero-eyebrow">Backend &middot; Go &middot; TypeScript</span>
 					<h1>mnah</h1>
 					<p className="tagline">builds things</p>
+					<hr className="hero-rule" />
 					<p className="intro">
 						I am a backend-focused engineer who likes shipping small, reliable tools
 						and systems. Most of my work is in Go, TypeScript, and the Cloudflare
@@ -127,6 +129,7 @@ export default function Home() {
 											<div className="project-head">
 												<span className="project-name">{project.name}</span>
 												{project.year && <span className="project-year">{project.year}</span>}
+												<span className="project-arrow" aria-hidden="true">&#8599;</span>
 											</div>
 											<p className="project-description">{project.description}</p>
 										</div>
@@ -137,6 +140,7 @@ export default function Home() {
 											<div className="project-head">
 												<span className="project-name">{project.name}</span>
 												{project.year && <span className="project-year">{project.year}</span>}
+												<span className="project-arrow" aria-hidden="true">&#8599;</span>
 											</div>
 											<p className="project-description">{project.description}</p>
 										</div>
