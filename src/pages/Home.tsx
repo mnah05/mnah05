@@ -94,7 +94,6 @@ export default function Home() {
 					<span className="hero-eyebrow">Backend &middot; Go &middot; TypeScript</span>
 					<h1>mnah</h1>
 					<p className="tagline">builds things</p>
-					<hr className="hero-rule" />
 					<p className="intro">
 						I am a backend-focused engineer who likes shipping small, reliable tools
 						and systems. Most of my work is in Go, TypeScript, and the Cloudflare
@@ -118,18 +117,14 @@ export default function Home() {
 						<h2 id="projects-heading">Selected work</h2>
 					</div>
 					<ul className="projects">
-						{ORDERED_PROJECTS.map((project, i) => (
-							<li
-								key={project.name}
-								style={{ animationDelay: `${i * 60}ms` }}
-							>
+						{ORDERED_PROJECTS.map((project) => (
+							<li key={project.name}>
 								{project.href.startsWith("/") ? (
 									<Link to={project.href}>
 										<div className="project-card">
 											<div className="project-head">
 												<span className="project-name">{project.name}</span>
 												{project.year && <span className="project-year">{project.year}</span>}
-												<span className="project-arrow" aria-hidden="true">&#8599;</span>
 											</div>
 											<p className="project-description">{project.description}</p>
 										</div>
@@ -140,7 +135,6 @@ export default function Home() {
 											<div className="project-head">
 												<span className="project-name">{project.name}</span>
 												{project.year && <span className="project-year">{project.year}</span>}
-												<span className="project-arrow" aria-hidden="true">&#8599;</span>
 											</div>
 											<p className="project-description">{project.description}</p>
 										</div>
