@@ -156,6 +156,30 @@ export default function Home() {
 					</ul>
 				</section>
 
+				<section className="github-section" aria-labelledby="github-heading">
+					<div className="section-header">
+						<h2 id="github-heading">GitHub activity</h2>
+						<a
+							href="https://github.com/mnah05"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="section-link"
+						>
+							@mnah05 &rarr;
+						</a>
+					</div>
+					<a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">
+						<img
+							className="contribution-chart"
+							src="https://ghchart.rshah.org/409ba5/mnah05"
+							alt="Nauman Hasan's GitHub contribution graph for the last year"
+							loading="lazy"
+							width="828"
+							height="128"
+						/>
+					</a>
+				</section>
+
 				{LATEST_POSTS.length > 0 && (
 					<section className="writing-section" aria-labelledby="writing-heading">
 						<div className="section-header">

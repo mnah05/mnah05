@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/footer.css";
 
 const SOCIALS = [
@@ -15,8 +16,11 @@ export default function Footer() {
 		<footer>
 			<div className="footer-inner">
 				<p className="copyright">&copy; {new Date().getFullYear()} mnah</p>
-				<ul className="footer-links">
-					{SOCIALS.map((s) => (
+			<ul className="footer-links">
+				<li>
+					<Link to="/colophon">colophon</Link>
+				</li>
+				{SOCIALS.map((s) => (
 						<li key={s.label}>
 							<a href={s.href} target="_blank" rel="noopener noreferrer">
 								{s.label}

@@ -1,0 +1,30 @@
+.not-found {
+	text-align: center;
+	padding-top: 4rem;
+}
+
+.not-found-code {
+	display: block;
+	color: var(--muted);
+	font-family: var(--display);
+	font-size: clamp(6rem, 20vw, 10rem);
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: -0.04em;
+	margin-bottom: 1rem;
+}
+
+.not-found h1 {
+	font-family: var(--body);
+	font-size: 1.05rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
+	margin: 0 0 0.75rem;
+}
+
+.not-found-message {
+	color: var(--muted);
+	max-width: 40ch;
+	margin: 0 auto 2rem;
+}
