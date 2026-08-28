@@ -14,20 +14,36 @@ export default function BlogIndex() {
 		<>
 			<Seo title={SITE_TITLE} description={SITE_DESCRIPTION} />
 			<Header />
-			<main>
+			<main className="blog-index-page">
 				<section>
-					<h1>Blog</h1>
+					<div className="blog-header">
+						<h1>Writing &amp; Notes</h1>
+						<p className="blog-subtitle">
+							Thoughts on backend systems, Go, TypeScript, Cloudflare, and developer craft.
+						</p>
+					</div>
 					{posts.length === 0 ? (
-						<p className="empty-state">No posts yet.</p>
+						<div className="empty-state">
+							<span className="empty-icon">☕</span>
+							<p>Brewing new articles soon. Stay tuned!</p>
+						</div>
 					) : (
 						<ul className="post-list">
 							{posts.map((post) => (
 								<li key={post.slug}>
-									<Link to={`/blog/${post.slug}`}>
-										<h4 className="title">{post.title}</h4>
-										<p className="date">
-											<FormattedDate date={post.pubDate} />
-										</p>
+									<Link to={`/blog/${post.slug}`} className="post-item-link">
+										<div className="post-item-header">
+											<h2 className="title">{post.title}</h2>
+											<span className="post-arrow" aria-hidden="true">&rarr;</span>
+										</div>
+										{post.description && (
+											<p className="post-description">{post.description}</p>
+										)}
+										<div className="post-meta">
+											<span className="date">
+												<FormattedDate date={post.pubDate} />
+											</span>
+										</div>
 									</Link>
 								</li>
 							))}

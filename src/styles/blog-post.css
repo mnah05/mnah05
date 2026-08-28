@@ -1,3 +1,27 @@
+.blog-post-page {
+	max-width: var(--measure);
+}
+
+.back-nav {
+	margin-bottom: 2rem;
+}
+
+.back-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: var(--accent);
+	text-decoration: none;
+	transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.back-link:hover {
+	color: var(--accent-strong);
+	transform: translateX(-3px);
+}
+
 .hero-image {
 	width: 100%;
 	margin-bottom: 2.5rem;
@@ -6,8 +30,9 @@
 .hero-image img {
 	display: block;
 	margin: 0 auto;
-	border-radius: 12px;
+	border-radius: var(--radius-md);
 	border: 1px solid var(--hairline);
+	box-shadow: var(--card-shadow);
 }
 
 .prose {
@@ -16,33 +41,89 @@
 	color: var(--ink);
 }
 
-.prose > .title {
+.post-header {
 	margin-bottom: 2.5rem;
-	padding-bottom: 1.5rem;
+}
+
+.post-meta-line {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin-bottom: 0.75rem;
+	flex-wrap: wrap;
+}
+
+.post-date-badge {
+	color: var(--tag-text);
+	background: var(--tag-bg);
+	border: 1px solid var(--tag-border);
+	font-size: 0.85em;
+	font-variant-numeric: tabular-nums;
+	padding: 0.15rem 0.55rem;
+	border-radius: var(--radius-sm);
+	font-weight: 500;
+}
+
+.post-header h1 {
+	font-size: clamp(2.4rem, 6vw, 3.2rem);
+	margin: 0 0 0.75rem 0;
+	font-weight: 700;
+	line-height: 1.15;
+	color: var(--ink);
+}
+
+.post-lead {
+	font-size: 1.15rem;
+	line-height: 1.65;
+	color: var(--muted);
+	font-style: italic;
+	font-family: var(--display);
+	margin: 0 0 1.5rem 0;
+}
+
+.post-divider {
+	border: none;
+	border-top: 1px solid var(--hairline);
+	margin: 1.5rem 0 2rem;
+}
+
+.last-updated-on {
+	font-style: italic;
+	color: var(--muted);
+	font-size: 0.85em;
+}
+
+.post-content p {
+	margin-bottom: 1.5em;
+	line-height: 1.75;
+}
+
+.post-content h2 {
+	margin: 2.5rem 0 1rem;
+	padding-bottom: 0.4rem;
 	border-bottom: 1px solid var(--hairline);
 }
 
-.prose > .title h1 {
-	margin: 0.25rem 0 0;
-	font-weight: 600;
+.post-content h3 {
+	margin: 2rem 0 0.75rem;
 }
 
-.prose .date {
-	color: var(--muted);
-	font-size: 0.95em;
+.post-content ul,
+.post-content ol {
+	margin: 1rem 0 1.5rem;
+	padding-left: 1.5rem;
 }
 
-.prose .last-updated-on {
-	font-style: italic;
-	margin-top: 0.25rem;
+.post-content li {
+	margin-bottom: 0.5rem;
 }
 
-.prose p {
-	margin-bottom: 1.5em;
+.post-content li::marker {
+	color: var(--accent);
 }
 
 @media (max-width: 720px) {
-	.prose > .title h1 {
+	.post-header h1 {
 		font-size: 2.1rem;
 	}
 }

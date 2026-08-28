@@ -32,14 +32,15 @@ export default function Colophon() {
 			</p>
 
 			<p>
-				The design is flat editorial minimal: warm paper tones in light mode,
-				a deep ink palette in dark mode, all driven by CSS custom properties
-				with a theme toggle persisted to local storage.
+				The design is inspired by warm, artisanal coffee aesthetics: creamy oat milk
+				and café au lait tones in light mode, and a rich midnight espresso roast palette
+				in dark mode, accented by warm amber crema highlights. All colors and layout
+				tokens are driven by CSS custom properties with seamless theme persistence.
 			</p>
 
 			<p>
-				Type is set in Newsreader for display headings and Atkinson Hyperlegible
-				for body text, both self-hosted.
+				Type is set in Newsreader for editorial display headings and Atkinson Hyperlegible
+				for crisp body text, both self-hosted for privacy and speed.
 			</p>
 		</BlogLayout>
 	);

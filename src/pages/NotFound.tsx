@@ -16,7 +16,7 @@ export default function NotFound() {
 					This page doesn&apos;t exist. It may have moved, or the link is wrong.
 				</p>
 				<div className="not-found-actions">
-					<Link className="button" to="/">
+					<Link className="button button-primary" to="/">
 						Home
 					</Link>
 					<Link className="button button-secondary" to="/blog">

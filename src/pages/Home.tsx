@@ -91,23 +91,30 @@ export default function Home() {
 			<Header />
 			<main className="home">
 				<section className="hero">
-					<span className="hero-eyebrow">Backend &middot; Go &middot; TypeScript</span>
+					<div className="hero-eyebrow-wrap">
+						<span className="hero-badge">
+							<span className="badge-icon">☕</span> Backend &middot; Go &middot; TypeScript &middot; Cloudflare
+						</span>
+					</div>
 					<h1>mnah</h1>
-					<p className="tagline">builds things</p>
+					<p className="tagline">builds things with craft & precision</p>
 					<p className="intro">
 						I am a backend-focused engineer who likes shipping small, reliable tools
 						and systems. Most of my work is in Go, TypeScript, and the Cloudflare
 						ecosystem.
 					</p>
 					<div className="hero-actions">
-						<a className="button" href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">
-							GitHub
+						<a className="button button-primary" href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">
+							<span>GitHub</span>
+							<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+								<path d="M7 17L17 7M17 7H7M17 7V17" />
+							</svg>
 						</a>
 						<Link className="button button-secondary" to="/resume">
-							Resume
+							<span>Resume</span>
 						</Link>
 						<a className="button button-secondary" href="mailto:workwithnauman@gmail.com">
-							Email
+							<span>Email</span>
 						</a>
 					</div>
 				</section>
@@ -120,21 +127,27 @@ export default function Home() {
 						{ORDERED_PROJECTS.map((project) => (
 							<li key={project.name}>
 								{project.href.startsWith("/") ? (
-									<Link to={project.href}>
+									<Link to={project.href} className="project-card-link">
 										<div className="project-card">
 											<div className="project-head">
 												<span className="project-name">{project.name}</span>
-												{project.year && <span className="project-year">{project.year}</span>}
+												<div className="project-meta">
+													{project.year && <span className="project-year">{project.year}</span>}
+													<span className="project-arrow" aria-hidden="true">&rarr;</span>
+												</div>
 											</div>
 											<p className="project-description">{project.description}</p>
 										</div>
 									</Link>
 								) : (
-									<a href={project.href} target="_blank" rel="noopener noreferrer">
+									<a href={project.href} target="_blank" rel="noopener noreferrer" className="project-card-link">
 										<div className="project-card">
 											<div className="project-head">
 												<span className="project-name">{project.name}</span>
-												{project.year && <span className="project-year">{project.year}</span>}
+												<div className="project-meta">
+													{project.year && <span className="project-year">{project.year}</span>}
+													<span className="project-arrow" aria-hidden="true">&#x2197;</span>
+												</div>
 											</div>
 											<p className="project-description">{project.description}</p>
 										</div>
@@ -151,7 +164,10 @@ export default function Home() {
 					</div>
 					<ul className="stack-list">
 						{STACK.map((tool) => (
-							<li key={tool}>{tool}</li>
+							<li key={tool}>
+								<span className="stack-dot" aria-hidden="true" />
+								{tool}
+							</li>
 						))}
 					</ul>
 				</section>
@@ -168,16 +184,18 @@ export default function Home() {
 							@mnah05 &rarr;
 						</a>
 					</div>
-					<a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">
-						<img
-							className="contribution-chart"
-							src="https://ghchart.rshah.org/409ba5/mnah05"
-							alt="Nauman Hasan's GitHub contribution graph for the last year"
-							loading="lazy"
-							width="828"
-							height="128"
-						/>
-					</a>
+					<div className="chart-container">
+						<a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer" aria-label="View Nauman Hasan's GitHub profile">
+							<img
+								className="contribution-chart"
+								src="https://ghchart.rshah.org/bd5e1b/mnah05"
+								alt="Nauman Hasan's GitHub contribution graph for the last year"
+								loading="lazy"
+								width="828"
+								height="128"
+							/>
+						</a>
+					</div>
 				</section>
 
 				{LATEST_POSTS.length > 0 && (
@@ -191,8 +209,11 @@ export default function Home() {
 						<ul className="writing-list">
 							{LATEST_POSTS.map((post) => (
 								<li key={post.slug}>
-									<Link to={`/blog/${post.slug}`}>
-										<span className="writing-title">{post.title}</span>
+									<Link to={`/blog/${post.slug}`} className="writing-link">
+										<div className="writing-title-wrap">
+											<span className="writing-bullet" aria-hidden="true" />
+											<span className="writing-title">{post.title}</span>
+										</div>
 										<span className="writing-date">
 											<FormattedDate date={post.pubDate} />
 										</span>

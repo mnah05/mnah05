@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,20 +5,34 @@ import { resume } from "../data/resume";
 import "../styles/resume.css";
 
 export default function Resume() {
+	const handlePrint = () => {
+		window.print();
+	};
+
 	return (
 		<>
 			<Seo title="Resume | mnah" description={`${resume.name} — resume`} />
 			<Header />
-			<main>
+			<main className="resume-page">
 				<header className="resume-header">
-					<h1>{resume.name}</h1>
+					<div className="resume-header-top">
+						<h1>{resume.name}</h1>
+						<button type="button" className="resume-print-btn" onClick={handlePrint} aria-label="Print or save resume as PDF">
+							<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+								<polyline points="6 9 6 2 18 2 18 9" />
+								<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+								<rect x="6" y="14" width="12" height="8" />
+							</svg>
+							<span>Print / PDF</span>
+						</button>
+					</div>
 					<div className="resume-contact">
 						<span>{resume.location}</span>
-						<span className="sep"> | </span>
+						<span className="sep">&bull;</span>
 						<a href={`mailto:${resume.email}`}>{resume.email}</a>
 						{resume.links.map((link) => (
 							<span key={link.label}>
-								<span className="sep"> | </span>
+								<span className="sep">&bull;</span>
 								<a href={link.href} target="_blank" rel="noopener noreferrer">
 									{link.label}
 								</a>
@@ -65,7 +78,7 @@ export default function Resume() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										{project.link.label}
+										{project.link.label} &rarr;
 									</a>
 								)}
 							</div>
@@ -80,12 +93,18 @@ export default function Resume() {
 
 				<section className="resume-section">
 					<h2>Technical Skills</h2>
-					<div className="resume-skills">
+					<div className="resume-skills-card">
 						{resume.skills.map((skill) => (
-							<Fragment key={skill.category}>
+							<div className="skill-row" key={skill.category}>
 								<span className="skill-category">{skill.category}</span>
-								<span className="skill-items">{skill.items}</span>
-							</Fragment>
+								<div className="skill-tags">
+									{skill.items.split(", ").map((item) => (
+										<span className="skill-tag" key={item}>
+											{item}
+										</span>
+									))}
+								</div>
+							</div>
 						))}
 					</div>
 				</section>
