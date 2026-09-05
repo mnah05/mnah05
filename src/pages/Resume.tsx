@@ -1,6 +1,7 @@
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 import { resume } from "../data/resume";
 import "../styles/resume.css";
 
@@ -71,7 +72,12 @@ export default function Resume() {
 							</div>
 							<div className="resume-subline">
 								<span className="resume-project-tech">{project.tech}</span>
-								{project.link && (
+							{project.link && project.link.href.startsWith("/") ? (
+								<Link className="resume-project-link" to={project.link.href}>
+									{project.link.label} &rarr;
+								</Link>
+							) : (
+								project.link && (
 									<a
 										className="resume-project-link"
 										href={project.link.href}
@@ -80,7 +86,8 @@ export default function Resume() {
 									>
 										{project.link.label} &rarr;
 									</a>
-								)}
+								)
+							)}
 							</div>
 							<ul className="resume-bullets">
 								{project.points.map((point) => (

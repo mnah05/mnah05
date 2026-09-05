@@ -4,7 +4,7 @@ I'm a backend-focused engineer and computer science student based in Kolkata, In
 
 ## What I'm building
 
-- [Envitoo](https://envitoo.mnah.dev/) - Event management with ticketing, QR check-in, and volunteer coordination.
+- [Envitoo](https://mnah.dev/projects/envitoo) - Event management with ticketing, QR check-in, and volunteer coordination. Currently offline; see the project page for details.
 - [go-analytics](https://github.com/mnah05/go-analytics) - A high-performance URL shortener with real-time click analytics.
 - [tripnest](https://github.com/mnah05/tripnest) - A travel planning backend with type-safe SQL and Dockerized services.
 

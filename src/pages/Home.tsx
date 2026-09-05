@@ -16,29 +16,33 @@ type Project = {
 	priority?: number;
 	stars?: number;
 	year?: number;
+	status?: "down" | "live";
 };
 
 const PROJECTS: Project[] = [
 	{
 		name: "envitoo",
 		description: "Event management platform with ticketing, QR check-in, and volunteer coordination.",
-		href: "https://envitoo.mnah.dev/",
+		href: "/projects/envitoo",
 		priority: 10,
 		year: 2026,
+		status: "down",
 	},
 	{
 		name: "go-analytics",
 		description: "High-performance URL shortener with real-time click analytics and async workers.",
-		href: "https://github.com/mnah05/go-analytics",
+		href: "/projects/go-analytics",
 		priority: 9,
 		year: 2026,
+		status: "live",
 	},
 	{
 		name: "tripnest",
 		description: "Travel planning backend with type-safe SQL, migrations, and Dockerized services.",
-		href: "https://github.com/mnah05/tripnest",
+		href: "/projects/tripnest",
 		priority: 8,
 		year: 2026,
+		status: "live",
 	},
 	{
 		name: "kv",
@@ -59,14 +63,6 @@ const PROJECTS: Project[] = [
 		priority: 2,
 	},
 ];
-
-const projectScore = (p: Project) => {
-	const recency = p.year ? Math.max(0, 3 - (new Date().getFullYear() - p.year)) : 0;
-	const popularity = p.stars ? Math.min(p.stars, 50) / 10 : 0;
-	return (p.priority ?? 0) + recency + popularity;
-};
-
-const ORDERED_PROJECTS = [...PROJECTS].sort((a, b) => projectScore(b) - projectScore(a));
 
 const STACK = [
 	"Go",
@@ -124,35 +120,45 @@ export default function Home() {
 						<h2 id="projects-heading">Selected work</h2>
 					</div>
 					<ul className="projects">
-						{ORDERED_PROJECTS.map((project) => (
+						{PROJECTS.map((project) => (
 							<li key={project.name}>
 								{project.href.startsWith("/") ? (
 									<Link to={project.href} className="project-card-link">
 										<div className="project-card">
-											<div className="project-head">
-												<span className="project-name">{project.name}</span>
-												<div className="project-meta">
-													{project.year && <span className="project-year">{project.year}</span>}
-													<span className="project-arrow" aria-hidden="true">&rarr;</span>
-												</div>
+										<div className="project-head">
+											<span className="project-name">{project.name}</span>
+											<div className="project-meta">
+												{project.year && <span className="project-year">{project.year}</span>}
+												{project.status && (
+													<span className={`status-pill status-pill-${project.status}`}>
+														{project.status === "down" ? "offline" : "live"}
+													</span>
+												)}
+												<span className="project-arrow" aria-hidden="true">&rarr;</span>
 											</div>
-											<p className="project-description">{project.description}</p>
 										</div>
-									</Link>
-								) : (
-									<a href={project.href} target="_blank" rel="noopener noreferrer" className="project-card-link">
-										<div className="project-card">
-											<div className="project-head">
-												<span className="project-name">{project.name}</span>
-												<div className="project-meta">
-													{project.year && <span className="project-year">{project.year}</span>}
-													<span className="project-arrow" aria-hidden="true">&#x2197;</span>
-												</div>
+										<p className="project-description">{project.description}</p>
+									</div>
+								</Link>
+							) : (
+								<a href={project.href} target="_blank" rel="noopener noreferrer" className="project-card-link">
+									<div className="project-card">
+										<div className="project-head">
+											<span className="project-name">{project.name}</span>
+											<div className="project-meta">
+												{project.year && <span className="project-year">{project.year}</span>}
+												{project.status && (
+													<span className={`status-pill status-pill-${project.status}`}>
+														{project.status === "down" ? "offline" : "live"}
+													</span>
+												)}
+												<span className="project-arrow" aria-hidden="true">&#x2197;</span>
 											</div>
-											<p className="project-description">{project.description}</p>
 										</div>
-									</a>
-								)}
+										<p className="project-description">{project.description}</p>
+									</div>
+								</a>
+							)}
 							</li>
 						))}
 					</ul>

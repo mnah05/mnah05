@@ -229,6 +229,29 @@
 	transition: transform var(--transition-fast);
 }
 
+/* Status pill on project cards */
+.status-pill {
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	padding: 0.15rem 0.5rem;
+	border-radius: var(--radius-pill);
+	white-space: nowrap;
+}
+
+.status-pill-down {
+	color: #a03b1e;
+	background: rgba(191, 77, 42, 0.1);
+	border: 1px solid rgba(191, 77, 42, 0.28);
+}
+
+.status-pill-live {
+	color: #2f6b49;
+	background: rgba(63, 128, 90, 0.1);
+	border: 1px solid rgba(63, 128, 90, 0.28);
+}
+
 .project-card-link:hover .project-arrow {
 	transform: translate(2px, -2px);
 }
