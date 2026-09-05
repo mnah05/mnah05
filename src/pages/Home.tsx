@@ -45,12 +45,6 @@ const PROJECTS: Project[] = [
 		status: "live",
 	},
 	{
-		name: "kv",
-		description: "A lightweight key-value store built for learning and experimentation.",
-		href: "https://github.com/mnah05/kv",
-		priority: 6,
-	},
-	{
 		name: "boiler-go",
 		description: "Opinionated Go starter with clean structure and common tooling wired up.",
 		href: "https://github.com/mnah05/boiler-go",
