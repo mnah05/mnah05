@@ -34,7 +34,7 @@ const PROJECTS: Project[] = [
 		href: "/projects/go-analytics",
 		priority: 9,
 		year: 2026,
-		status: "live",
+		status: "down",
 	},
 	{
 		name: "tripnest",
@@ -42,7 +42,7 @@ const PROJECTS: Project[] = [
 		href: "/projects/tripnest",
 		priority: 8,
 		year: 2026,
-		status: "live",
+		status: "down",
 	},
 	{
 		name: "boiler-go",
