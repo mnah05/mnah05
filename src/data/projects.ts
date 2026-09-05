@@ -98,6 +98,32 @@ export const PROJECTS: Project[] = [
 		},
 		github: { url: "https://github.com/mnah05/tripnest" },
 	},
+	{
+		slug: "nexus",
+		name: "nexus",
+		tagline: "A distributed, persistent key-value store built on Raft consensus.",
+		short: "A Raft-based distributed KV store with auto leader election and an embedded web dashboard.",
+		summary: [
+			"nexus is a distributed, persistent key-value store with Raft consensus, automated leader election, primary-read replica routing, and real-time log replication.",
+			"Mutations are only accepted by the elected Leader, which persists every write to a write-ahead log before applying it to in-memory state. Followers replicate the log in real time and serve fast local reads while rejecting writes with the current leader's address.",
+			"It ships as a single self-contained Go binary with an embedded dark-mode web dashboard for live cluster topology, a key-value mutator, key table, metrics, and an activity terminal.",
+		],
+		highlights: [
+			"3-node Raft cluster with randomized election timers (150–300ms), 50ms heartbeats, and automatic leader failover in ~200ms without split-brain",
+			"Write-ahead logging with monotonic indices and atomic snapshots (temp file + rename) with WAL truncation to keep log sizes bounded",
+			"Primary-read replicas — followers serve local reads, reject writes, and report the current leader",
+			"Embedded dark-mode web dashboard with live cluster topology, key-value mutator, key table, metrics, and activity terminal",
+			"Zero-dependency single binary with UI assets embedded via embed.FS, plus /metrics, /healthz, /readyz, and /debug/pprof",
+		],
+		stack: ["Go", "Raft", "WAL", "Docker", "Makefile"],
+		year: 2026,
+		status: {
+			tone: "down",
+			label: "Not deployed",
+			note: "There is no hosted instance running right now — it runs locally. The codebase is public on GitHub — check it out below.",
+		},
+		github: { url: "https://github.com/mnah05/nexus" },
+	},
 ];
 
 export const getProjectBySlug = (slug: string) => PROJECTS.find((p) => p.slug === slug);
