@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import FormattedDate from "../components/FormattedDate";
 import { posts } from "../posts";
 import "../styles/home.css";
 
@@ -89,143 +87,50 @@ export default function Home() {
 			<Header />
 			<main className="home">
 				<section className="hero">
-					<div className="hero-eyebrow-wrap">
-						<span className="hero-badge">
-							<span className="badge-icon">☕</span> Backend &middot; Go &middot; TypeScript &middot; Cloudflare
-						</span>
+					<h1>Md Nauman Athar Hasan</h1>
+					<p className="role">Backend Engineer</p>
+					<p className="intro">Building reliable backend systems, developer tools, and small experiments on the web.</p>
+					<div className="hero-links" aria-label="Social links">
+						<a href="mailto:workwithnauman@gmail.com">Email</a>
+						<a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">GitHub</a>
+						<a href="https://www.linkedin.com/in/nauman-hasan-53a66630a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 					</div>
-					<h1>mnah</h1>
-					<p className="tagline">builds things with craft & precision</p>
-					<p className="intro">
-						I am a backend-focused engineer who likes shipping small, reliable tools
-						and systems. Most of my work is in Go, TypeScript, and the Cloudflare
-						ecosystem.
-					</p>
-					<div className="hero-actions">
-						<a className="button button-primary" href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">
-							<span>GitHub</span>
-							<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-								<path d="M7 17L17 7M17 7H7M17 7V17" />
-							</svg>
-						</a>
-						<Link className="button button-secondary" to="/resume">
-							<span>Resume</span>
-						</Link>
-						<a className="button button-secondary" href="mailto:workwithnauman@gmail.com">
-							<span>Email</span>
-						</a>
-					</div>
+					<img className="profile-photo" src="https://github.com/mnah05.png" alt="Md Nauman Athar Hasan" />
 				</section>
 
-				<section className="projects-section" aria-labelledby="projects-heading">
-					<div className="section-header">
-						<h2 id="projects-heading">Selected work</h2>
-					</div>
-					<ul className="projects">
+				<section id="about" className="text-section" aria-labelledby="about-heading">
+					<h2 id="about-heading">About</h2>
+					<p>I care about clean APIs, reliable async workflows, and shipping things that last. Most of my work is in Go, TypeScript, and the Cloudflare ecosystem.</p>
+					<p>Right now, I am drawn to distributed systems, backend performance, databases, concurrency, and technical writing that makes complex systems easier to understand.</p>
+				</section>
+
+				<section className="work-section" aria-labelledby="work-heading">
+					<h2 id="work-heading">Selected Work</h2>
+					<ul className="work-list">
 						{PROJECTS.map((project) => (
 							<li key={project.name}>
-								{project.href.startsWith("/") ? (
-									<Link to={project.href} className="project-card-link">
-										<div className="project-card">
-										<div className="project-head">
-											<span className="project-name">{project.name}</span>
-											<div className="project-meta">
-												{project.year && <span className="project-year">{project.year}</span>}
-												{project.status && (
-													<span className={`status-pill status-pill-${project.status}`}>
-														{project.status === "down" ? "offline" : "live"}
-													</span>
-												)}
-												<span className="project-arrow" aria-hidden="true">&rarr;</span>
-											</div>
-										</div>
-										<p className="project-description">{project.description}</p>
-									</div>
-								</Link>
-							) : (
-								<a href={project.href} target="_blank" rel="noopener noreferrer" className="project-card-link">
-									<div className="project-card">
-										<div className="project-head">
-											<span className="project-name">{project.name}</span>
-											<div className="project-meta">
-												{project.year && <span className="project-year">{project.year}</span>}
-												{project.status && (
-													<span className={`status-pill status-pill-${project.status}`}>
-														{project.status === "down" ? "offline" : "live"}
-													</span>
-												)}
-												<span className="project-arrow" aria-hidden="true">&#x2197;</span>
-											</div>
-										</div>
-										<p className="project-description">{project.description}</p>
-									</div>
+								<a href={project.href} target={project.href.startsWith("/") ? undefined : "_blank"} rel={project.href.startsWith("/") ? undefined : "noopener noreferrer"}>
+									<span className="work-year">{project.year}</span>
+									<span className="work-name">{project.name}</span>
+									<span className="work-description">{project.description}</span>
 								</a>
-							)}
 							</li>
 						))}
 					</ul>
 				</section>
 
-				<section className="stack-section" aria-labelledby="stack-heading">
-					<div className="section-header">
-						<h2 id="stack-heading">Tools & stack</h2>
-					</div>
-					<ul className="stack-list">
-						{STACK.map((tool) => (
-							<li key={tool}>
-								<span className="stack-dot" aria-hidden="true" />
-								{tool}
-							</li>
-						))}
-					</ul>
-				</section>
-
-				<section className="github-section" aria-labelledby="github-heading">
-					<div className="section-header">
-						<h2 id="github-heading">GitHub activity</h2>
-						<a
-							href="https://github.com/mnah05"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="section-link"
-						>
-							@mnah05 &rarr;
-						</a>
-					</div>
-					<div className="chart-container">
-						<a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer" aria-label="View Nauman Hasan's GitHub profile">
-							<img
-								className="contribution-chart"
-								src="https://ghchart.rshah.org/bd5e1b/mnah05"
-								alt="Nauman Hasan's GitHub contribution graph for the last year"
-								loading="lazy"
-								width="828"
-								height="128"
-							/>
-						</a>
-					</div>
+				<section className="text-section skills-section" aria-labelledby="skills-heading">
+					<h2 id="skills-heading">Skills</h2>
+					<p>{STACK.join(" / ")}</p>
 				</section>
 
 				{LATEST_POSTS.length > 0 && (
-					<section className="writing-section" aria-labelledby="writing-heading">
-						<div className="section-header">
-							<h2 id="writing-heading">Writing</h2>
-							<Link to="/blog" className="section-link">
-								All posts &rarr;
-							</Link>
-						</div>
+					<section id="writing" className="writing-section" aria-labelledby="writing-heading">
+						<h2 id="writing-heading">Writing</h2>
 						<ul className="writing-list">
 							{LATEST_POSTS.map((post) => (
 								<li key={post.slug}>
-									<Link to={`/blog/${post.slug}`} className="writing-link">
-										<div className="writing-title-wrap">
-											<span className="writing-bullet" aria-hidden="true" />
-											<span className="writing-title">{post.title}</span>
-										</div>
-										<span className="writing-date">
-											<FormattedDate date={post.pubDate} />
-										</span>
-									</Link>
+									<a href={`/blog/${post.slug}`}>{post.title}</a>
 								</li>
 							))}
 						</ul>

@@ -1,6 +1,6 @@
 /*
   Global styles for mnah's personal site.
-  Flat editorial minimal — warm paper tones, serif display,
+  Flat editorial minimal — warm paper tones, typewriter typography,
   no decoration beyond type and whitespace.
 */
 
@@ -39,30 +39,30 @@
 :root {
 	color-scheme: light;
 
-	--bg: #f8f5f0;
-	--bg-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(200, 116, 50, 0.09), transparent);
-	--surface: #ffffff;
-	--surface-card: #fffdfa;
-	--surface-hover: #f4ede3;
-	--ink: #231b14;
-	--muted: #796a5c;
-	--hairline: #e6dcce;
-	--hairline-strong: #d5c6b4;
-	--accent: #bd5e1b;
-	--accent-strong: #99470c;
-	--accent-subtle: rgba(189, 94, 27, 0.08);
-	--accent-glow: rgba(189, 94, 27, 0.2);
-	--tag-bg: rgba(189, 94, 27, 0.06);
-	--tag-border: rgba(189, 94, 27, 0.16);
-	--tag-text: #99470c;
+	--bg: #fbfbf9;
+	--bg-gradient: none;
+	--surface: #fbfbf9;
+	--surface-card: #ffffff;
+	--surface-hover: #f3f3ef;
+	--ink: #171717;
+	--muted: #71716d;
+	--hairline: #deded9;
+	--hairline-strong: #bdbdb7;
+	--accent: #486c9c;
+	--accent-strong: #294f82;
+	--accent-subtle: rgba(72, 108, 156, 0.08);
+	--accent-glow: rgba(72, 108, 156, 0.2);
+	--tag-bg: rgba(72, 108, 156, 0.06);
+	--tag-border: rgba(72, 108, 156, 0.16);
+	--tag-text: #294f82;
 	--card-shadow: 0 2px 12px -2px rgba(45, 30, 20, 0.05), 0 1px 3px rgba(45, 30, 20, 0.03);
 	--card-shadow-hover: 0 12px 28px -4px rgba(189, 94, 27, 0.14), 0 2px 8px rgba(45, 30, 20, 0.04);
 	--header-bg: rgba(248, 245, 240, 0.85);
 	--header-border: rgba(230, 220, 206, 0.8);
-	--measure: 72ch;
-	--display: "Newsreader", Georgia, "Times New Roman", serif;
-	--body: "Atkinson", -apple-system, sans-serif;
-	--mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+	--measure: 760px;
+	--display: "Courier New", Courier, ui-monospace, monospace;
+	--body: "Courier New", Courier, ui-monospace, monospace;
+	--mono: "Courier New", Courier, ui-monospace, monospace;
 	--radius-sm: 6px;
 	--radius-md: 10px;
 	--radius-lg: 14px;
@@ -116,8 +116,8 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	color: var(--ink);
-	font-size: 18px;
-	line-height: 1.7;
+	font-size: 17px;
+	line-height: 1.65;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	transition: background-color var(--transition-smooth), color var(--transition-smooth);
@@ -186,7 +186,7 @@ h6 {
 	margin: 0 0 0.5rem 0;
 	color: var(--ink);
 	line-height: 1.18;
-	letter-spacing: -0.015em;
+	letter-spacing: -0.04em;
 	font-weight: 600;
 }
 
@@ -210,7 +210,7 @@ main {
 	width: 100%;
 	max-width: var(--measure);
 	margin: 0 auto;
-	padding: 3.5rem 1.5rem 6rem;
+	padding: 2.5rem 1.5rem 5rem;
 	flex: 1;
 }
 
