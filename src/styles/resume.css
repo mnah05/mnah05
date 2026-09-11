@@ -22,6 +22,13 @@
 	color: var(--ink);
 }
 
+.resume-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
 .resume-print-btn {
 	display: inline-flex;
 	align-items: center;
@@ -242,7 +249,7 @@
 	}
 
 	.site-header,
-	.resume-print-btn,
+	.resume-actions,
 	footer {
 		display: none !important;
 	}

@@ -18,6 +18,9 @@ export default function Footer() {
 				<p className="copyright">&copy; {new Date().getFullYear()} mnah</p>
 			<ul className="footer-links">
 				<li>
+					<Link to="/resume">resume</Link>
+				</li>
+				<li>
 					<Link to="/colophon">colophon</Link>
 				</li>
 				{SOCIALS.map((s) => (

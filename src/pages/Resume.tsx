@@ -18,14 +18,28 @@ export default function Resume() {
 				<header className="resume-header">
 					<div className="resume-header-top">
 						<h1>{resume.name}</h1>
-						<button type="button" className="resume-print-btn" onClick={handlePrint} aria-label="Print or save resume as PDF">
-							<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-								<polyline points="6 9 6 2 18 2 18 9" />
-								<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-								<rect x="6" y="14" width="12" height="8" />
-							</svg>
-							<span>Print / PDF</span>
-						</button>
+						<div className="resume-actions">
+							<a
+								className="resume-print-btn"
+								href="/resume.pdf"
+								download="Md-Nauman-Athar-Hasan-Resume.pdf"
+							>
+								<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+									<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+									<polyline points="7 10 12 15 17 10" />
+									<line x1="12" y1="15" x2="12" y2="3" />
+								</svg>
+								<span>Download PDF</span>
+							</a>
+							<button type="button" className="resume-print-btn" onClick={handlePrint} aria-label="Print resume">
+								<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+									<polyline points="6 9 6 2 18 2 18 9" />
+									<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+									<rect x="6" y="14" width="12" height="8" />
+								</svg>
+								<span>Print</span>
+							</button>
+						</div>
 					</div>
 					<div className="resume-contact">
 						<span>{resume.location}</span>

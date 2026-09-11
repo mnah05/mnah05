@@ -88,8 +88,8 @@ export default function Home() {
 			<main className="home">
 				<section className="hero">
 					<h1>Md Nauman Athar Hasan</h1>
-					<p className="role">Backend Engineer</p>
-					<p className="intro">Building reliable backend systems, developer tools, and small experiments on the web.</p>
+					<p className="role">Just doing it for fun</p>
+					<p className="intro">No grand plan, no label. I build whatever seems interesting and keep the stuff I like.</p>
 					<div className="hero-links" aria-label="Social links">
 						<a href="mailto:workwithnauman@gmail.com">Email</a>
 						<a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -100,8 +100,8 @@ export default function Home() {
 
 				<section id="about" className="text-section" aria-labelledby="about-heading">
 					<h2 id="about-heading">About</h2>
-					<p>I care about clean APIs, reliable async workflows, and shipping things that last. Most of my work is in Go, TypeScript, and the Cloudflare ecosystem.</p>
-					<p>Right now, I am drawn to distributed systems, backend performance, databases, concurrency, and technical writing that makes complex systems easier to understand.</p>
+					<p>I am not trying to be anything in particular. I tinker with backend systems, tools, and small experiments on the web simply because I enjoy it.</p>
+					<p>If something looks fun to build, I build it. Lately that means distributed systems, databases, concurrency, and writing about whatever I figure out along the way.</p>
 				</section>
 
 				<section className="work-section" aria-labelledby="work-heading">

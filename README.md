@@ -1,6 +1,6 @@
 # Hi, I'm Nauman
 
-I'm a backend-focused engineer and computer science student based in Kolkata, India. I build small, reliable tools and systems with a focus on clean APIs, asynchronous workflows, and thoughtful infrastructure.
+I'm Nauman, and I build things for fun. No labels, no big plan — I'm more of a free spirit and I do this stuff simply because I like it. Whatever catches my interest, I tinker with and keep around.
 
 ## What I'm building
 
@@ -14,7 +14,7 @@ I'm a backend-focused engineer and computer science student based in Kolkata, In
 
 ## A little more
 
-- I enjoy backend architecture, systems design, and developer tooling.
+- I tinker with backend architecture, systems design, and developer tooling because they are fun.
 - I am currently studying Computer Science and Engineering at DIT University.
 - I read, write, and keep a collection of useful references at [Raindrop](https://raindrop.io/workwithnauman/reads-72899412).
 

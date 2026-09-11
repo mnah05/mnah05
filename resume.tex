@@ -1,27 +1,39 @@
 \documentclass[11pt]{article}
 
 \usepackage[a4paper, margin=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
 \usepackage{enumitem}
 \usepackage{titlesec}
-\usepackage{hyperref}
 \usepackage{xcolor}
-\usepackage{fontspec}
+\usepackage{hyperref}
 \usepackage{parskip}
 
-\setmainfont{Helvetica}
+\renewcommand{\familydefault}{\sfdefault}
 
 \definecolor{accent}{RGB}{168, 68, 31}
 \definecolor{muted}{RGB}{111, 104, 92}
 
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
+  pdfauthor={Md Nauman Athar Hasan},
+  pdftitle={Md Nauman Athar Hasan - Resume},
+  pdfsubject={Resume},
+  pdfkeywords={Go, TypeScript, JavaScript, SQL, PostgreSQL, MySQL, Redis, Cloudflare Workers, Docker, Backend, Distributed Systems}
+}
+
 \pagestyle{empty}
 
-\titleformat{\section}{\large\bfseries\uppercase}{\thesection}{1em}{}[\color{accent}\titlerule]
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{0.1em}\color{accent}\titlerule]
 \titlespacing*{\section}{0pt}{1.2em}{0.6em}
 
 \newcommand{\resumeheader}[3]{%
   \begin{center}
     {\LARGE\bfseries #1}\\[0.3em]
-    #2 \\n    #3
+    #2 \\[0.25em]
+    #3
   \end{center}
 }
 
@@ -36,16 +48,16 @@
 \resumeheader
   {Md Nauman Athar Hasan}
   {Kolkata, India}
-  {\href{mailto:workwithnauman@gmail.com}{workwithnauman@gmail.com} \\textbar{} \href{https://mnah.dev}{mnah.dev} \\textbar{} \href{https://github.com/mnah05}{GitHub} \\textbar{} \href{https://www.linkedin.com/in/nauman-hasan-53a66630a/}{LinkedIn} \\textbar{} \href{https://leetcode.com/u/mnah05}{LeetCode}}
+  {\href{mailto:workwithnauman@gmail.com}{workwithnauman@gmail.com} \textbar{} \href{https://mnah.dev}{mnah.dev} \textbar{} \href{https://github.com/mnah05}{GitHub} \textbar{} \href{https://www.linkedin.com/in/nauman-hasan-53a66630a/}{LinkedIn} \textbar{} \href{https://leetcode.com/u/mnah05}{LeetCode}}
 
-\section{Education}
+\section{EDUCATION}
 \resumeentry{Dehradun Institute of Technology (DIT)}{2024 -- 2028}{B.Tech in Computer Science and Engineering, Dehradun, India}
 
 \textit{Relevant Coursework: Data Structures \& Algorithms, Operating Systems, DBMS}
 
 \resumeentry{St.\ Thomas' Day School}{2024}{Higher Secondary (10+2), Kolkata, India}
 
-\section{Projects}
+\section{PROJECTS}
 
 \textbf{Envitoo} \hfill \href{https://mnah.dev/projects/envitoo}{Details}\\
 \textit{Go, PostgreSQL, Redis, NATS JetStream, Clerk}
@@ -75,14 +87,12 @@
   \item Containerized the full stack with Docker Compose and structured the codebase with strict separation between handlers, services, and data access layers for maintainability and testability.
 \end{itemize}
 
-\section{Technical Skills}
+\section{TECHNICAL SKILLS}
 
-\begin{tabular}{@{}l@{\hspace{1em}}p{0.75\linewidth}@{}}
-  \textbf{Languages} & Go, TypeScript, JavaScript, SQL \\
-  \textbf{Backend} & Go, Hono, Node.js, REST APIs, JWT Authentication, Clerk \\
-  \textbf{Databases} & PostgreSQL, MySQL, Redis, SQLC, Supabase, Database Design \\
-  \textbf{Cloud \& Infra} & Cloudflare Workers, Cloudflare R2, Wrangler, Docker, Docker Compose, NATS JetStream, Git, Linux, golang-migrate, zerolog, GitHub Actions \\
-  \textbf{Concepts} & Async Job Processing, Redis Streams, Write-Behind Caching, Rate Limiting, Idempotency, Graceful Shutdown \\
-\end{tabular}
+\noindent\textbf{Languages:} Go, TypeScript, JavaScript, SQL \\
+\textbf{Backend:} Go, Hono, Node.js, REST APIs, JWT Authentication, Clerk \\
+\textbf{Databases:} PostgreSQL, MySQL, Redis, SQLC, Supabase, Database Design \\
+\textbf{Cloud \& Infra:} Cloudflare Workers, Cloudflare R2, Wrangler, Docker, Docker Compose, NATS JetStream, Git, Linux, golang-migrate, zerolog, GitHub Actions \\
+\textbf{Concepts:} Async Job Processing, Redis Streams, Write-Behind Caching, Rate Limiting, Idempotency, Graceful Shutdown
 
 \end{document}
