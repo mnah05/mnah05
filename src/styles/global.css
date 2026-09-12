@@ -230,6 +230,12 @@ button {
 	cursor: pointer;
 }
 
+.icon {
+	display: inline-flex;
+	flex: 0 0 auto;
+	line-height: 0;
+}
+
 .sr-only {
 	border: 0;
 	padding: 0;

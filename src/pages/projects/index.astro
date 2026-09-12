@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
 import { PROJECTS } from "../../data/projects";
 import "../../styles/home.css";
 import "../../styles/project.css";
@@ -7,7 +8,7 @@ import "../../styles/project.css";
 
 <BaseLayout title="Projects | hasan" description="A selection of projects by Hasan">
 	<main class="project-page">
-		<div class="back-nav"><a href="/" class="back-link">&larr; Home</a></div>
+		<div class="back-nav"><a href="/" class="back-link"><Icon name="arrow-left" /> Home</a></div>
 		<header class="project-header"><h1>Projects</h1><p class="project-tagline">Selected work. Click any project for details, status, and source links.</p><hr class="project-divider" /></header>
 		<ul class="projects project-index-list">
 			{PROJECTS.map((project) => <li><a href={`/projects/${project.slug}`} class="project-card-link"><div class="project-card"><div class="project-head"><span class="project-name">{project.name}</span><div class="project-meta">{project.year && <span class="project-year">{project.year}</span>}<span class={`status-pill status-pill-${project.status.tone}`}>{project.status.tone === "down" ? "offline" : "live"}</span><span class="project-arrow" aria-hidden="true">&rarr;</span></div></div><p class="project-description">{project.short}</p></div></a></li>)}
