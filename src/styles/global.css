@@ -1,99 +1,40 @@
 /*
-  Global styles for mnah's personal site.
+  Global styles for Hasan's personal site.
   Flat editorial minimal — warm paper tones, typewriter typography,
   no decoration beyond type and whitespace.
 */
 
-@font-face {
-	font-family: "Newsreader";
-	src: url("/fonts/newsreader-latin-var.woff2") format("woff2");
-	font-weight: 400 700;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Newsreader";
-	src: url("/fonts/newsreader-italic-latin-var.woff2") format("woff2");
-	font-weight: 400 700;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-
 :root {
 	color-scheme: light;
 
-	--bg: #fbfbf9;
+	--bg: #f5efe5;
 	--bg-gradient: none;
-	--surface: #fbfbf9;
-	--surface-card: #ffffff;
-	--surface-hover: #f3f3ef;
-	--ink: #171717;
-	--muted: #71716d;
-	--hairline: #deded9;
-	--hairline-strong: #bdbdb7;
-	--accent: #486c9c;
-	--accent-strong: #294f82;
-	--accent-subtle: rgba(72, 108, 156, 0.08);
-	--accent-glow: rgba(72, 108, 156, 0.2);
-	--tag-bg: rgba(72, 108, 156, 0.06);
-	--tag-border: rgba(72, 108, 156, 0.16);
-	--tag-text: #294f82;
-	--card-shadow: 0 2px 12px -2px rgba(45, 30, 20, 0.05), 0 1px 3px rgba(45, 30, 20, 0.03);
-	--card-shadow-hover: 0 12px 28px -4px rgba(189, 94, 27, 0.14), 0 2px 8px rgba(45, 30, 20, 0.04);
-	--header-bg: rgba(248, 245, 240, 0.85);
-	--header-border: rgba(230, 220, 206, 0.8);
+	--surface: #eee6d8;
+	--surface-card: #faf7ef;
+	--surface-hover: #eee5d6;
+	--ink: #29231e;
+	--muted: #74685d;
+	--hairline: #d2c5b5;
+	--hairline-strong: #a99580;
+	--accent: #954b2b;
+	--accent-strong: #71371f;
+	--accent-subtle: rgba(149, 75, 43, 0.08);
+	--accent-glow: rgba(149, 75, 43, 0.16);
+	--tag-bg: rgba(149, 75, 43, 0.06);
+	--tag-border: rgba(149, 75, 43, 0.18);
+	--tag-text: #71371f;
+	--card-shadow: 0 1px 4px rgba(65, 45, 28, 0.06);
+	--card-shadow-hover: 0 2px 8px rgba(65, 45, 28, 0.1);
+	--header-bg: #f5efe5;
+	--header-border: #d2c5b5;
 	--measure: 760px;
 	--display: "Courier New", Courier, ui-monospace, monospace;
 	--body: "Courier New", Courier, ui-monospace, monospace;
 	--mono: "Courier New", Courier, ui-monospace, monospace;
-	--radius-sm: 6px;
-	--radius-md: 10px;
-	--radius-lg: 14px;
-	--radius-pill: 9999px;
-	--transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-	--transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-html[data-theme="dark"] {
-	color-scheme: dark;
-
-	--bg: #130f0c;
-	--bg-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(242, 154, 78, 0.08), transparent);
-	--surface: #1b1511;
-	--surface-card: #1f1814;
-	--surface-hover: #2a2019;
-	--ink: #f6eee3;
-	--muted: #a89886;
-	--hairline: #2e231b;
-	--hairline-strong: #433327;
-	--accent: #f0954b;
-	--accent-strong: #fba863;
-	--accent-subtle: rgba(240, 149, 75, 0.12);
-	--accent-glow: rgba(240, 149, 75, 0.25);
-	--tag-bg: rgba(240, 149, 75, 0.1);
-	--tag-border: rgba(240, 149, 75, 0.22);
-	--tag-text: #fba863;
-	--card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
-	--card-shadow-hover: 0 12px 32px -4px rgba(240, 149, 75, 0.18), 0 2px 8px rgba(0, 0, 0, 0.3);
-	--header-bg: rgba(19, 15, 12, 0.85);
-	--header-border: rgba(46, 35, 27, 0.85);
+	--radius-sm: 2px;
+	--radius-md: 2px;
+	--radius-lg: 2px;
+	--radius-pill: 2px;
 }
 
 *,
@@ -112,15 +53,11 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: var(--bg);
-	background-image: var(--bg-gradient);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 	color: var(--ink);
 	font-size: 17px;
 	line-height: 1.65;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	transition: background-color var(--transition-smooth), color var(--transition-smooth);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -161,7 +98,6 @@ a {
 	color: var(--accent);
 	text-decoration-thickness: 1px;
 	text-underline-offset: 3px;
-	transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
 }
 
 a:hover {

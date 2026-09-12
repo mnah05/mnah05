@@ -39,14 +39,12 @@
 	text-decoration: none;
 	color: var(--ink);
 	box-shadow: var(--card-shadow);
-	transition: all var(--transition-fast);
 }
 
 .post-item-link:hover,
 .post-item-link:focus-visible {
 	background: var(--surface-hover);
 	border-color: var(--accent);
-	transform: translateY(-2px);
 	box-shadow: var(--card-shadow-hover);
 }
 
@@ -65,7 +63,6 @@
 	font-weight: 600;
 	letter-spacing: -0.015em;
 	color: var(--ink);
-	transition: color var(--transition-fast);
 }
 
 .post-item-link:hover .title {
@@ -75,11 +72,9 @@
 .post-arrow {
 	color: var(--accent);
 	font-size: 1.15rem;
-	transition: transform var(--transition-fast);
 }
 
 .post-item-link:hover .post-arrow {
-	transform: translateX(4px);
 }
 
 .post-description {

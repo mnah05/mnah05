@@ -14,12 +14,10 @@
 	font-weight: 600;
 	color: var(--accent);
 	text-decoration: none;
-	transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .back-link:hover {
 	color: var(--accent-strong);
-	transform: translateX(-3px);
 }
 
 /* Status banner */
@@ -223,25 +221,22 @@
 	font-weight: 600;
 	border-radius: var(--radius-sm);
 	text-decoration: none;
-	transition: all var(--transition-fast);
 	cursor: pointer;
 }
 
 .button-primary {
 	color: #fffdfa;
-	background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+	background: var(--accent);
 	border: 1px solid var(--accent-strong);
 	box-shadow: 0 2px 8px var(--accent-glow);
 }
 
 .button-primary:hover {
 	color: #ffffff;
-	transform: translateY(-2px);
 	box-shadow: 0 6px 18px var(--accent-glow);
 }
 
 .button-primary:active {
-	transform: translateY(0);
 }
 
 .button-secondary {
@@ -255,11 +250,9 @@
 	color: var(--accent-strong);
 	border-color: var(--accent);
 	background: var(--surface-hover);
-	transform: translateY(-2px);
 }
 
 .button-secondary:active {
-	transform: translateY(0);
 }
 
 /* GitHub note */

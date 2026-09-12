@@ -40,14 +40,12 @@
 	background: var(--tag-bg);
 	border: 1px solid var(--tag-border);
 	border-radius: var(--radius-sm);
-	transition: all var(--transition-fast);
 }
 
 .resume-print-btn:hover {
 	color: #ffffff;
 	background: var(--accent);
 	border-color: var(--accent);
-	transform: translateY(-2px);
 	box-shadow: 0 4px 12px var(--accent-glow);
 }
 
@@ -215,13 +213,11 @@
 	background: var(--bg);
 	border: 1px solid var(--hairline);
 	border-radius: var(--radius-pill);
-	transition: all var(--transition-fast);
 }
 
 .skill-tag:hover {
 	border-color: var(--accent);
 	background: var(--surface-hover);
-	transform: translateY(-1px);
 }
 
 @media (max-width: 720px) {

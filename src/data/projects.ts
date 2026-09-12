@@ -28,10 +28,10 @@ export const PROJECTS: Project[] = [
 		slug: "envitoo",
 		name: "Envitoo",
 		tagline: "Event management with ticketing, QR check-in, and volunteer coordination.",
-		short: "A production-grade event management platform with reliable async delivery.",
+		short: "An event platform for tickets, guest check-in, and volunteer coordination.",
 		summary: [
-			"Envitoo is an event management platform built around three flows organizers actually need: selling and validating tickets, checking guests in with QR codes, and coordinating volunteers for an event.",
-			"Reliability is the throughline. All async work — OTP emails, ticket confirmations, and other side effects — is fanned out through a transactional outbox pattern over NATS JetStream, so nothing gets lost between the database and the message bus.",
+			"Envitoo helps organizers sell tickets, check in guests with QR codes, and coordinate volunteers.",
+			"It is designed to deliver important messages, such as login codes and ticket confirmations, even when several services are working at the same time.",
 		],
 		highlights: [
 			"Transactional outbox over NATS JetStream for reliable async delivery of OTP and ticket-confirmation emails via Resend",
@@ -53,11 +53,11 @@ export const PROJECTS: Project[] = [
 	{
 		slug: "go-analytics",
 		name: "go-analytics",
-		tagline: "High-performance URL shortener with real-time click analytics and async workers.",
-		short: "A URL shortener built to survive read-heavy traffic without sacrificing analytics.",
+		tagline: "A fast URL shortener with click tracking that runs in the background.",
+		short: "A fast URL shortener that also records useful click statistics.",
 		summary: [
-			"go-analytics is a URL shortener that treats the hot redirect path as sacred and pushes everything else out of the way. Lookups are served from a Redis cache while clicks flow through Redis Streams into Asynq workers that batch-write to PostgreSQL.",
-			"The result is a redirect path that stays fast under load, and dashboards that query pre-computed rollups instead of raw event rows.",
+			"go-analytics redirects visitors quickly and records each click in the background. This keeps the main redirect path fast.",
+			"Its dashboards use prepared summaries instead of scanning every click, so reports remain responsive as the project grows.",
 		],
 		highlights: [
 			"Sustained throughput of 4,500 req/s with 0.8ms p50 redirect latency, validated via k6 benchmarks on a production-grade setup",
@@ -77,11 +77,11 @@ export const PROJECTS: Project[] = [
 	{
 		slug: "tripnest",
 		name: "tripnest",
-		tagline: "Travel planning backend with type-safe SQL, migrations, and Dockerized services.",
-		short: "A travel-focused backend for trip and itinerary workflows.",
+		tagline: "A backend for planning trips, building itineraries, and managing travel details.",
+		short: "A backend for planning trips and organizing itineraries.",
 		summary: [
-			"Tripnest is a travel planning backend exposing RESTful APIs for user management, trip planning, and itinerary workflows.",
-			"Correctness comes first: queries are generated type-safe with SQLC, schemas evolve through version-controlled golang-migrate migrations, and the whole stack is containerized with Docker Compose.",
+			"Tripnest provides APIs for managing users, planning trips, and building itineraries.",
+			"The project keeps data reliable with checked database queries, tracked schema changes, and a setup that runs consistently with Docker Compose.",
 		],
 		highlights: [
 			"RESTful APIs for user management, trip planning, and itinerary workflows with JWT-based auth middleware",
@@ -101,12 +101,12 @@ export const PROJECTS: Project[] = [
 	{
 		slug: "nexus",
 		name: "nexus",
-		tagline: "A distributed, persistent key-value store built on Raft consensus.",
-		short: "A Raft-based distributed KV store with auto leader election and an embedded web dashboard.",
+		tagline: "A data store that keeps information synchronized across several servers.",
+		short: "A distributed key-value store that keeps copies of data in sync.",
 		summary: [
-			"nexus is a distributed, persistent key-value store with Raft consensus, automated leader election, primary-read replica routing, and real-time log replication.",
-			"Mutations are only accepted by the elected Leader, which persists every write to a write-ahead log before applying it to in-memory state. Followers replicate the log in real time and serve fast local reads while rejecting writes with the current leader's address.",
-			"It ships as a single self-contained Go binary with an embedded dark-mode web dashboard for live cluster topology, a key-value mutator, key table, metrics, and an activity terminal.",
+			"nexus stores key-value data across several servers and keeps those copies synchronized. If the current leader fails, another server can take over automatically.",
+			"Every change is recorded before it is applied, which helps the system recover safely. Servers that are not leaders can still handle reads.",
+			"It runs as one Go binary and includes a dashboard for viewing the cluster, changing values, and checking basic metrics.",
 		],
 		highlights: [
 			"3-node Raft cluster with randomized election timers (150–300ms), 50ms heartbeats, and automatic leader failover in ~200ms without split-brain",

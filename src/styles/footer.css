@@ -1,7 +1,6 @@
 footer {
 	border-top: 1px solid var(--hairline);
 	background: var(--surface);
-	transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
 	margin-top: auto;
 }
 
@@ -25,6 +24,23 @@ footer {
 	gap: 0.5rem;
 }
 
+.copyright-trigger {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+}
+
+.copyright-trigger:hover {
+	color: var(--ink);
+}
+
+.secret-message {
+	color: var(--accent);
+	font-size: 0.85em;
+}
+
 .footer-links {
 	list-style: none;
 	display: flex;
@@ -44,7 +60,6 @@ footer {
 	font-size: 0.9em;
 	font-weight: 500;
 	border-radius: var(--radius-sm);
-	transition: all var(--transition-fast);
 }
 
 .footer-links a:hover {

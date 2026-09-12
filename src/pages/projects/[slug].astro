@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { PROJECTS } from "../../data/projects";
+import "../../styles/project.css";
+
+export function getStaticPaths() {
+	return PROJECTS.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.name} | hasan`} description={project.short}>
+	<main class="project-page"><article>
+		<div class="back-nav"><a href="/projects" class="back-link">&larr; All projects</a></div>
+		<div class={`status-banner status-banner-tone-${project.status.tone}`} role="status"><span class="status-dot" aria-hidden="true"></span><div><span class="status-label">{project.status.label}</span><p class="status-note">{project.status.note}</p></div></div>
+		<header class="project-header"><div class="project-name-line"><h1>{project.name}</h1><span class="project-year">{project.year}</span></div><p class="project-tagline">{project.tagline}</p><hr class="project-divider" /></header>
+		<div class="project-body">
+			{project.summary.map((paragraph) => <p>{paragraph}</p>)}
+			<h2>What it does</h2><ul class="project-highlights">{project.highlights.map((highlight) => <li><span class="highlight-bullet" aria-hidden="true"></span><span>{highlight}</span></li>)}</ul>
+			<h2>Built with</h2><ul class="project-stack">{project.stack.map((tool) => <li><span class="stack-dot" aria-hidden="true"></span>{tool}</li>)}</ul>
+		</div>
+		<div class="project-actions">
+			{project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="button button-primary"><span>View live site</span><span aria-hidden="true">&#8599;</span></a> : <span class="button button-primary" aria-disabled="true"><span>Live site unavailable</span></span>}
+			{project.github?.url ? <a href={project.github.url} target="_blank" rel="noopener noreferrer" class="button button-secondary"><span>View on GitHub</span><span aria-hidden="true">&#8599;</span></a> : <a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer" class="button button-secondary"><span>GitHub</span><span aria-hidden="true">&#8599;</span></a>}
+		</div>
+		{project.github?.note && <p class="github-note">{project.github.note} You can also browse the rest of my work on <a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>}
+	</article></main>
+</BaseLayout>
