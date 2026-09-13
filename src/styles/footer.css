@@ -1,6 +1,7 @@
 footer {
 	border-top: 1px solid var(--hairline);
-	background: var(--surface);
+	background-color: var(--surface);
+	background-image: url("/backgrounds/hatch.svg");
 	margin-top: auto;
 }
 
@@ -15,6 +16,12 @@ footer {
 	flex-wrap: wrap;
 }
 
+.footer-about {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
 .copyright {
 	margin: 0;
 	color: var(--muted);
@@ -22,6 +29,13 @@ footer {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
+}
+
+.footer-note {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.78em;
+	letter-spacing: 0.02em;
 }
 
 .copyright-trigger {

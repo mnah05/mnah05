@@ -38,14 +38,25 @@
 	border-radius: var(--radius-md);
 	text-decoration: none;
 	color: var(--ink);
-	box-shadow: var(--card-shadow);
+	box-shadow: var(--bevel-out), var(--card-shadow);
 }
 
 .post-item-link:hover,
 .post-item-link:focus-visible {
 	background: var(--surface-hover);
 	border-color: var(--accent);
-	box-shadow: var(--card-shadow-hover);
+	box-shadow: var(--bevel-out), var(--card-shadow-hover);
+}
+
+.post-item-link:active {
+	box-shadow: var(--bevel-pressed);
+	transform: translateY(1px);
+}
+
+.post-item-link:hover .post-arrow,
+.post-item-link:focus-visible .post-arrow {
+	display: inline-block;
+	transform: translateX(3px);
 }
 
 .post-item-header {
@@ -70,11 +81,10 @@
 }
 
 .post-arrow {
+	display: inline-block;
 	color: var(--accent);
 	font-size: 1.15rem;
-}
-
-.post-item-link:hover .post-arrow {
+	transition: transform 0.12s ease;
 }
 
 .post-description {
@@ -103,7 +113,8 @@
 .empty-state {
 	text-align: center;
 	padding: 3.5rem 1.5rem;
-	background: var(--surface-card);
+	background-color: var(--surface-card);
+	background-image: url("/backgrounds/dots.svg");
 	border: 1px dashed var(--hairline-strong);
 	border-radius: var(--radius-md);
 	color: var(--muted);

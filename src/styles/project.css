@@ -192,7 +192,7 @@
 	background: var(--surface-card);
 	border: 1px solid var(--hairline);
 	border-radius: var(--radius-pill);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+	box-shadow: var(--bevel-out), 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .project-stack .stack-dot {
@@ -237,13 +237,15 @@
 }
 
 .button-primary:active {
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.28);
+	transform: translateY(1px);
 }
 
 .button-secondary {
 	color: var(--ink);
 	background: var(--surface);
 	border: 1px solid var(--hairline-strong);
-	box-shadow: var(--card-shadow);
+	box-shadow: var(--bevel-out), var(--card-shadow);
 }
 
 .button-secondary:hover {
@@ -253,6 +255,8 @@
 }
 
 .button-secondary:active {
+	box-shadow: var(--bevel-pressed);
+	transform: translateY(1px);
 }
 
 /* GitHub note */

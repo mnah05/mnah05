@@ -1,6 +1,7 @@
 .not-found {
 	text-align: center;
 	padding: 4rem 1.5rem 6rem;
+	background-image: url("/backgrounds/scanlines.svg");
 }
 
 .not-found-code {

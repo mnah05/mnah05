@@ -30,7 +30,7 @@
 	margin: 0 auto;
 	border-radius: var(--radius-md);
 	border: 1px solid var(--hairline);
-	box-shadow: var(--card-shadow);
+	box-shadow: var(--bevel-out), var(--card-shadow);
 }
 
 .prose {
@@ -99,7 +99,7 @@
 .post-content h2 {
 	margin: 2.5rem 0 1rem;
 	padding-bottom: 0.4rem;
-	border-bottom: 1px solid var(--hairline);
+	border-bottom: 1px dashed var(--hairline-strong);
 }
 
 .post-content h3 {

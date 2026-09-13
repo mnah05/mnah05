@@ -9,10 +9,13 @@ const SOCIALS = [
 
 <footer>
 	<div class="footer-inner">
-		<p class="copyright">
-			<button class="copyright-trigger" type="button">&copy; {new Date().getFullYear()} hasan</button>
-			<span class="secret-message" hidden>you found the footnote.</span>
-		</p>
+		<div class="footer-about">
+			<p class="copyright">
+				<button class="copyright-trigger" type="button">&copy; {new Date().getFullYear()} hasan</button>
+				<span class="secret-message" hidden>you found the footnote.</span>
+			</p>
+			<p class="footer-note">Best viewed in any browser, at any resolution.</p>
+		</div>
 		<ul class="footer-links">
 			<li><a href="/resume">resume</a></li>
 			<li><a href="/colophon">colophon</a></li>
@@ -20,6 +23,7 @@ const SOCIALS = [
 				<li><a href={social.href} target="_blank" rel="noopener noreferrer">{social.label}</a></li>
 			))}
 		</ul>
+		<span class="web-badge" aria-hidden="true">No pop-ups<br />No autoplay</span>
 	</div>
 </footer>
 

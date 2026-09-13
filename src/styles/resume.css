@@ -179,7 +179,7 @@
 	border: 1px solid var(--hairline);
 	border-radius: var(--radius-md);
 	padding: 1.25rem;
-	box-shadow: var(--card-shadow);
+	box-shadow: var(--bevel-out), var(--card-shadow);
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -213,6 +213,7 @@
 	background: var(--bg);
 	border: 1px solid var(--hairline);
 	border-radius: var(--radius-pill);
+	box-shadow: var(--bevel-out);
 }
 
 .skill-tag:hover {
