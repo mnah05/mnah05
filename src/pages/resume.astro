@@ -5,7 +5,7 @@ import { resume } from "../data/resume";
 import "../styles/resume.css";
 ---
 
-<BaseLayout title="Resume | hasan" description={`${resume.name} — resume`}>
+<BaseLayout title="Resume | hasan" description={`${resume.name} — resume`} path="/resume">
 	<main class="resume-page">
 		<header class="resume-header"><div class="resume-header-top"><h1>{resume.name}</h1><div class="resume-actions"><a class="resume-print-btn" href="/resume.pdf" download="Md-Nauman-Athar-Hasan-Resume.pdf"><Icon name="download" /><span>Download PDF</span></a><button type="button" class="resume-print-btn" data-print-resume aria-label="Print resume"><Icon name="print" /><span>Print</span></button></div></div><div class="resume-contact"><span>{resume.location}</span><span class="sep">&bull;</span><a href={`mailto:${resume.email}`}>{resume.email}</a>{resume.links.map((link) => <span><span class="sep">&bull;</span><a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a></span>)}</div></header>
 		<section class="resume-section"><h2>Education</h2>{resume.education.map((edu) => <div class="resume-entry"><div class="resume-entry-head"><h3>{edu.school}</h3><span class="year">{edu.years}</span></div><div class="resume-subline">{edu.degree} &mdash; {edu.location}</div>{edu.coursework && <ul class="resume-bullets"><li>Relevant Coursework: {edu.coursework}</li></ul>}</div>)}</section>

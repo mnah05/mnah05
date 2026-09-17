@@ -12,12 +12,13 @@ const { slug } = Astro.props;
 </span>
 
 <script>
+	import { formatViews } from "../scripts/views";
+
 	const els = document.querySelectorAll("[data-view-counter]");
 	els.forEach(async (el) => {
 		const slug = (el as HTMLElement).dataset.slug;
 		const num = el.querySelector("[data-view-num]");
 		if (!slug || !num) return;
-		const fmt = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k` : `${n}`);
 		try {
 			// Unique-only: count once per browser persistently. Server also
 			// dedups by visitor hash, this just avoids repeat POSTs
@@ -31,13 +32,13 @@ const { slug } = Astro.props;
 			}
 			if (seen) {
 				const res = await fetch(`/api/views/${encodeURIComponent(slug)}`);
-				if (res.ok) num.textContent = fmt(((await res.json()) as { views: number }).views ?? 0);
+				if (res.ok) num.textContent = formatViews(((await res.json()) as { views: number }).views ?? 0);
 				return;
 			}
 			const res = await fetch(`/api/views/${encodeURIComponent(slug)}`, { method: "POST" });
 			if (!res.ok) return;
 			const data = (await res.json()) as { views: number };
-			num.textContent = fmt(data.views ?? 0);
+			num.textContent = formatViews(data.views ?? 0);
 			try {
 				localStorage.setItem(key, "1");
 			} catch {

@@ -15,7 +15,7 @@ const stack = ["Go", "TypeScript", "Hono", "Cloudflare Workers", "PostgreSQL", "
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 
-<BaseLayout title="hasan" description="The personal website of Md Nauman Athar Hasan: projects, writing, and notes.">
+<BaseLayout title="hasan" description="The personal website of Md Nauman Athar Hasan: projects, writing, and notes." path="/">
 	<main class="home">
 		<section class="hero">
 			<h1>hasan</h1>

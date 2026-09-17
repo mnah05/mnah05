@@ -15,9 +15,10 @@ interface Props {
 }
 
 const { title, description, pubDate, updatedDate, heroImage, slug } = Astro.props;
+const path = slug ? `/blog/${slug}` : undefined;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} path={path} image={heroImage}>
 	<main class="blog-post-page">
 		<article class="post-article">
 			<div class="back-nav"><a href="/blog" class="back-link"><Icon name="arrow-left" /> Back to all posts</a></div>

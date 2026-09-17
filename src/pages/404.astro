@@ -3,6 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/not-found.css";
 ---
 
-<BaseLayout title="404 — not found" description="Page not found">
+<BaseLayout title="404 — not found" description="Page not found" path="/404" noindex>
 	<main class="not-found"><span class="not-found-code">404</span><h1>Nothing here</h1><p class="not-found-message">This page doesn't exist. It may have moved, or the link is wrong.</p><div class="not-found-actions"><a class="button button-primary" href="/">Home</a><a class="button button-secondary" href="/blog">Blog</a><a class="button button-secondary" href="/about">About</a></div></main>
 </BaseLayout>

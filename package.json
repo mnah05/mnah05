@@ -8,12 +8,15 @@
 		"build": "astro build",
 		"resume:pdf": "bash scripts/build-resume.sh",
 		"deploy": "wrangler deploy",
-		"preview": "astro preview"
+		"preview": "astro preview",
+		"check": "tsc --noEmit",
+		"test": "node --test src/scripts/views.test.mjs"
 	},
 	"dependencies": {
 		"astro": "^7.3.2"
 	},
 	"devDependencies": {
+		"@astrojs/sitemap": "^3.7.4",
 		"npm-check-updates": "^23.0.2",
 		"typescript": "~7.0.2",
 		"wrangler": "^4.122.0"
