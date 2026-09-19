@@ -1,11 +1,11 @@
 ---
-import BlogLayout from "../components/BlogLayout.astro";
+import NotesLayout from "../components/NotesLayout.astro";
 ---
 
-<BlogLayout title="Colophon" description="How this site is built and deployed" pubDate={new Date("August 25 2026")}>
-	<p>This site is a static site built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>. I write blog posts in Markdown, and Astro turns them into web pages at build time.</p>
+<NotesLayout title="Colophon" description="How this site is built and deployed" pubDate={new Date("August 25 2026")}>
+	<p>This site is a static site built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>. I write notes in Markdown, and Astro turns them into web pages at build time.</p>
 	<p>The site is deployed as static files on <a href="https://workers.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Workers</a>. Unknown routes are sent to the app so navigation works without a full page reload.</p>
 	<p>The design uses a single paper-and-ink palette, with CSS custom properties controlling the colors and layout.</p>
 	<p>The site uses the familiar Courier typewriter face so the page feels like a quiet working notebook.</p>
 	<details><summary>One small secret</summary><p>If you found this, you have earned an imaginary coffee. Keep looking closely.</p></details>
-</BlogLayout>
+</NotesLayout>

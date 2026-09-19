@@ -12,10 +12,10 @@ const projects = [
 	{ name: "read", description: "Articles, papers, and references I am reading or have saved.", href: "https://raindrop.io/workwithnauman/reads-72899412" },
 ];
 const stack = ["Go", "TypeScript", "Hono", "Cloudflare Workers", "PostgreSQL", "Redis", "Clerk", "Supabase", "Cloudflare R2", "Docker", "NATS JetStream"];
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const posts = (await getCollection("notes")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 
-<BaseLayout title="hasan" description="The personal website of Md Nauman Athar Hasan: projects, writing, and notes." path="/">
+<BaseLayout title="hasan" description="The personal website of Md Nauman Athar Hasan: projects and notes." path="/">
 	<main class="home">
 		<section class="hero">
 			<h1>hasan</h1>
@@ -44,6 +44,6 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
 
 		<section class="text-section skills-section" aria-labelledby="skills-heading"><h2 id="skills-heading">Tools I Use</h2><p>{stack.join(" / ")}</p></section>
 
-		{posts.length > 0 && <section id="writing" class="writing-section" aria-labelledby="writing-heading"><h2 id="writing-heading">Writing</h2><ul class="writing-list">{posts.map((post) => <li><a href={`/blog/${post.id}`}>{post.data.title}</a></li>)}</ul></section>}
+		{posts.length > 0 && <section id="notes" class="writing-section" aria-labelledby="notes-heading"><h2 id="notes-heading">Notes</h2><ul class="writing-list">{posts.map((post) => <li><a href={`/notes/${post.id}`}>{post.data.title}</a></li>)}</ul></section>}
 	</main>
 </BaseLayout>

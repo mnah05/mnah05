@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
+import "../../styles/notes-index.css";
+
+const posts = (await getCollection("notes")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Notes | hasan" description="Short notes and write-ups from Hasan." path="/notes">
+	<main class="notes-index-page"><section>
+		<div class="notes-header"><h1>Notes</h1><p class="notes-subtitle">Short notes on backend systems, Go, TypeScript, Cloudflare, and developer craft.</p></div>
+		{posts.length === 0 ? <div class="empty-state"><span class="empty-icon">☕</span><p>Brewing new notes soon. Stay tuned!</p></div> : <ul class="post-list">{posts.map((post) => <li><a href={`/notes/${post.id}`} class="post-item-link"><div class="post-item-header"><h2 class="title">{post.data.title}</h2><span class="post-arrow" aria-hidden="true">&rarr;</span></div>{post.data.description && <p class="post-description">{post.data.description}</p>}<div class="post-meta"><span class="date"><FormattedDate date={post.data.pubDate} /></span><span class="view-count" data-view-count={post.id}>— views</span></div></a></li>)}</ul>}
+	</section></main>
+	<script>
+		import { fetchViews, viewsLabel } from "../../scripts/views";
+
+		const els = [...document.querySelectorAll("[data-view-count]")] as HTMLElement[];
+		if (els.length > 0) {
+			const slugs = els.map((el) => el.dataset.viewCount as string).filter(Boolean);
+			fetchViews(slugs)
+				.then((views) => {
+					for (const el of els) {
+						const slug = el.dataset.viewCount as string;
+						el.textContent = viewsLabel(views[slug] ?? 0);
+					}
+				})
+				.catch(() => {});
+		}
+	</script>
+	<style>
+		.view-count {
+			color: var(--muted);
+			font-size: 0.85em;
+			font-variant-numeric: tabular-nums;
+		}
+	</style>
+</BaseLayout>

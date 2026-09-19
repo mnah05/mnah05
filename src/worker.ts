@@ -1,5 +1,5 @@
 /**
- * View-counter Worker for the static Astro blog.
+ * View-counter Worker for the static Astro notes.
  *
  * Static assets are served from `dist/` via the ASSETS binding.
  * This Worker only handles `/api/views/*` and falls through to
@@ -54,6 +54,12 @@ function getViewerIp(request: Request): string | null {
 export default {
 	async fetch(request: Request, env: Env): Promise<Response> {
 		const url = new URL(request.url);
+
+		// Legacy /blog URLs now live at /notes.
+		if (url.pathname === "/blog" || url.pathname.startsWith("/blog/")) {
+			const rest = url.pathname.slice("/blog".length);
+			return Response.redirect(new URL(`/notes${rest}${url.search}`, url).href, 301);
+		}
 
 		if (!url.pathname.startsWith("/api/views")) {
 			return env.ASSETS.fetch(request);

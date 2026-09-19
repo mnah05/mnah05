@@ -1,20 +1,20 @@
-.blog-index-page {
+.notes-index-page {
 	max-width: var(--measure);
 }
 
-.blog-header {
+.notes-header {
 	margin-bottom: 2.5rem;
 	padding-bottom: 1.5rem;
 	border-bottom: 1px solid var(--hairline);
 }
 
-.blog-header h1 {
+.notes-header h1 {
 	font-size: clamp(2.5rem, 6vw, 3.2rem);
 	margin-bottom: 0.5rem;
 	color: var(--ink);
 }
 
-.blog-subtitle {
+.notes-subtitle {
 	color: var(--muted);
 	font-size: 1.05rem;
 	line-height: 1.6;
