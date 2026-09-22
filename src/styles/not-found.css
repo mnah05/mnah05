@@ -4,6 +4,10 @@
 	background-image: url("/backgrounds/scanlines.svg");
 }
 
+:root[data-theme="dark"] .not-found {
+	background-image: url("/backgrounds/scanlines-dark.svg");
+}
+
 .not-found-code {
 	display: block;
 	color: var(--accent);

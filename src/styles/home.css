@@ -59,6 +59,14 @@
 	background: var(--surface-card);
 	border: 1px solid var(--hairline);
 	box-shadow: var(--bevel-out), var(--card-shadow);
+	transition:
+		background-color var(--theme-transition-duration, 0.45s) ease,
+		border-color var(--theme-transition-duration, 0.45s) ease,
+		filter var(--theme-transition-duration, 0.45s) ease;
+}
+
+:root[data-theme="dark"] .profile-photo {
+	filter: grayscale(100%) brightness(0.9);
 }
 
 .text-section,

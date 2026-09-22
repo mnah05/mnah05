@@ -72,6 +72,34 @@
 	color: #bf4d2a;
 }
 
+:root[data-theme="dark"] .status-banner-tone-down {
+	background: rgba(210, 135, 85, 0.1);
+	border-color: rgba(210, 135, 85, 0.35);
+}
+
+:root[data-theme="dark"] .status-banner-tone-down .status-dot {
+	background: #d28755;
+	box-shadow: 0 0 0 4px rgba(210, 135, 85, 0.18);
+}
+
+:root[data-theme="dark"] .status-banner-tone-down .status-label {
+	color: #eaa978;
+}
+
+:root[data-theme="dark"] .status-banner-tone-live {
+	background: rgba(110, 180, 135, 0.1);
+	border-color: rgba(110, 180, 135, 0.32);
+}
+
+:root[data-theme="dark"] .status-banner-tone-live .status-dot {
+	background: #6eb487;
+	box-shadow: 0 0 0 4px rgba(110, 180, 135, 0.18);
+}
+
+:root[data-theme="dark"] .status-banner-tone-live .status-label {
+	color: #8fd0a5;
+}
+
 .status-banner-tone-live .status-label {
 	color: #3f805a;
 }

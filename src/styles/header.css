@@ -25,6 +25,7 @@
 
 .nav-links {
 	display: flex;
+	align-items: center;
 	gap: 1.1rem;
 }
 
@@ -47,6 +48,73 @@
 
 .nav-links a:active {
 	color: var(--accent-strong);
+}
+
+/* Theme toggle — plain typewriter button, sun/moon line icon */
+.theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	color: var(--muted);
+	background: transparent;
+	border: 1px solid var(--hairline);
+	border-radius: var(--radius-sm);
+	line-height: 0;
+	transition:
+		color var(--theme-transition-duration, 0.45s) ease,
+		border-color var(--theme-transition-duration, 0.45s) ease,
+		background-color var(--theme-transition-duration, 0.45s) ease,
+		transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+	color: var(--accent-strong);
+	border-color: var(--accent);
+	background: var(--tag-bg);
+}
+
+.theme-toggle:active {
+	transform: translateY(1px);
+}
+
+.theme-toggle svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* Icon cross-fade: both icons stacked, opacity driven by theme */
+.theme-toggle .icon-moon,
+.theme-toggle .icon-sun {
+	grid-area: 1 / 1;
+	transition: opacity 0.35s ease, transform 0.45s ease;
+}
+
+.theme-toggle .icon-stack {
+	display: grid;
+	place-items: center;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+	opacity: 0;
+	transform: rotate(90deg) scale(0.6);
+}
+
+:root:not([data-theme="dark"]) .theme-toggle .icon-sun {
+	opacity: 0;
+	transform: rotate(-90deg) scale(0.6);
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+	opacity: 1;
+	transform: none;
+}
+
+:root:not([data-theme="dark"]) .theme-toggle .icon-moon {
+	opacity: 1;
+	transform: none;
 }
 
 @media (max-width: 600px) {

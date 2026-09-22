@@ -40,6 +40,41 @@
 	--bevel-dark: #cdbba4;
 	--bevel-out: inset 1px 1px 0 var(--bevel-light), inset -1px -1px 0 var(--bevel-dark);
 	--bevel-pressed: inset 1px 1px 0 var(--bevel-dark), inset -1px -1px 0 var(--bevel-light);
+	--theme-transition-duration: 0.45s;
+	--theme-transition-easing: ease;
+}
+
+/*
+  Dark theme — warm ink-on-dark-paper inversion of the light palette.
+  Activated via `data-theme="dark"` on <html>, set before first paint
+  by the inline script in BaseLayout to avoid any light flash.
+*/
+:root[data-theme="dark"] {
+	color-scheme: dark;
+
+	--bg: #191410;
+	--bg-gradient: none;
+	--surface: #231d16;
+	--surface-card: #211b14;
+	--surface-hover: #2c241b;
+	--ink: #ece1cf;
+	--muted: #ab9c89;
+	--hairline: #383026;
+	--hairline-strong: #5f5345;
+	--accent: #d28755;
+	--accent-strong: #eaa978;
+	--accent-subtle: rgba(210, 135, 85, 0.12);
+	--accent-glow: rgba(210, 135, 85, 0.24);
+	--tag-bg: rgba(210, 135, 85, 0.1);
+	--tag-border: rgba(210, 135, 85, 0.3);
+	--tag-text: #eaa978;
+	--card-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+	--card-shadow-hover: 0 2px 10px rgba(0, 0, 0, 0.45);
+	--header-bg: #191410;
+	--header-border: #383026;
+	--link-visited: #c39aac;
+	--bevel-light: #3b332b;
+	--bevel-dark: #0e0b09;
 }
 
 *,
@@ -68,6 +103,38 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	transition:
+		background-color var(--theme-transition-duration) var(--theme-transition-easing),
+		color var(--theme-transition-duration) var(--theme-transition-easing);
+}
+
+:root[data-theme="dark"] body {
+	background-image: url("/backgrounds/grid-dark.svg");
+}
+
+/*
+  Fluid theme switching: while <html> carries .theme-anim (added by the
+  toggle for ~500ms), every element eases between palettes instead of
+  snapping. View-Transition API users get the same duration so both
+  paths feel identical.
+*/
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+	transition:
+		background-color var(--theme-transition-duration) var(--theme-transition-easing),
+		border-color var(--theme-transition-duration) var(--theme-transition-easing),
+		color var(--theme-transition-duration) var(--theme-transition-easing),
+		fill var(--theme-transition-duration) var(--theme-transition-easing),
+		stroke var(--theme-transition-duration) var(--theme-transition-easing),
+		box-shadow var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: var(--theme-transition-duration);
+	animation-timing-function: var(--theme-transition-easing);
 }
 
 #root {
@@ -108,6 +175,10 @@ a {
 	text-decoration-style: dotted;
 	text-decoration-thickness: 1px;
 	text-underline-offset: 3px;
+	transition:
+		color var(--theme-transition-duration) var(--theme-transition-easing),
+		background-color var(--theme-transition-duration) var(--theme-transition-easing),
+		border-color var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
 a:visited {
@@ -322,6 +393,22 @@ button {
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
+	}
+
+	:root {
+		--theme-transition-duration: 0.01ms;
+	}
+
+	html.theme-anim,
+	html.theme-anim *,
+	html.theme-anim *::before,
+	html.theme-anim *::after {
+		transition: none !important;
+	}
+
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: none;
 	}
 
 	.caret {
