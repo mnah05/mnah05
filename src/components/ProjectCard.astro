@@ -8,9 +8,36 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="project-card">
-	<div class="project-card-topline"><span>{project.year}</span><span class:list={{ "project-status": true, live: project.status.tone === "live" }}>{project.status.label}</span></div>
-	<h2><a href={`/projects/${project.slug}`}>{project.name}</a></h2>
-	<p>{project.short}</p>
-	<div class="project-card-footer"><span>{project.status.note}</span><span class="project-card-views" data-view-count={`projects/${project.slug}`}>—</span></div>
+<article class="project-item">
+	<button class="project-item-trigger" type="button" data-project-open={project.slug} aria-haspopup="dialog">
+		<span class="project-item-year">{project.year}</span>
+		<span class="project-item-name">{project.name}</span>
+		<span class:list={{ "project-status": true, live: project.status.tone === "live" }}>{project.status.label}</span>
+		<span class="project-item-views" data-view-count={`projects/${project.slug}`}>—</span>
+	</button>
+	<dialog class="project-dialog" data-project-dialog={project.slug} aria-labelledby={`${project.slug}-title`}>
+		<div class="project-dialog-topline"><span class:list={{ "project-status": true, live: project.status.tone === "live" }}>{project.status.label}</span><button class="project-dialog-close" type="button" data-project-close aria-label={`Close ${project.name} details`}>Close</button></div>
+		<h2 id={`${project.slug}-title`}>{project.name}</h2>
+		<p class="project-dialog-tagline">{project.tagline}</p>
+		<p>{project.status.note}</p>
+		<div class="project-dialog-section"><h3>About</h3>{project.summary.slice(0, 2).map((paragraph) => <p>{paragraph}</p>)}</div>
+		<div class="project-dialog-section"><h3>Built with</h3><ul>{project.stack.map((tool) => <li>{tool}</li>)}</ul></div>
+		<div class="project-dialog-actions"><a href={`/projects/${project.slug}`}>Project details</a>{project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">View live site</a>}{project.github?.url && <a href={project.github.url} target="_blank" rel="noopener noreferrer">GitHub</a>}</div>
+	</dialog>
 </article>
+
+<script>
+	document.addEventListener("click", (event) => {
+		const target = event.target;
+		if (!(target instanceof Element)) return;
+
+		const opener = target.closest<HTMLButtonElement>("[data-project-open]");
+		if (opener) document.querySelector<HTMLDialogElement>(`[data-project-dialog="${opener.dataset.projectOpen}"]`)?.showModal();
+		if (target.closest("[data-project-close]")) target.closest<HTMLDialogElement>("dialog")?.close();
+	});
+
+	document.addEventListener("click", (event) => {
+		const dialog = event.target;
+		if (dialog instanceof HTMLDialogElement && event.target === dialog) dialog.close();
+	});
+</script>
