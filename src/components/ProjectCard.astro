@@ -1,0 +1,16 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+	project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+	<div class="project-card-topline"><span>{project.year}</span><span class:list={{ "project-status": true, live: project.status.tone === "live" }}>{project.status.label}</span></div>
+	<h2><a href={`/projects/${project.slug}`}>{project.name}</a></h2>
+	<p>{project.short}</p>
+	<div class="project-card-footer"><span>{project.status.note}</span><span class="project-card-views" data-view-count={`projects/${project.slug}`}>—</span></div>
+</article>

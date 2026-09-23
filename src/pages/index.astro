@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import { getCollection } from "astro:content";
 import { PROJECTS } from "../data/projects";
 import "../styles/home.css";
@@ -9,7 +10,6 @@ type IndexItem = {
 	title: string;
 	href: string;
 	viewSlug: string;
-	kind: string;
 	sortTime: number;
 };
 
@@ -20,7 +20,6 @@ const noteItems: IndexItem[] = notes.map((post) => ({
 	title: post.data.title,
 	href: `/notes/${post.id}`,
 	viewSlug: post.id,
-	kind: "note",
 	sortTime: post.data.pubDate.valueOf(),
 }));
 
@@ -29,41 +28,30 @@ const projectItems: IndexItem[] = PROJECTS.map((project) => ({
 	title: project.name,
 	href: `/projects/${project.slug}`,
 	viewSlug: `projects/${project.slug}`,
-	kind: "project",
-	// Projects only carry a year, so pin them to Jan 1 — notes with real
-	// dates in the same year naturally sort above them (newest first).
 	sortTime: new Date(project.year, 0, 1).valueOf(),
 }));
 
-const items = [...noteItems, ...projectItems].sort((a, b) => b.sortTime - a.sortTime || b.year - a.year);
-
-let lastYear: number | null = null;
-const viewSlugs = items.map((item) => item.viewSlug);
+const sortItems = (items: IndexItem[]) => [...items].sort((a, b) => b.sortTime - a.sortTime || b.year - a.year);
+const projects = sortItems(projectItems);
+const sortedNotes = sortItems(noteItems);
+const viewSlugs = [...projects, ...sortedNotes].map((item) => item.viewSlug);
 ---
 
 <BaseLayout title="hasan" description="The personal website of Md Nauman Athar Hasan: projects and notes." path="/">
 	<main>
-		<ul class="index-list">
-			{items.map((item) => {
-				const showYear = item.year !== lastYear;
-				lastYear = item.year;
-				return (
-					<li class="group">
-						<a href={item.href}>
-							<span class="index-row">
-								{showYear ? (
-									<span class="index-year">{item.year}</span>
-									<span class="index-title-wrap"><span class="index-title">{item.title}</span><span class="index-kind">{item.kind}</span></span>
-								) : (
-									<span class="index-row-indented index-title-wrap"><span class="index-title">{item.title}</span><span class="index-kind">{item.kind}</span></span>
-								)}
-								<span class="index-views" data-view-count={item.viewSlug}>—</span>
-							</span>
-						</a>
-					</li>
-				);
-			})}
-		</ul>
+		<section class="home-section" aria-labelledby="projects-heading">
+			<div class="section-heading"><h1 id="projects-heading">Projects</h1><a href="/projects">All projects</a></div>
+			<div class="project-card-list">{PROJECTS.map((project) => <ProjectCard project={project} />)}</div>
+		</section>
+		<section class="home-section" aria-labelledby="notes-heading">
+			<div class="section-heading"><h1 id="notes-heading">Notes</h1><a href="/notes">All notes</a></div>
+			{sortedNotes.length === 0 ? <p>Brewing new notes soon.</p> : <ul class="index-list">
+				{sortedNotes.map((item, index) => {
+					const showYear = index === 0 || item.year !== sortedNotes[index - 1].year;
+					return <li class="group"><a href={item.href}><span class="index-row">{showYear ? <span class="index-year">{item.year}</span> : null}<span class:list={{ "index-title-wrap": true, "index-row-indented": !showYear }}><span class="index-title">{item.title}</span></span><span class="index-views" data-view-count={item.viewSlug}>—</span></span></a></li>;
+				})}
+			</ul>}
+		</section>
 	</main>
 	<script define:vars={{ viewSlugs }}>
 		(async () => {

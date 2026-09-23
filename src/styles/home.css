@@ -6,6 +6,85 @@
 	font-size: 0.875rem;
 }
 
+.home-section + .home-section {
+	margin-top: 2.5rem;
+}
+
+.section-heading {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+}
+
+.section-heading h1 {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.section-heading a {
+	color: var(--muted);
+	font-size: 0.75rem;
+}
+
+.project-card-list {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.project-card {
+	padding: 0.85rem 1rem;
+	border: 1px solid var(--border);
+	border-radius: 0.5rem;
+}
+
+.project-card-topline,
+.project-card-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	color: var(--muted);
+	font-size: 0.75rem;
+}
+
+.project-card h2 {
+	margin: 0.25rem 0;
+	font-size: 1rem;
+}
+
+.project-card h2 a {
+	text-decoration: none;
+}
+
+.project-card h2 a:hover {
+	text-decoration: underline;
+	text-decoration-color: var(--link-underline);
+	text-underline-offset: 3px;
+}
+
+.project-card p {
+	margin: 0 0 0.7rem;
+	font-size: 0.875rem;
+	line-height: 1.45;
+}
+
+.project-status {
+	color: var(--muted);
+}
+
+.project-status.live {
+	color: var(--ink);
+}
+
+.project-card-footer span:first-child {
+	max-width: 34rem;
+}
+
+.project-card-views {
+	flex-shrink: 0;
+	font-variant-numeric: tabular-nums;
+}
+
 .index-list li.group a {
 	display: block;
 	color: var(--ink);
@@ -55,13 +134,6 @@
 
 .group a:hover .index-title {
 	background: var(--hover);
-}
-
-.index-kind {
-	color: var(--muted);
-	font-size: 0.7rem;
-	margin-left: 0.35rem;
-	font-family: var(--mono);
 }
 
 .index-views {

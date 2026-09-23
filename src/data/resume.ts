@@ -48,8 +48,8 @@ export const resume = {
 		{
 			name: "Envitoo",
 			tech: "Go, PostgreSQL, Redis, NATS JetStream, Clerk",
-			link: { label: "Details", href: "/projects/envitoo" },
-			year: "2026",
+			link: { label: "Live", href: "https://envitoo.mnah.dev/" },
+			year: "",
 			points: [
 				"Built a production-grade event management platform with a transactional outbox pattern over NATS JetStream, powering reliable async delivery of OTP and ticket-confirmation emails via Resend",
 				"Implemented Clerk-based auth with lazy user provisioning, Redis-backed OTP verification (HMAC-SHA256), and QR-code check-in via signed access tokens for guest registration and ticketing",
@@ -60,7 +60,7 @@ export const resume = {
 			name: "go-analytics",
 			tech: "Go, PostgreSQL, Redis, Asynq, Chi",
 			link: { label: "GitHub", href: "https://github.com/mnah05/go-analytics" },
-			year: "2026",
+			year: "",
 			points: [
 				"Built a high-performance URL shortener with real-time click analytics achieving 4,500 req/s sustained throughput and 0.8ms p50 redirect latency, validated via k6 benchmarks on a production-grade setup",
 				"Architected an async event pipeline using Redis Streams and Asynq workers to batch-write click events into PostgreSQL, decoupling hot redirect paths from analytics writes and eliminating database bottlenecks under load",
@@ -68,14 +68,14 @@ export const resume = {
 			],
 		},
 		{
-			name: "tripnest",
-			tech: "Go, MySQL, SQLC, Chi, JWT, Docker",
-			link: { label: "GitHub", href: "https://github.com/mnah05/tripnest" },
-			year: "2026",
+			name: "Nexus KV",
+			tech: "Go, Raft Consensus, WAL, Docker",
+			link: { label: "GitHub", href: "https://github.com/mnah05/nexus" },
+			year: "",
 			points: [
-				"Built a travel-focused backend platform with RESTful APIs covering user management, trip planning, and itinerary workflows; implemented JWT-based auth middleware with secure route protection and token expiration handling",
-				"Leveraged SQLC for type-safe query generation and golang-migrate for version-controlled schema migrations, eliminating a class of runtime type errors common in raw SQL workflows",
-				"Containerized the full stack with Docker Compose and structured the codebase with strict separation between handlers, services, and data access layers for maintainability and testability",
+				"Built a persistent, distributed key-value store in Go implementing the Raft consensus protocol for leader election, replicated writes, and read replicas across a multi-node cluster",
+				"Engineered WAL-backed durability with atomic snapshotting and automatic compaction, exposing operational endpoints (raft status, health/readiness checks, metrics) for cluster observability",
+				"Built an embedded web dashboard for real-time cluster inspection and containerized the stack with Docker Compose, supporting one-command startup of a 3-node local cluster",
 			],
 		},
 	] satisfies Project[],

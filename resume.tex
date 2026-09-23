@@ -1,46 +1,31 @@
 \documentclass[11pt]{article}
 
-\usepackage[a4paper, margin=0.75in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[scaled=0.95]{helvet}
+\usepackage[a4paper, margin=0.6in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
-\usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{xcolor}
 \usepackage{parskip}
-
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.92]{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
 \definecolor{accent}{RGB}{168, 68, 31}
 \definecolor{muted}{RGB}{111, 104, 92}
 
-\hypersetup{
-  colorlinks=true,
-  urlcolor=accent,
-  linkcolor=accent,
-  pdfauthor={Md Nauman Athar Hasan},
-  pdftitle={Md Nauman Athar Hasan - Resume},
-  pdfsubject={Resume},
-  pdfkeywords={Go, TypeScript, JavaScript, SQL, PostgreSQL, MySQL, Redis, Cloudflare Workers, Docker, Backend, Distributed Systems}
-}
-
 \pagestyle{empty}
 
-\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{0.1em}\color{accent}\titlerule]
-\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+% Section headers use small caps so extracted text stays normal-case for ATS keyword matching.
+\titleformat{\section}{\large\bfseries\scshape}{\thesection}{1em}{}[\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{0.8em}{0.4em}
+\setlist{itemsep=1pt, topsep=1pt, parsep=0pt}
 
 \newcommand{\resumeheader}[3]{%
   \begin{center}
     {\LARGE\bfseries #1}\\[0.3em]
-    #2 \\[0.25em]
+    #2 \\
     #3
   \end{center}
-}
-
-\newcommand{\resumeentry}[3]{%
-  \noindent
-  \textbf{#1} \hfill #2\\
-  \textit{#3}
 }
 
 \begin{document}
@@ -48,18 +33,23 @@
 \resumeheader
   {Md Nauman Athar Hasan}
   {Kolkata, India}
-  {\href{mailto:workwithnauman@gmail.com}{workwithnauman@gmail.com} \textbar{} \href{https://mnah.dev}{mnah.dev} \textbar{} \href{https://github.com/mnah05}{GitHub} \textbar{} \href{https://www.linkedin.com/in/nauman-hasan-53a66630a/}{LinkedIn} \textbar{} \href{https://leetcode.com/u/mnah05}{LeetCode}}
+  {\href{mailto:workwithnauman@gmail.com}{workwithnauman@gmail.com} \textbar{} \href{https://link.mnah.dev}{personal site} \textbar{} \href{https://github.com/mnah05}{GitHub} \textbar{} \href{https://www.linkedin.com/in/nauman-hasan-53a66630a/}{LinkedIn} \textbar{} \href{https://leetcode.com/u/mnah05}{LeetCode}}
 
-\section{EDUCATION}
-\resumeentry{Dehradun Institute of Technology (DIT)}{2024 -- 2028}{B.Tech in Computer Science and Engineering, Dehradun, India}
+\section{Education}
+
+\textbf{Dehradun Institute of Technology (DIT)} \hfill 2024 -- 2028\\
+\textit{B.Tech in Computer Science and Engineering, Dehradun, India}
 
 \textit{Relevant Coursework: Data Structures \& Algorithms, Operating Systems, DBMS}
 
-\resumeentry{St.\ Thomas' Day School}{2024}{Higher Secondary (10+2), Kolkata, India}
+\vspace{0.2em}
 
-\section{PROJECTS}
+\textbf{St.\ Thomas' Day School} \hfill 2024\\
+\textit{Higher Secondary (10+2), Kolkata, India}
 
-\textbf{Envitoo} \hfill \href{https://mnah.dev/projects/envitoo}{Details}\\
+\section{Projects}
+
+\textbf{Envitoo} \hfill \href{https://envitoo.mnah.dev/}{Live}\\
 \textit{Go, PostgreSQL, Redis, NATS JetStream, Clerk}
 \begin{itemize}[nosep, leftmargin=1.5em]
   \item Built a production-grade event management platform with a transactional outbox pattern over NATS JetStream, powering reliable async delivery of OTP and ticket-confirmation emails via Resend.
@@ -67,32 +57,36 @@
   \item Built volunteer application management system; deployed on a Linode server behind Caddy with automatic HTTPS.
 \end{itemize}
 
-\vspace{0.6em}
+\vspace{0.35em}
 
 \textbf{go-analytics} \hfill \href{https://github.com/mnah05/go-analytics}{GitHub}\\
 \textit{Go, PostgreSQL, Redis, Asynq, Chi}
 \begin{itemize}[nosep, leftmargin=1.5em]
   \item Built a high-performance URL shortener with real-time click analytics achieving 4,500 req/s sustained throughput and 0.8ms p50 redirect latency, validated via k6 benchmarks on a production-grade setup.
   \item Architected an async event pipeline using Redis Streams and Asynq workers to batch-write click events into PostgreSQL, decoupling hot redirect paths from analytics writes and eliminating database bottlenecks under load.
-  \item Implemented pre-computed analytics rollups using PostgreSQL JSONB, collapsing millions of raw event rows into approx.~30 rows per dashboard query, and designed a Redis caching layer with 30-day TTL for slug lookups.
+  \item Implemented pre-computed analytics rollups using PostgreSQL JSONB, collapsing millions of raw event rows into approx.\ 30 rows per dashboard query, and designed a Redis caching layer with 30-day TTL for slug lookups.
 \end{itemize}
 
-\vspace{0.6em}
+\vspace{0.35em}
 
-\textbf{tripnest} \hfill \href{https://github.com/mnah05/tripnest}{GitHub}\\
-\textit{Go, MySQL, SQLC, Chi, JWT, Docker}
+\textbf{Nexus KV} \hfill \href{https://github.com/mnah05/nexus}{GitHub}\\
+\textit{Go, Raft Consensus, WAL, Docker}
 \begin{itemize}[nosep, leftmargin=1.5em]
-  \item Built a travel-focused backend platform with RESTful APIs covering user management, trip planning, and itinerary workflows; implemented JWT-based auth middleware with secure route protection and token expiration handling.
-  \item Leveraged SQLC for type-safe query generation and golang-migrate for version-controlled schema migrations, eliminating a class of runtime type errors common in raw SQL workflows.
-  \item Containerized the full stack with Docker Compose and structured the codebase with strict separation between handlers, services, and data access layers for maintainability and testability.
+  \item Built a persistent, distributed key-value store in Go implementing the Raft consensus protocol for leader election, replicated writes, and read replicas across a multi-node cluster.
+  \item Engineered WAL-backed durability with atomic snapshotting and automatic compaction, exposing operational endpoints (raft status, health/readiness checks, metrics) for cluster observability.
+  \item Built an embedded web dashboard for real-time cluster inspection and containerized the stack with Docker Compose, supporting one-command startup of a 3-node local cluster.
 \end{itemize}
 
-\section{TECHNICAL SKILLS}
+\section{Technical Skills}
 
-\noindent\textbf{Languages:} Go, TypeScript, JavaScript, SQL \\
-\textbf{Backend:} Go, Hono, Node.js, REST APIs, JWT Authentication, Clerk \\
-\textbf{Databases:} PostgreSQL, MySQL, Redis, SQLC, Supabase, Database Design \\
-\textbf{Cloud \& Infra:} Cloudflare Workers, Cloudflare R2, Wrangler, Docker, Docker Compose, NATS JetStream, Git, Linux, golang-migrate, zerolog, GitHub Actions \\
+\textbf{Languages:} Go, TypeScript, JavaScript, SQL
+
+\textbf{Backend:} Go, Hono, Node.js, REST APIs, JWT Authentication, Clerk
+
+\textbf{Databases:} PostgreSQL, MySQL, Redis, SQLC, Supabase, Database Design
+
+\textbf{Cloud \& Infra:} Cloudflare Workers, Cloudflare R2, Wrangler, Docker, Docker Compose, NATS JetStream, Git, Linux, golang-migrate, zerolog, GitHub Actions
+
 \textbf{Concepts:} Async Job Processing, Redis Streams, Write-Behind Caching, Rate Limiting, Idempotency, Graceful Shutdown
 
 \end{document}

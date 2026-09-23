@@ -60,3 +60,14 @@ footer {
 	text-decoration-color: var(--ink);
 	color: var(--ink);
 }
+
+@media (max-width: 640px) {
+	.footer-inner {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.footer-links {
+		flex-wrap: wrap;
+	}
+}

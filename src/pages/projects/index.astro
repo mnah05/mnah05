@@ -1,37 +1,17 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
 import { PROJECTS } from "../../data/projects";
 import "../../styles/home.css";
 
 const projects = [...PROJECTS].sort((a, b) => b.year - a.year);
 
-let lastYear: number | null = null;
 const viewSlugs = projects.map((project) => `projects/${project.slug}`);
 ---
 
 <BaseLayout title="Projects | hasan" description="A selection of projects by Hasan" path="/projects">
 	<main>
-		<ul class="index-list">
-			{projects.map((project) => {
-				const showYear = project.year !== lastYear;
-				lastYear = project.year;
-				return (
-					<li class="group">
-						<a href={`/projects/${project.slug}`}>
-							<span class="index-row">
-								{showYear ? (
-									<span class="index-year">{project.year}</span>
-									<span class="index-title-wrap"><span class="index-title">{project.name}</span></span>
-								) : (
-									<span class="index-row-indented index-title-wrap"><span class="index-title">{project.name}</span></span>
-								)}
-								<span class="index-views" data-view-count={`projects/${project.slug}`}>—</span>
-							</span>
-						</a>
-					</li>
-				);
-			})}
-		</ul>
+		<div class="project-card-list">{projects.map((project) => <ProjectCard project={project} />)}</div>
 	</main>
 	<script define:vars={{ viewSlugs }}>
 		(async () => {
