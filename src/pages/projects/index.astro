@@ -1,17 +1,52 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Icon from "../../components/Icon.astro";
 import { PROJECTS } from "../../data/projects";
 import "../../styles/home.css";
-import "../../styles/project.css";
+
+const projects = [...PROJECTS].sort((a, b) => b.year - a.year);
+
+let lastYear: number | null = null;
+const viewSlugs = projects.map((project) => `projects/${project.slug}`);
 ---
 
 <BaseLayout title="Projects | hasan" description="A selection of projects by Hasan" path="/projects">
-	<main class="project-page">
-		<div class="back-nav"><a href="/" class="back-link"><Icon name="arrow-left" /> Home</a></div>
-		<header class="project-header"><h1>Projects</h1><p class="project-tagline">Selected work. Click any project for details, status, and source links.</p><hr class="project-divider" /></header>
-		<ul class="projects project-index-list">
-			{PROJECTS.map((project) => <li><a href={`/projects/${project.slug}`} class="project-card-link"><div class="project-card"><div class="project-head"><span class="project-name">{project.name}</span><div class="project-meta">{project.year && <span class="project-year">{project.year}</span>}<span class={`status-pill status-pill-${project.status.tone}`}>{project.status.tone === "down" ? "offline" : "live"}</span><span class="project-arrow" aria-hidden="true">&rarr;</span></div></div><p class="project-description">{project.short}</p></div></a></li>)}
+	<main>
+		<ul class="index-list">
+			{projects.map((project) => {
+				const showYear = project.year !== lastYear;
+				lastYear = project.year;
+				return (
+					<li class="group">
+						<a href={`/projects/${project.slug}`}>
+							<span class="index-row">
+								{showYear ? (
+									<span class="index-year">{project.year}</span>
+									<span class="index-title-wrap"><span class="index-title">{project.name}</span></span>
+								) : (
+									<span class="index-row-indented index-title-wrap"><span class="index-title">{project.name}</span></span>
+								)}
+								<span class="index-views" data-view-count={`projects/${project.slug}`}>—</span>
+							</span>
+						</a>
+					</li>
+				);
+			})}
 		</ul>
 	</main>
+	<script define:vars={{ viewSlugs }}>
+		(async () => {
+			try {
+				const res = await fetch(`/api/views?slugs=${encodeURIComponent(viewSlugs.join(","))}`);
+				if (!res.ok) return;
+				const data = await res.json();
+				for (const el of document.querySelectorAll("[data-view-count]")) {
+					const slug = el.getAttribute("data-view-count");
+					const count = data.views?.[slug];
+					if (typeof count === "number") el.textContent = count.toLocaleString("en-US");
+				}
+			} catch {
+				/* best-effort */
+			}
+		})();
+	</script>
 </BaseLayout>

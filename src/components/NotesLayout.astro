@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import FormattedDate from "./FormattedDate.astro";
 import ViewCounter from "./ViewCounter.astro";
-import Icon from "./Icon.astro";
 import "../styles/notes-post.css";
 
 interface Props {
@@ -21,21 +20,16 @@ const path = slug ? `/notes/${slug}` : undefined;
 <BaseLayout title={title} description={description} path={path} image={heroImage}>
 	<main class="notes-post-page">
 		<article class="post-article">
-			<div class="back-nav"><a href="/notes" class="back-link"><Icon name="arrow-left" /> Back to all notes</a></div>
-			{heroImage && <div class="hero-image"><img width="1020" height="510" src={heroImage} alt="" /></div>}
-			<div class="prose">
-				<header class="post-header">
-					<div class="post-meta-line">
-						<span class="post-date-badge"><FormattedDate date={pubDate} /></span>
-						{updatedDate && <span class="last-updated-on">(Updated <FormattedDate date={updatedDate} />)</span>}
-						{slug && <ViewCounter slug={slug} />}
-					</div>
-					<h1>{title}</h1>
-					{description && <p class="post-lead">{description}</p>}
-					<hr class="post-divider" />
-				</header>
-				<div class="post-content"><slot /></div>
+			<h1>{title}</h1>
+			<div class="post-meta-line">
+				<a href="https://x.com/mnah05" target="_blank" rel="noopener noreferrer">@mnah05</a>
+				<span>|</span>
+				<FormattedDate date={pubDate} />
+				{updatedDate && <span>(Updated <FormattedDate date={updatedDate} />)</span>}
+				{slug && <span><ViewCounter slug={slug} /></span>}
 			</div>
+			{heroImage && <div class="hero-image"><img width="1020" height="510" src={heroImage} alt="" /></div>}
+			<div class="post-content"><slot /></div>
 		</article>
 	</main>
 </BaseLayout>

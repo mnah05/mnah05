@@ -1,49 +1,86 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { PROJECTS } from "../data/projects";
 import "../styles/home.css";
 
-const projects = [
-	{ year: 2026, name: "envitoo", description: "Event management platform with ticketing, QR check-in, and volunteer coordination.", href: "/projects/envitoo" },
-	{ year: 2026, name: "go-analytics", description: "High-performance URL shortener with real-time click analytics and async workers.", href: "/projects/go-analytics" },
-	{ year: 2026, name: "nexus", description: "Distributed, persistent key-value store with Raft consensus and auto leader election.", href: "/projects/nexus" },
-	{ year: 2026, name: "tripnest", description: "Travel planning backend with type-safe SQL, migrations, and Dockerized services.", href: "/projects/tripnest" },
-	{ name: "boiler-go", description: "Opinionated Go starter with clean structure and common tooling wired up.", href: "https://github.com/mnah05/boiler-go" },
-	{ name: "read", description: "Articles, papers, and references I am reading or have saved.", href: "https://raindrop.io/workwithnauman/reads-72899412" },
-];
-const stack = ["Go", "TypeScript", "Hono", "Cloudflare Workers", "PostgreSQL", "Redis", "Clerk", "Supabase", "Cloudflare R2", "Docker", "NATS JetStream"];
-const posts = (await getCollection("notes")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+type IndexItem = {
+	year: number;
+	title: string;
+	href: string;
+	viewSlug: string;
+	kind: string;
+	sortTime: number;
+};
+
+const notes = await getCollection("notes");
+
+const noteItems: IndexItem[] = notes.map((post) => ({
+	year: post.data.pubDate.getFullYear(),
+	title: post.data.title,
+	href: `/notes/${post.id}`,
+	viewSlug: post.id,
+	kind: "note",
+	sortTime: post.data.pubDate.valueOf(),
+}));
+
+const projectItems: IndexItem[] = PROJECTS.map((project) => ({
+	year: project.year,
+	title: project.name,
+	href: `/projects/${project.slug}`,
+	viewSlug: `projects/${project.slug}`,
+	kind: "project",
+	// Projects only carry a year, so pin them to Jan 1 — notes with real
+	// dates in the same year naturally sort above them (newest first).
+	sortTime: new Date(project.year, 0, 1).valueOf(),
+}));
+
+const items = [...noteItems, ...projectItems].sort((a, b) => b.sortTime - a.sortTime || b.year - a.year);
+
+let lastYear: number | null = null;
+const viewSlugs = items.map((item) => item.viewSlug);
 ---
 
 <BaseLayout title="hasan" description="The personal website of Md Nauman Athar Hasan: projects and notes." path="/">
-	<main class="home">
-		<section class="hero">
-			<h1>hasan</h1>
-			<p class="role">I build useful things and learn along the way.</p>
-			<p class="intro">I am a developer who enjoys building backend systems, tools, and small experiments for the web.</p>
-			<div class="hero-links" aria-label="Social links">
-				<a href="mailto:workwithnauman@gmail.com">Email</a>
-				<a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">GitHub</a>
-				<a href="https://www.linkedin.com/in/nauman-hasan-53a66630a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-			</div>
-			<img class="profile-photo" src="https://github.com/mnah05.png" alt="Md Nauman Athar Hasan" />
-		</section>
-
-		<section id="about" class="text-section" aria-labelledby="about-heading">
-			<h2 id="about-heading">About</h2>
-			<p>I enjoy turning interesting ideas into working software. Most of my projects are backend systems, developer tools, or small web experiments.</p>
-			<p>Recently, I have been learning more about distributed systems, databases, and concurrent programs. I write about what I learn so it is easier to remember and share.</p>
-		</section>
-
-		<section class="work-section" aria-labelledby="work-heading">
-			<h2 id="work-heading">Selected Projects</h2>
-			<ul class="work-list">
-				{projects.map((project) => <li><a href={project.href} target={project.href.startsWith("/") ? undefined : "_blank"} rel={project.href.startsWith("/") ? undefined : "noopener noreferrer"}><span class="work-year">{project.year}</span><span class="work-name">{project.name}</span><span class="work-description">{project.description}</span></a></li>)}
-			</ul>
-		</section>
-
-		<section class="text-section skills-section" aria-labelledby="skills-heading"><h2 id="skills-heading">Tools I Use</h2><p>{stack.join(" / ")}</p></section>
-
-		{posts.length > 0 && <section id="notes" class="writing-section" aria-labelledby="notes-heading"><h2 id="notes-heading">Notes</h2><ul class="writing-list">{posts.map((post) => <li><a href={`/notes/${post.id}`}>{post.data.title}</a></li>)}</ul></section>}
+	<main>
+		<ul class="index-list">
+			{items.map((item) => {
+				const showYear = item.year !== lastYear;
+				lastYear = item.year;
+				return (
+					<li class="group">
+						<a href={item.href}>
+							<span class="index-row">
+								{showYear ? (
+									<span class="index-year">{item.year}</span>
+									<span class="index-title-wrap"><span class="index-title">{item.title}</span><span class="index-kind">{item.kind}</span></span>
+								) : (
+									<span class="index-row-indented index-title-wrap"><span class="index-title">{item.title}</span><span class="index-kind">{item.kind}</span></span>
+								)}
+								<span class="index-views" data-view-count={item.viewSlug}>—</span>
+							</span>
+						</a>
+					</li>
+				);
+			})}
+		</ul>
 	</main>
+	<script define:vars={{ viewSlugs }}>
+		(async () => {
+			const els = [...document.querySelectorAll("[data-view-count]")];
+			if (els.length === 0) return;
+			try {
+				const res = await fetch(`/api/views?slugs=${encodeURIComponent(viewSlugs.join(","))}`);
+				if (!res.ok) return;
+				const data = await res.json();
+				for (const el of els) {
+					const slug = el.getAttribute("data-view-count");
+					const count = data.views?.[slug];
+					if (typeof count === "number") el.textContent = count.toLocaleString("en-US");
+				}
+			} catch {
+				/* views are best-effort */
+			}
+		})();
+	</script>
 </BaseLayout>

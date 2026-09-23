@@ -5,7 +5,7 @@ import NotesLayout from "../components/NotesLayout.astro";
 <NotesLayout title="Colophon" description="How this site is built and deployed" pubDate={new Date("August 25 2026")}>
 	<p>This site is a static site built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>. I write notes in Markdown, and Astro turns them into web pages at build time.</p>
 	<p>The site is deployed as static files on <a href="https://workers.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Workers</a>. Unknown routes are sent to the app so navigation works without a full page reload.</p>
-	<p>The design uses a warm paper-and-ink palette with light and dark themes, with CSS custom properties controlling the colors and layout. Use the sun/moon button in the header to switch — your choice is remembered.</p>
-	<p>The site uses the familiar Courier typewriter face so the page feels like a quiet working notebook.</p>
+	<p>The design is minimal and text-first, inspired by rauchg.com: a centered column, year-grouped index lists with view counts, and pill hover highlights — with light and dark themes. Use the sun/moon button in the header to switch — your choice is remembered.</p>
+	<p>Body text is set in the system sans stack; view counts are served by a small Cloudflare Worker backed by D1.</p>
 	<details><summary>One small secret</summary><p>If you found this, you have earned an imaginary coffee. Keep looking closely.</p></details>
 </NotesLayout>

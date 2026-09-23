@@ -1,39 +1,13 @@
 ---
-const SOCIALS = [
-	{ label: "gh", href: "https://github.com/mnah05/" },
-	{ label: "x", href: "https://x.com/mnah05" },
-	{ label: "in", href: "https://www.linkedin.com/in/nauman-hasan-53a66630a/" },
-	{ label: "email", href: "mailto:workwithnauman@gmail.com" },
-];
 ---
 
 <footer>
 	<div class="footer-inner">
 		<div class="footer-about">
-			<p class="copyright">
-				<button class="copyright-trigger" type="button">&copy; {new Date().getFullYear()} hasan</button>
-				<span class="secret-message" hidden>you found the footnote.</span>
-			</p>
-			<p class="footer-note">Best viewed in any browser, at any resolution.</p>
+			<span class="copyright">hasan (<a href="https://x.com/mnah05" target="_blank" rel="noopener noreferrer">@mnah05</a>)</span>
 		</div>
 		<ul class="footer-links">
-			<li><a href="/resume">resume</a></li>
-			<li><a href="/colophon">colophon</a></li>
-			{SOCIALS.map((social) => (
-				<li><a href={social.href} target="_blank" rel="noopener noreferrer">{social.label}</a></li>
-			))}
+			<li><a href="https://github.com/mnah05/mnah05" target="_blank" rel="noopener noreferrer">Source</a></li>
 		</ul>
-		<span class="web-badge" aria-hidden="true">No pop-ups<br />No autoplay</span>
 	</div>
 </footer>
-
-<script>
-	const trigger = document.querySelector<HTMLButtonElement>(".copyright-trigger");
-	const message = document.querySelector<HTMLElement>(".secret-message");
-	let clickCount = 0;
-
-	trigger?.addEventListener("click", () => {
-		clickCount += 1;
-		if (clickCount >= 5 && message) message.hidden = false;
-	});
-</script>

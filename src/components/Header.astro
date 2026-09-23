@@ -4,14 +4,14 @@ const SITE_TITLE = "hasan";
 
 <header class="site-header">
 	<nav>
-		<a href="/" class="brand"><span class="brand-text">{SITE_TITLE}</span><span class="caret" aria-hidden="true"></span></a>
+		<a href="/" class="brand">{SITE_TITLE}</a>
 		<div class="nav-links">
-			<a href="/notes">Notes</a>
-			<a href="/about">About</a>
+			<a href="/about"><span>About</span></a>
+			<a href="https://x.com/mnah05" target="_blank" rel="noopener noreferrer"><span><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg><span>Follow me</span></span></a>
 			<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
 				<span class="icon-stack" aria-hidden="true">
-					<svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8 8 0 0 1 10.5 4 6.5 6.5 0 1 0 20 13.5Z" /></svg>
-					<svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+					<svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8 8 0 0 1 10.5 4 6.5 6.5 0 1 0 20 13.5Z" /></svg>
+					<svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
 				</span>
 			</button>
 		</div>
@@ -22,7 +22,6 @@ const SITE_TITLE = "hasan";
 	const toggle = document.getElementById("theme-toggle");
 	const meta = document.getElementById("meta-theme-color");
 	const media = window.matchMedia("(prefers-color-scheme: dark)");
-	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 	function currentTheme() {
 		return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
@@ -38,34 +37,21 @@ const SITE_TITLE = "hasan";
 	function applyTheme(theme) {
 		if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
 		else document.documentElement.removeAttribute("data-theme");
-		if (meta) meta.setAttribute("content", theme === "dark" ? "#191410" : "#f5efe5");
+		if (meta) meta.setAttribute("content", theme === "dark" ? "#0a0a0a" : "#ffffff");
 		try {
 			localStorage.setItem("theme", theme);
 		} catch (e) {
-			/* storage unavailable — theme still applies for this session */
+			/* storage unavailable */
 		}
 		syncButton(theme);
 	}
 
-	function flipTheme() {
-		const next = currentTheme() === "dark" ? "light" : "dark";
-		// Keep every themed property easing for the duration of the switch.
-		document.documentElement.classList.add("theme-anim");
-		window.setTimeout(() => document.documentElement.classList.remove("theme-anim"), 550);
-
-		// Use View Transitions for a fluid cross-fade when available.
-		const startTransition = document.startViewTransition?.bind(document);
-		if (startTransition && !reduceMotion.matches) {
-			startTransition(() => applyTheme(next));
-		} else {
-			applyTheme(next);
-		}
-	}
+	toggle?.addEventListener("click", () => {
+		applyTheme(currentTheme() === "dark" ? "light" : "dark");
+	});
 
 	syncButton(currentTheme());
-	toggle?.addEventListener("click", flipTheme);
 
-	// Follow the OS while the visitor has no saved choice.
 	media.addEventListener?.("change", (event) => {
 		let saved = null;
 		try {
