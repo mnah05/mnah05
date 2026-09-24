@@ -1,24 +1,25 @@
 {
-	"name": "domain-page",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"resume:pdf": "bash scripts/build-resume.sh",
-		"deploy": "wrangler deploy",
-		"preview": "astro preview",
-		"check": "tsc --noEmit",
-		"test": "node --test src/scripts/views.test.mjs"
-	},
-	"dependencies": {
-		"astro": "^7.3.2"
-	},
-	"devDependencies": {
-		"@astrojs/sitemap": "^3.7.4",
-		"npm-check-updates": "^23.0.2",
-		"typescript": "~7.0.2",
-		"wrangler": "^4.122.0"
-	}
+  "name": "domain-page",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "resume:pdf": "bash scripts/build-resume.sh",
+    "deploy": "wrangler deploy",
+    "preview": "astro preview",
+    "check": "tsc --noEmit",
+    "test": "node --test src/scripts/views.test.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "npm-check-updates": "^23.0.2",
+    "prettier": "3.9.9",
+    "typescript": "~7.0.2",
+    "wrangler": "^4.122.0"
+  }
 }

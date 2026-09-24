@@ -1,24 +1,24 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "domain-page",
-	"account_id": "dfa3410458ae15e524f717c7c3f37d35",
-	"compatibility_date": "2026-07-31",
-	"assets": {
-		"directory": "dist",
-		"binding": "ASSETS"
-	},
-	"main": "src/worker.ts",
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "domain-page-views",
-			"database_id": "ef923f16-0d19-467c-86b7-ff794694ce78",
-			"migrations_dir": "migrations"
-		}
-	],
-	"build": {
-		"command": "npm run build",
-		"cwd": ".",
-		"watch_dir": "./src"
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "domain-page",
+  "account_id": "dfa3410458ae15e524f717c7c3f37d35",
+  "compatibility_date": "2026-07-31",
+  "assets": {
+    "directory": "dist",
+    "binding": "ASSETS",
+  },
+  "main": "src/worker.ts",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "domain-page-views",
+      "database_id": "ef923f16-0d19-467c-86b7-ff794694ce78",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "build": {
+    "command": "npm run build",
+    "cwd": ".",
+    "watch_dir": "./src",
+  },
 }

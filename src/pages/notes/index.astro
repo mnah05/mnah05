@@ -33,7 +33,7 @@ const viewSlugs = posts.map((post) => post.id);
 		})}</ul>}
 	</main>
 	<script define:vars={{ viewSlugs }}>
-		(async () => {
+		const loadViewCounts = async () => {
 			try {
 				const res = await fetch(`/api/views?slugs=${encodeURIComponent(viewSlugs.join(","))}`);
 				if (!res.ok) return;
@@ -46,6 +46,8 @@ const viewSlugs = posts.map((post) => post.id);
 			} catch {
 				/* best-effort */
 			}
-		})();
+		};
+		if ("requestIdleCallback" in window) window.requestIdleCallback(loadViewCounts, { timeout: 1500 });
+		else window.setTimeout(loadViewCounts, 0);
 	</script>
 </BaseLayout>

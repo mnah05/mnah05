@@ -54,7 +54,7 @@ const viewSlugs = [...projects, ...sortedNotes].map((item) => item.viewSlug);
 		</section>
 	</main>
 	<script define:vars={{ viewSlugs }}>
-		(async () => {
+		const loadViewCounts = async () => {
 			const els = [...document.querySelectorAll("[data-view-count]")];
 			if (els.length === 0) return;
 			try {
@@ -69,6 +69,8 @@ const viewSlugs = [...projects, ...sortedNotes].map((item) => item.viewSlug);
 			} catch {
 				/* views are best-effort */
 			}
-		})();
+		};
+		if ("requestIdleCallback" in window) window.requestIdleCallback(loadViewCounts, { timeout: 1500 });
+		else window.setTimeout(loadViewCounts, 0);
 	</script>
 </BaseLayout>

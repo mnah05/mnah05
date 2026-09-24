@@ -5,146 +5,148 @@
 */
 
 :root {
-	color-scheme: light;
+  color-scheme: light;
 
-	--bg: #ffffff;
-	--ink: #171717;
-	--muted: #737373;
-	--hover: #e5e5e5;
-	--border: #e5e5e5;
-	--link-underline: #d4d4d4;
-	--measure: 42rem;
-	--sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-	--mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --bg: #ffffff;
+  --ink: #171717;
+  --muted: #737373;
+  --hover: #e5e5e5;
+  --border: #e5e5e5;
+  --link-underline: #d4d4d4;
+  --measure: 42rem;
+  --sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 :root[data-theme="dark"] {
-	color-scheme: dark;
+  color-scheme: dark;
 
-	--bg: #0a0a0a;
-	--ink: #ededed;
-	--muted: #a3a3a3;
-	--hover: #262626;
-	--border: #262626;
-	--link-underline: #404040;
+  --bg: #0a0a0a;
+  --ink: #ededed;
+  --muted: #a3a3a3;
+  --hover: #262626;
+  --border: #262626;
+  --link-underline: #404040;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-	-webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-	font-family: var(--sans);
-	margin: 0;
-	padding: 0;
-	background: var(--bg);
-	color: var(--ink);
-	font-size: 15px;
-	line-height: 1.6;
-	-webkit-font-smoothing: antialiased;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+  font-family: var(--sans);
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
-	color: inherit;
+  color: inherit;
 }
 
 a:focus-visible,
 button:focus-visible {
-	outline: 2px solid var(--muted);
-	outline-offset: 2px;
-	border-radius: 6px;
+  outline: 2px solid var(--muted);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 h1,
 h2,
 h3,
 h4 {
-	margin: 0;
-	line-height: 1.25;
-	letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 main {
-	width: 100%;
-	max-width: var(--measure);
-	margin: 0 auto;
-	padding: 0.75rem 1.5rem 2.5rem;
-	flex: 1;
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem 2.5rem;
+  flex: 1;
 }
 
 @media (min-width: 768px) {
-	main {
-		padding-top: 1.5rem;
-	}
+  main {
+    padding-top: 1.5rem;
+  }
 }
 
 p {
-	margin: 0 0 1.25em 0;
+  margin: 0 0 1.25em 0;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 code {
-	font-family: var(--mono);
-	font-size: 0.88em;
+  font-family: var(--mono);
+  font-size: 0.88em;
 }
 
 pre {
-	padding: 1rem;
-	background: var(--hover);
-	border-radius: 8px;
-	overflow-x: auto;
+  padding: 1rem;
+  background: var(--hover);
+  border-radius: 8px;
+  overflow-x: auto;
 }
 
 pre > code {
-	background: transparent;
+  background: transparent;
 }
 
 ::selection {
-	background: var(--hover);
+  background: var(--hover);
 }
 
 /* Compatibility shims so older pages (resume, 404) keep rendering
    on the new minimal palette until they are restyled. */
 :root {
-	--hairline: var(--border);
-	--hairline-strong: var(--muted);
-	--surface: var(--bg);
-	--surface-card: var(--bg);
-	--surface-hover: var(--hover);
-	--muted-old: var(--muted);
-	--accent: var(--ink);
-	--accent-strong: var(--ink);
-	--accent-subtle: var(--hover);
-	--accent-glow: transparent;
-	--tag-bg: var(--hover);
-	--tag-border: var(--border);
-	--tag-text: var(--muted);
-	--card-shadow: none;
-	--card-shadow-hover: none;
-	--link-visited: var(--ink);
-	--bevel-light: transparent;
-	--bevel-dark: transparent;
-	--bevel-out: none;
-	--bevel-pressed: none;
-	--display: var(--sans);
-	--body: var(--sans);
+  --hairline: var(--border);
+  --hairline-strong: var(--muted);
+  --surface: var(--bg);
+  --surface-card: var(--bg);
+  --surface-hover: var(--hover);
+  --muted-old: var(--muted);
+  --accent: var(--ink);
+  --accent-strong: var(--ink);
+  --accent-subtle: var(--hover);
+  --accent-glow: transparent;
+  --tag-bg: var(--hover);
+  --tag-border: var(--border);
+  --tag-text: var(--muted);
+  --card-shadow: none;
+  --card-shadow-hover: none;
+  --link-visited: var(--ink);
+  --bevel-light: transparent;
+  --bevel-dark: transparent;
+  --bevel-out: none;
+  --bevel-pressed: none;
+  --display: var(--sans);
+  --body: var(--sans);
 }
 
 @media (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
-	}
+  html {
+    scroll-behavior: auto;
+  }
 }

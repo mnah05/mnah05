@@ -1,94 +1,94 @@
 /* rauchg-style post: big title, tiny gray meta, clean prose */
 .notes-post-page {
-	max-width: var(--measure);
-	font-size: 0.9375rem;
+  max-width: var(--measure);
+  font-size: 0.9375rem;
 }
 
 .post-article h1 {
-	font-size: 2rem;
-	font-weight: 700;
-	letter-spacing: -0.02em;
-	margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
 }
 
 .post-meta-line {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 0.35rem;
-	color: var(--muted);
-	font-size: 0.8rem;
-	margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
 }
 
 .post-meta-line a {
-	color: inherit;
-	text-decoration: underline;
-	text-decoration-color: var(--link-underline);
-	text-underline-offset: 3px;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
 }
 
 .post-meta-line a:hover {
-	color: var(--ink);
+  color: var(--ink);
 }
 
 .post-content {
-	color: var(--ink);
+  color: var(--ink);
 }
 
 .post-content p {
-	margin-bottom: 1.25em;
-	line-height: 1.7;
+  margin-bottom: 1.25em;
+  line-height: 1.7;
 }
 
 .post-content h2 {
-	font-size: 1.25rem;
-	margin: 2rem 0 0.75rem;
+  font-size: 1.25rem;
+  margin: 2rem 0 0.75rem;
 }
 
 .post-content h3 {
-	font-size: 1.05rem;
-	margin: 1.5rem 0 0.5rem;
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.5rem;
 }
 
 .post-content a {
-	color: var(--ink);
-	text-decoration: underline;
-	text-decoration-color: var(--link-underline);
-	text-underline-offset: 3px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
 }
 
 .post-content a:hover {
-	text-decoration-color: var(--ink);
+  text-decoration-color: var(--ink);
 }
 
 .post-content ul,
 .post-content ol {
-	margin: 1rem 0 1.5rem;
-	padding-left: 1.5rem;
+  margin: 1rem 0 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .post-content li {
-	margin-bottom: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .post-content pre {
-	font-size: 0.85rem;
+  font-size: 0.85rem;
 }
 
 .back-nav {
-	margin-bottom: 1.5rem;
-	font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
 }
 
 .back-link {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.35rem;
-	color: var(--muted);
-	text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted);
+  text-decoration: none;
 }
 
 .back-link:hover {
-	color: var(--ink);
+  color: var(--ink);
 }
