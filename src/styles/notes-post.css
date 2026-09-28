@@ -92,3 +92,93 @@
 .back-link:hover {
   color: var(--ink);
 }
+
+/* ---- note highlights (mark) ---- */
+.post-content mark {
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  color: inherit;
+}
+
+.post-content mark.hl-yellow {
+  background: #fef08a;
+}
+
+.post-content mark.hl-green {
+  background: #bbf7d0;
+}
+
+.post-content mark.hl-red {
+  background: #fecaca;
+}
+
+.post-content mark.hl-blue {
+  background: #bfdbfe;
+}
+
+:root[data-theme="dark"] .post-content mark {
+  color: #171717;
+}
+
+:root[data-theme="dark"] .post-content mark.hl-yellow {
+  background: #fde047;
+}
+
+:root[data-theme="dark"] .post-content mark.hl-green {
+  background: #86efac;
+}
+
+:root[data-theme="dark"] .post-content mark.hl-red {
+  background: #fca5a5;
+}
+
+:root[data-theme="dark"] .post-content mark.hl-blue {
+  background: #93c5fd;
+}
+
+/* ---- callouts (blockquote) ---- */
+.post-content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--ink);
+  background: var(--hover);
+  border-radius: 0 8px 8px 0;
+}
+
+.post-content blockquote p {
+  margin: 0;
+}
+
+.post-content blockquote p + p {
+  margin-top: 0.5rem;
+}
+
+/* ---- mermaid diagrams ---- */
+.post-content pre.mermaid,
+.post-content .mermaid {
+  background: var(--hover);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.post-content th,
+.post-content td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-content th {
+  font-weight: 600;
+}

@@ -13,6 +13,7 @@
     "test": "node --test src/scripts/views.test.mjs"
   },
   "dependencies": {
+    "@astrojs/mdx": "^8.0.2",
     "astro": "^7.3.2"
   },
   "devDependencies": {
