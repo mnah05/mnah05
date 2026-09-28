@@ -153,9 +153,8 @@
   margin-top: 0.5rem;
 }
 
-/* ---- mermaid diagrams ---- */
-.post-content pre.mermaid,
-.post-content .mermaid {
+/* ---- plain-text diagrams ---- */
+.post-content pre:has(> code.language-text) {
   background: var(--hover);
   border: 1px solid var(--border);
   border-radius: 8px;

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "wrangler d1 migrations apply domain-page-views --local && wrangler dev",
     "build": "astro build",
     "resume:pdf": "bash scripts/build-resume.sh",
     "deploy": "wrangler deploy",

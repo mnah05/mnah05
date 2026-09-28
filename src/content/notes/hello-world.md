@@ -1,6 +1,6 @@
 ---
 title: "Hello World"
-description: "Why a tiny first program is still worth writing."
+description: "Why a tiny first Go program is still worth writing."
 pubDate: "2026-08-18"
 ---
 
@@ -8,15 +8,7 @@ pubDate: "2026-08-18"
 
 In a time when AI can generate code in seconds, writing and running a small program yourself is still valuable. It helps you understand what the code does and gives you the confidence to build more.
 
-Here are a few versions I enjoy.
-
-## Python
-
-```python
-print("Hello, World!")
-```
-
-## Go
+Here is the Go version:
 
 ```go
 package main
@@ -24,35 +16,7 @@ package main
 import "fmt"
 
 func main() {
+	// Println writes the greeting followed by a newline.
 	fmt.Println("Hello, World!")
-}
-```
-
-## TypeScript
-
-```ts
-console.log("Hello, World!");
-```
-
-## Lua
-
-```lua
-print("Hello, World!")
-```
-
-## Bash
-
-```bash
-echo "Hello, World!"
-```
-
-## C
-
-```c
-#include <stdio.h>
-
-int main(void) {
-	printf("Hello, World!\n");
-	return 0;
 }
 ```

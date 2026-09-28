@@ -22,8 +22,6 @@ interface Env {
 
 const SLUG_RE = /^[a-zA-Z0-9._\-/]{1,200}$/;
 const MAX_BATCH = 50;
-const VIEW_COUNTS_CACHE_CONTROL =
-  "public, max-age=60, s-maxage=300, stale-while-revalidate=60";
 
 function json(
   data: unknown,
@@ -41,6 +39,14 @@ function json(
 
 function isValidSlug(slug: string | null): slug is string {
   return !!slug && SLUG_RE.test(slug);
+}
+
+function decodeSlug(value: string): string | null {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return null;
+  }
 }
 
 async function hashViewer(ip: string, userAgent: string): Promise<string> {
@@ -66,7 +72,6 @@ export default {
   async fetch(
     request: Request,
     env: Env,
-    ctx: ExecutionContext,
   ): Promise<Response> {
     const url = new URL(request.url);
 
@@ -79,7 +84,7 @@ export default {
       );
     }
 
-    if (!url.pathname.startsWith("/api/views")) {
+    if (url.pathname !== "/api/views" && !url.pathname.startsWith("/api/views/")) {
       return env.ASSETS.fetch(request);
     }
 
@@ -90,17 +95,13 @@ export default {
       if (request.method === "GET") {
         const batch = url.searchParams.get("slugs");
         if (batch !== null) {
-          const cache = await caches.open("view-counts");
-          const cached = await cache.match(request);
-          if (cached) return cached;
-
           const slugs = batch
             .split(",")
             .map((s) => s.trim())
             .filter((s) => isValidSlug(s))
             .slice(0, MAX_BATCH);
           if (slugs.length === 0)
-            return json({ views: {} }, 200, VIEW_COUNTS_CACHE_CONTROL);
+            return json({ views: {} });
           const placeholders = slugs.map(() => "?").join(",");
           const { results } = await env.DB.prepare(
             `SELECT slug, views FROM page_views WHERE slug IN (${placeholders})`,
@@ -110,15 +111,13 @@ export default {
           const views: Record<string, number> = {};
           for (const s of slugs) views[s] = 0;
           for (const row of results ?? []) views[row.slug] = row.views;
-          const response = json({ views }, 200, VIEW_COUNTS_CACHE_CONTROL);
-          ctx.waitUntil(cache.put(request, response.clone()));
-          return response;
+          return json({ views });
         }
 
         const parts = url.pathname.split("/").filter(Boolean); // ["api","views",slug?]
         const slug =
           parts.length >= 3
-            ? decodeURIComponent(parts.slice(2).join("/"))
+            ? decodeSlug(parts.slice(2).join("/"))
             : url.searchParams.get("slug");
         if (!isValidSlug(slug))
           return json({ error: "missing or invalid slug" }, 400);
@@ -136,7 +135,7 @@ export default {
         let slug: string | null = null;
         const parts = url.pathname.split("/").filter(Boolean);
         if (parts.length >= 3)
-          slug = decodeURIComponent(parts.slice(2).join("/"));
+          slug = decodeSlug(parts.slice(2).join("/"));
         if (!isValidSlug(slug)) {
           try {
             const body = (await request.json()) as { slug?: string };

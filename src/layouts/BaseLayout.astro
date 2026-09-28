@@ -69,29 +69,6 @@ const ogImage = image ? new URL(image, site).href : undefined;
 		<Header />
 		<slot />
 		<Footer />
-		<script is:inline src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-		<script is:inline>
-			(function () {
-				function renderMermaid() {
-					if (!window.mermaid) return;
-					var dark = document.documentElement.getAttribute("data-theme") === "dark";
-					window.mermaid.initialize({ startOnLoad: false, theme: dark ? "dark" : "default" });
-					document.querySelectorAll("pre > code.language-mermaid").forEach(function (code) {
-						var pre = code.parentElement;
-						var div = document.createElement("div");
-						div.className = "mermaid";
-						div.textContent = code.textContent;
-						pre.replaceWith(div);
-					});
-					window.mermaid.run({ querySelector: ".mermaid" });
-				}
-				if (document.readyState === "loading") {
-					document.addEventListener("DOMContentLoaded", renderMermaid);
-				} else {
-					renderMermaid();
-				}
-			})();
-		</script>
 		<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8c9a6f2e16c944d9b9e479f53387f7b2"}'></script>
 	</body>
 </html>
