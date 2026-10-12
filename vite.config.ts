@@ -9,7 +9,6 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 export default defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
     mdx({
       providerImportSource: "@mdx-js/react",
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
@@ -21,5 +20,6 @@ export default defineConfig({
       },
     }),
     viteReact(),
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
   ],
 });
