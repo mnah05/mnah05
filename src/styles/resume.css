@@ -49,6 +49,17 @@
   box-shadow: 0 4px 12px var(--accent-glow);
 }
 
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.icon img {
+  display: block;
+}
+
 .resume-contact {
   color: var(--muted);
   font-size: 0.95em;
