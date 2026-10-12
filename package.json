@@ -3,24 +3,40 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
   "scripts": {
-    "dev": "wrangler d1 migrations apply domain-page-views --local && wrangler dev",
-    "build": "astro build",
+    "dev": "vite dev --port 3000",
+    "build": "tsr generate && vite build",
+    "generate-routes": "tsr generate",
     "resume:pdf": "bash scripts/build-resume.sh",
-    "deploy": "wrangler deploy",
-    "preview": "astro preview",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "vite preview",
     "check": "tsc --noEmit",
-    "test": "node --test src/scripts/views.test.mjs"
+    "test": "node --test src/lib/views.test.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^8.0.2",
-    "astro": "^7.3.2"
+    "@mdx-js/react": "^3.1.0",
+    "@tanstack/react-router": "^1.170.41",
+    "@tanstack/react-start": "^1.168.60",
+    "gray-matter": "^4.0.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.7.4",
-    "npm-check-updates": "^23.0.2",
+    "@cloudflare/vite-plugin": "^1.26.0",
+    "@mdx-js/rollup": "^3.1.0",
+    "@tanstack/router-cli": "^1.132.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.1",
     "prettier": "3.9.9",
-    "typescript": "~7.0.2",
-    "wrangler": "^4.122.0"
+    "remark-frontmatter": "^5.0.0",
+    "remark-mdx-frontmatter": "^6.0.0",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.0",
+    "wrangler": "^4.70.0"
   }
 }
