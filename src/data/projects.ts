@@ -44,11 +44,10 @@ export const PROJECTS: Project[] = [
     stack: ["Go", "PostgreSQL", "Redis", "NATS JetStream", "Clerk", "Resend"],
     year: 2026,
     status: {
-      tone: "live",
-      label: "Live",
-      note: "The app is deployed and available to use.",
+      tone: "down",
+      label: "Offline",
+      note: "Previously deployed, but there is no hosted instance running right now.",
     },
-    liveUrl: "https://envitoo.mnah.dev/",
     github: {
       note: "The source is private for now. Reach out on GitHub if you would like access.",
     },

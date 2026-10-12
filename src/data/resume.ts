@@ -51,7 +51,6 @@ export const resume = {
     {
       name: "Envitoo",
       tech: "Go, PostgreSQL, Redis, NATS JetStream, Clerk",
-      link: { label: "Live", href: "https://envitoo.mnah.dev/" },
       year: "",
       points: [
         "Built a production-grade event management platform with a transactional outbox pattern over NATS JetStream, powering reliable async delivery of OTP and ticket-confirmation emails via Resend",
