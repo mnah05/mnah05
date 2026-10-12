@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
       note: "Previously deployed, but there is no hosted instance running right now.",
     },
     github: {
-      note: "The source is private for now. Reach out on GitHub if you would like access.",
+      url: "https://github.com/mnah05/envitoo",
     },
   },
   {
