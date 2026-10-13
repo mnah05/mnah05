@@ -7,8 +7,15 @@
 }
 
 .home-section + .home-section {
-  margin-top: 2.5rem;
+  margin-top: 4rem;
 }
+
+.intro { margin-bottom: 4.5rem; }
+.intro h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 500; letter-spacing: -0.04em; margin-bottom: 0.25rem; }
+.intro-role { font-size: 1.35rem; color: var(--muted); margin-bottom: 1.5rem; }
+.intro-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.intro-links a { text-underline-offset: 3px; }
+.about-preview h2 { font-size: 1.65rem; font-weight: 500; margin-bottom: 1rem; }
 
 .section-heading {
   display: flex;
@@ -17,9 +24,11 @@
   margin-bottom: 0.5rem;
 }
 
-.section-heading h1 {
+.section-heading h1,
+.section-heading h2 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.65rem;
+  font-weight: 500;
 }
 
 .section-heading a {

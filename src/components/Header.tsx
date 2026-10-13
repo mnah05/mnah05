@@ -55,11 +55,11 @@ export default function Header() {
           {SITE_TITLE}
         </Link>
         <div className="nav-links">
+          <Link to="/notes">
+            <span>Writing</span>
+          </Link>
           <Link to="/about">
             <span>About</span>
-          </Link>
-          <Link to="/resume">
-            <span>Resume</span>
           </Link>
           <a
             href="https://x.com/mnah05"

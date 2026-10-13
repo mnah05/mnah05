@@ -13,7 +13,9 @@
   --hover: #e5e5e5;
   --border: #e5e5e5;
   --link-underline: #d4d4d4;
-  --measure: 42rem;
+  --measure: 46rem;
+  --display: "Newsreader", Georgia, serif;
+  --body: "Newsreader", Georgia, serif;
   --sans:
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
@@ -42,13 +44,13 @@ html {
 }
 
 body {
-  font-family: var(--sans);
+  font-family: var(--body);
   margin: 0;
   padding: 0;
   background: var(--bg);
   color: var(--ink);
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   display: flex;
@@ -79,7 +81,7 @@ main {
   width: 100%;
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 0.75rem 1.5rem 2.5rem;
+  padding: 0.75rem 1.5rem 4rem;
   flex: 1;
 }
 
@@ -91,6 +93,22 @@ main {
 
 p {
   margin: 0 0 1.25em 0;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-latin-var.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-italic-latin-var.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
 }
 
 img {

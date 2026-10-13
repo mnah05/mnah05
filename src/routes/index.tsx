@@ -69,9 +69,31 @@ function Home() {
 
   return (
     <main>
+      <section className="intro" aria-labelledby="intro-heading">
+        <h1 id="intro-heading">Md Nauman Athar Hasan</h1>
+        <p className="intro-role">Backend Engineer &amp; Systems Builder</p>
+        <p>
+          I build backend systems, developer tools, and small web experiments.
+          I care about reliable software, clear interfaces, and understanding
+          how things work underneath.
+        </p>
+        <p className="intro-links">
+          <a href="mailto:workwithnauman@gmail.com">Email</a>{" "}
+          <a href="https://github.com/mnah05">GitHub</a>{" "}
+          <a href="https://www.linkedin.com/in/nauman-hasan-53a66630/">LinkedIn</a>
+        </p>
+      </section>
+      <section className="home-section about-preview" aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <p>
+          I work mostly with Go, TypeScript, PostgreSQL, Redis, and Cloudflare.
+          My interests include distributed systems, databases, concurrency, and
+          developer-facing infrastructure.
+        </p>
+      </section>
       <section className="home-section" aria-labelledby="projects-heading">
         <div className="section-heading">
-          <h1 id="projects-heading">Projects</h1>
+          <h2 id="projects-heading">Selected work</h2>
           <Link to="/projects">All projects</Link>
         </div>
         <div className="project-card-list">
