@@ -17,10 +17,11 @@
 .intro-links a { text-underline-offset: 3px; }
 .profile-photo {
   display: block;
-  width: min(100%, 26rem);
+  width: min(100%, 15rem);
   margin-top: 2.5rem;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  image-rendering: auto;
 }
 .about-preview h2 { font-size: 1.65rem; font-weight: 500; margin-bottom: 1rem; }
 
