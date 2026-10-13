@@ -23,7 +23,6 @@
   object-fit: cover;
   image-rendering: auto;
 }
-.about-preview h2 { font-size: 1.65rem; font-weight: 500; margin-bottom: 1rem; }
 
 .section-heading {
   display: flex;

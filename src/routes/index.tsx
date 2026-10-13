@@ -88,14 +88,6 @@ function Home() {
           alt="Md Nauman Athar Hasan"
         />
       </section>
-      <section className="home-section about-preview" aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p>
-          I work mostly with Go, TypeScript, PostgreSQL, Redis, and Cloudflare.
-          My interests include distributed systems, databases, concurrency, and
-          developer-facing infrastructure.
-        </p>
-      </section>
       <section className="home-section" aria-labelledby="projects-heading">
         <div className="section-heading">
           <h2 id="projects-heading">Selected work</h2>
