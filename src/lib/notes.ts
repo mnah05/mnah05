@@ -69,17 +69,27 @@ function pathForSlug(slug: string): string | undefined {
   return Object.keys(rawModules).find((p) => slugFromPath(p) === slug);
 }
 
+function parseDate(value: unknown): Date | undefined {
+  if (value instanceof Date && !Number.isNaN(value.valueOf())) return value;
+  if (typeof value !== "string" && typeof value !== "number") return undefined;
+  const date = new Date(value);
+  return Number.isNaN(date.valueOf()) ? undefined : date;
+}
+
 export function getAllNotes(): NoteMeta[] {
   const notes: NoteMeta[] = [];
   for (const [path, rawValue] of Object.entries(rawModules)) {
     const slug = slugFromPath(path);
     const raw = asString(rawValue);
     const data = parseFrontmatter(raw);
+    const pubDate = parseDate(data.pubDate);
+    // Do not turn missing metadata into the misleading Unix epoch (1970).
+    if (!pubDate) continue;
     notes.push({
       slug,
       title: String(data.title ?? slug),
       description: String(data.description ?? ""),
-      pubDate: new Date(String(data.pubDate ?? "1970-01-01")),
+      pubDate,
       updatedDate: data.updatedDate
         ? new Date(String(data.updatedDate))
         : undefined,
