@@ -82,6 +82,11 @@ function Home() {
           <a href="https://github.com/mnah05">GitHub</a>{" "}
           <a href="https://www.linkedin.com/in/nauman-hasan-53a66630/">LinkedIn</a>
         </p>
+        <img
+          className="profile-photo"
+          src="/images/Screenshot%202026-10-13%20at%2011.58.34%E2%80%AFPM.png"
+          alt="Md Nauman Athar Hasan"
+        />
       </section>
       <section className="home-section about-preview" aria-labelledby="about-heading">
         <h2 id="about-heading">About</h2>

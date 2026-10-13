@@ -15,6 +15,13 @@
 .intro-role { font-size: 1.35rem; color: var(--muted); margin-bottom: 1.5rem; }
 .intro-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 .intro-links a { text-underline-offset: 3px; }
+.profile-photo {
+  display: block;
+  width: min(100%, 26rem);
+  margin-top: 2.5rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
 .about-preview h2 { font-size: 1.65rem; font-weight: 500; margin-bottom: 1rem; }
 
 .section-heading {
