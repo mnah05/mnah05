@@ -46,10 +46,8 @@ function Colophon() {
         full page reload.
       </p>
       <p>
-        The design is minimal and text-first, inspired by rauchg.com: a centered
-        column, year-grouped index lists with view counts, and pill hover
-        highlights — with light and dark themes. Use the sun/moon button in the
-        header to switch — your choice is remembered.
+        The design is minimal and text-first: a centered column, simple links,
+        and a white background. The site uses a light theme only.
       </p>
       <p>
         Body text is set in the system sans stack; view counts are served by a

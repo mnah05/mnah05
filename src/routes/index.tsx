@@ -101,7 +101,7 @@ function Home() {
       </section>
       <section className="home-section" aria-labelledby="notes-heading">
         <div className="section-heading">
-          <h1 id="notes-heading">Notes</h1>
+          <h2 id="notes-heading">Notes</h2>
           <Link to="/notes">All notes</Link>
         </div>
         {sortedNotes.length === 0 ? (

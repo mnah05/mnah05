@@ -9,23 +9,17 @@ import "../styles/global.css";
 import "../styles/header.css";
 import "../styles/footer.css";
 
-const THEME_SCRIPT = `(function(){try{var saved=localStorage.getItem("theme");var theme=saved==="light"||saved==="dark"?saved:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";if(theme==="dark")document.documentElement.setAttribute("data-theme","dark");else document.documentElement.removeAttribute("data-theme");var meta=document.getElementById("meta-theme-color");if(meta)meta.setAttribute("content",theme==="dark"?"#0a0a0a":"#ffffff");}catch(e){}})();`;
-
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#ffffff" },
+      { name: "color-scheme", content: "light" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg?v=2" },
       { rel: "sitemap", href: "/sitemap-index.xml" },
-    ],
-    scripts: [
-      {
-        children: THEME_SCRIPT,
-      },
     ],
   }),
   shellComponent: RootDocument,
