@@ -1,19 +1,8 @@
 # Hi, I'm Md Nauman Athar Hasan
 
-I build backend systems, developer tools, and small web experiments. I usually work with Go, TypeScript, and Cloudflare.
+I build backend systems, and small web experiments. I usually work with Go and TS.
+I work on whatever I find interesting enough to spend time and get the intuition around the systems in general.
 
-I work on ideas that I find interesting. Some become useful projects; others become lessons. When I'm not coding, I'm usually reading or writing about something I want to understand better.
-
-## What I'm building
-
-- [Envitoo](https://mnah.dev/projects/envitoo) - Event management with ticketing, QR check-in, and volunteer coordination. ([Source](https://github.com/mnah05/envitoo))
-- [go-analytics](https://mnah.dev/projects/go-analytics) - A fast URL shortener with click tracking that runs in the background. ([Source](https://github.com/mnah05/go-analytics))
-- [tripnest](https://mnah.dev/projects/tripnest) - A backend for planning trips, building itineraries, and managing travel details. ([Source](https://github.com/mnah05/tripnest))
-- [nexus](https://mnah.dev/projects/nexus) - A distributed key-value store that keeps copies of data in sync. ([Source](https://github.com/mnah05/nexus))
-
-## Tools I use
-
-`Go` `TypeScript` `PostgreSQL` `MySQL` `Redis` `NATS JetStream` `Cloudflare Workers` `Docker`
 
 ## A little more
 
