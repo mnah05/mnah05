@@ -43,8 +43,8 @@
 }
 
 .resume-print-btn:hover {
-  color: #ffffff;
-  background: var(--accent);
+  color: var(--link-hover);
+  background: var(--hover);
   border-color: var(--accent);
   box-shadow: 0 4px 12px var(--accent-glow);
 }

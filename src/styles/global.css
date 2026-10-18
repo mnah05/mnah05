@@ -8,7 +8,9 @@
   --muted: #737373;
   --hover: #e5e5e5;
   --border: #e5e5e5;
-  --link-underline: #d4d4d4;
+  --link: #005fcc;
+  --link-hover: #004499;
+  --link-underline: currentColor;
   --measure: 42rem;
   --display: var(--sans);
   --body: var(--sans);
@@ -42,8 +44,14 @@ body {
   flex-direction: column;
 }
 
-a {
-  color: inherit;
+/* Keep links blue across page-specific styles, including visited links. */
+:root a:any-link {
+  color: var(--link);
+}
+
+:root a:any-link:hover {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;
 }
 
 a:focus-visible,
@@ -123,7 +131,7 @@ pre > code {
   --tag-text: var(--muted);
   --card-shadow: none;
   --card-shadow-hover: none;
-  --link-visited: var(--ink);
+  --link-visited: var(--link);
   --bevel-light: transparent;
   --bevel-dark: transparent;
   --bevel-out: none;
