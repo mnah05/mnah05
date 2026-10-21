@@ -30,7 +30,7 @@ export const resume = {
       href: "https://www.linkedin.com/in/nauman-hasan-53a66630a/",
     },
     { label: "GitHub", href: "https://github.com/mnah05" },
-    { label: "LeetCode", href: "https://leetcode.com/u/mnah05" },
+    { label: "LeetCode", href: "https://leetcode.com/u/notagujju" },
   ],
   education: [
     {
