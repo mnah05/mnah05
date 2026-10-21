@@ -19,6 +19,6 @@ This repo is the source for [mnah.dev](https://mnah.dev) — built with TanStack
 - [Website](https://mnah.dev)
 - [GitHub](https://github.com/mnah05)
 - [LinkedIn](https://www.linkedin.com/in/nauman-hasan-53a66630a/)
-- [X](https://x.com/mnah05)
+- [X](https://x.com/notagujjuu)
 - [LeetCode](https://leetcode.com/u/mnah05)
 - [Email](mailto:workwithnauman@gmail.com)

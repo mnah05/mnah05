@@ -26,11 +26,11 @@ export default function NotesLayout({
         <h1>{title}</h1>
         <div className="post-meta-line">
           <a
-            href="https://x.com/mnah05"
+            href="https://x.com/notagujjuu"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @mnah05
+            @notagujjuu
           </a>
           <span>|</span>
           <FormattedDate date={pubDate} />

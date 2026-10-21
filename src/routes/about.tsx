@@ -38,7 +38,7 @@ function About() {
           GitHub
         </a>
         , follow me on{" "}
-        <a href="https://x.com/mnah05" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/notagujjuu" target="_blank" rel="noopener noreferrer">
           X
         </a>
         , or connect on{" "}

@@ -47,11 +47,11 @@ function ProjectPage() {
         <h1>{project.name}</h1>
         <div className="project-meta-line">
           <a
-            href="https://x.com/mnah05"
+            href="https://x.com/notagujjuu"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @mnah05
+            @notagujjuu
           </a>
           <span>|</span>
           <span>{project.year}</span>

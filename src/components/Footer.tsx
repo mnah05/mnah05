@@ -6,11 +6,11 @@ export default function Footer() {
           <span className="copyright">
             hasan (
             <a
-              href="https://x.com/mnah05"
+              href="https://x.com/notagujjuu"
               target="_blank"
               rel="noopener noreferrer"
             >
-              @mnah05
+              @notagujjuu
             </a>
             )
           </span>
