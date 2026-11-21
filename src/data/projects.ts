@@ -25,6 +25,32 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "fishstick",
+    name: "Fishstick",
+    tagline:
+      "A durable job execution system built around PostgreSQL and RabbitMQ.",
+    short:
+      "A Go job system for scheduling, dispatching, and recovering background work.",
+    summary: [
+      "Fishstick moves background work through a Go API, scheduler, transactional PostgreSQL outbox, RabbitMQ relay, and execution workers. Runs keep an immutable snapshot of the job settings they started with.",
+      "Workers use expiring leases and fencing tokens to prevent stale handlers from completing recovered runs. Retries, cooperative cancellation, and dead-letter records make failure handling part of the run lifecycle.",
+    ],
+    highlights: [
+      "Validated 100 trigger requests per second for 60 seconds: all 5,999 created runs succeeded with zero trigger errors in a test profile with 3 schedulers, 9 workers, and a 50 ms handler",
+      "Transactional outbox keeps run creation and dispatch intent consistent across PostgreSQL and RabbitMQ",
+      "Lease heartbeats, fencing tokens, and a watcher recover expired work without allowing stale workers to overwrite newer state",
+      "Retry scheduling, cancellation, and dead-letter recording are covered by lifecycle and end-to-end tests",
+    ],
+    stack: ["Go", "PostgreSQL", "RabbitMQ", "Docker Compose"],
+    year: 2026,
+    status: {
+      tone: "down",
+      label: "Not deployed",
+      note: "Fishstick is a self-hosted backend project; there is no public hosted instance.",
+    },
+    github: { url: "https://github.com/mnah05/fishstick" },
+  },
+  {
     slug: "envitoo",
     name: "Envitoo",
     tagline:
