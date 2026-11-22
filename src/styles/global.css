@@ -1,125 +1,24 @@
-/* A single white palette and a readable, centered column. */
+@import "tailwindcss";
 
 :root {
   color-scheme: light;
-
   --bg: #ffffff;
-  --ink: #171717;
-  --muted: #737373;
-  --hover: #e5e5e5;
-  --border: #e5e5e5;
+  --ink: #20252a;
+  --muted: #727b82;
+  --hover: #f3f5f6;
+  --border: #e4e8eb;
   --link: #005fcc;
   --link-hover: #004499;
   --link-underline: currentColor;
-  --measure: 42rem;
+  --measure: 50rem;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --display: var(--sans);
   --body: var(--sans);
-  --sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: var(--body);
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Keep links blue across page-specific styles, including visited links. */
-:root a:any-link {
-  color: var(--link);
-}
-
-:root a:any-link:hover {
-  color: var(--link-hover);
-  text-decoration-color: currentColor;
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--muted);
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-}
-
-main {
-  width: 100%;
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 0.75rem 1.5rem 4rem;
-  flex: 1;
-}
-
-@media (min-width: 768px) {
-  main {
-    padding-top: 1.5rem;
-  }
-}
-
-p {
-  margin: 0 0 1.25em 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-code {
-  font-family: var(--mono);
-  font-size: 0.88em;
-}
-
-pre {
-  padding: 1rem;
-  background: var(--hover);
-  border-radius: 8px;
-  overflow-x: auto;
-}
-
-pre > code {
-  background: transparent;
-}
-
-::selection {
-  background: var(--hover);
-}
-
-/* Compatibility shims so older pages (resume, 404) keep rendering
-   on the new minimal palette until they are restyled. */
-:root {
   --hairline: var(--border);
   --hairline-strong: var(--muted);
   --surface: var(--bg);
-  --surface-card: var(--bg);
+  --surface-card: #fff;
   --surface-hover: var(--hover);
   --muted-old: var(--muted);
   --accent: var(--ink);
@@ -136,12 +35,18 @@ pre > code {
   --bevel-dark: transparent;
   --bevel-out: none;
   --bevel-pressed: none;
-  --display: var(--sans);
-  --body: var(--sans);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { min-height: 100vh; margin: 0; display: flex; flex-direction: column; background: var(--bg); color: var(--ink); font: 16px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+:root a:any-link { color: var(--link); }
+:root a:any-link:hover { color: var(--link-hover); text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; border-radius: 4px; }
+h1,h2,h3,h4 { margin: 0; line-height: 1.25; letter-spacing: -.02em; }
+main { width: 100%; max-width: var(--measure); margin: 0 auto; padding: .75rem 1.5rem 4rem; flex: 1; }
+p { margin: 0 0 1.2em; }
+img { max-width: 100%; height: auto; }
+code,pre { font-family: var(--mono); }
+pre { overflow-x: auto; padding: 1rem; background: var(--hover); border-radius: 6px; }
+::selection { background: #d7e8fa; }

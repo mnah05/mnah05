@@ -36,11 +36,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Header />
         {children}
         <Footer />
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "8c9a6f2e16c944d9b9e479f53387f7b2"}'
-        />
         <Scripts />
       </body>
     </html>

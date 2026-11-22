@@ -7,7 +7,7 @@
     "#/*": "./src/*"
   },
   "scripts": {
-    "dev": "vite dev --port 3000",
+    "dev": "vite dev --port 8080",
     "build": "tsr generate && vite build",
     "generate-routes": "tsr generate",
     "resume:pdf": "bash scripts/build-resume.sh",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.26.0",
     "@mdx-js/rollup": "^3.1.0",
+    "@tailwindcss/vite": "^4.3.5",
     "@tanstack/router-cli": "^1.132.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.2.0",
@@ -35,6 +36,7 @@
     "prettier": "3.9.9",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^6.0.0",
+    "tailwindcss": "^4.3.5",
     "typescript": "^6.0.2",
     "vite": "^8.0.0",
     "wrangler": "^4.70.0"

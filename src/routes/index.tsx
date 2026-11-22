@@ -1,6 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
-import ProjectCard, { scheduleViewCounts } from "../components/ProjectCard";
 import { PROJECTS } from "../data/projects";
 import { getAllNotes } from "../lib/notes";
 import "../styles/home.css";
@@ -8,134 +6,96 @@ import "../styles/home.css";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "hasan" },
+      { title: "Hasan — Backend engineer & systems builder" },
       {
         name: "description",
-        content:
-          "The personal website of Md Nauman Athar Hasan: projects and notes.",
+        content: "I work with Go and TypeScript, and build things to understand the systems underneath.",
       },
-      { property: "og:title", content: "hasan" },
+      { property: "og:title", content: "Hasan — Backend engineer & systems builder" },
       {
         property: "og:description",
-        content:
-          "The personal website of Md Nauman Athar Hasan: projects and notes.",
+        content: "Projects, notes, and things I find interesting enough to build.",
       },
       { property: "og:url", content: "https://mnah.dev/" },
-      { property: "og:site_name", content: "hasan" },
     ],
     links: [{ rel: "canonical", href: "https://mnah.dev/" }],
   }),
   component: Home,
 });
 
-type IndexItem = {
-  year: number;
-  title: string;
-  href: string;
-  viewSlug: string;
-  sortTime: number;
-};
-
-const notes = getAllNotes();
-
-const noteItems: IndexItem[] = notes.map((post) => ({
-  year: post.pubDate.getFullYear(),
-  title: post.title,
-  href: `/notes/${post.slug}`,
-  viewSlug: post.slug,
-  sortTime: post.pubDate.valueOf(),
-}));
-
-const projectItems: IndexItem[] = PROJECTS.map((project) => ({
-  year: project.year,
-  title: project.name,
-  href: `/projects/${project.slug}`,
-  viewSlug: `projects/${project.slug}`,
-  sortTime: new Date(project.year, 0, 1).valueOf(),
-}));
-
-const sortItems = (items: IndexItem[]) =>
-  [...items].sort((a, b) => b.sortTime - a.sortTime || b.year - a.year);
+const featuredSlugs = ["fishstick", "nexus", "go-analytics"];
+const featuredProjects = featuredSlugs
+  .map((slug) => PROJECTS.find((project) => project.slug === slug))
+  .filter((project) => project !== undefined);
 
 function Home() {
-  const projects = sortItems(projectItems);
-  const sortedNotes = sortItems(noteItems);
-  const viewSlugs = [...projects, ...sortedNotes].map((item) => item.viewSlug);
-
-  useEffect(() => {
-    scheduleViewCounts(viewSlugs);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const recentNotes = getAllNotes().slice(0, 3);
 
   return (
-    <main>
-      <section className="intro" aria-labelledby="intro-heading">
-        <h1 id="intro-heading">Md Nauman Athar Hasan</h1>
-        <p className="intro-role">Backend Engineer &amp; Systems Builder</p>
-        <p>
-          I build backend systems, developer tools, and small web experiments.
-          I care about reliable software, clear interfaces, and understanding
-          how things work underneath.
-        </p>
-        <p className="intro-links">
-          <a href="mailto:workwithnauman@gmail.com">Email</a>{" "}
-          <a href="https://github.com/mnah05">GitHub</a>{" "}
-          <a href="https://www.linkedin.com/in/nauman-hasan-53a66630/">LinkedIn</a>
-        </p>
-        <img
-          className="profile-photo"
-          src="/images/Screenshot%202026-10-13%20at%2011.58.34%E2%80%AFPM.png"
-          alt="Md Nauman Athar Hasan"
-        />
-      </section>
-      <section className="home-section" aria-labelledby="projects-heading">
-        <div className="section-heading">
-          <h2 id="projects-heading">Selected work</h2>
-          <Link to="/projects">All projects</Link>
+    <main className="home-page mx-auto w-full max-w-5xl px-6 pb-20 pt-8 sm:pt-12">
+      <div className="typewriter-masthead"><span>PERSONAL ARCHIVE</span><span>VOL. 01 — SYSTEMS & NOTES</span></div>
+      <section className="home-hero grid grid-cols-1 items-center gap-10 sm:grid-cols-[1fr_13rem] sm:gap-16" aria-labelledby="intro-heading">
+        <div>
+          <p className="home-kicker">HASAN <span>·</span> BACKEND ENGINEER</p>
+          <h1 id="intro-heading">I work on whatever I find interesting enough to understand.</h1>
+          <p className="home-intro-copy">
+            Usually Go and TypeScript. I like getting close to the systems underneath: how they behave, where they break, and what it takes to make them reliable.
+          </p>
+          <p className="home-stack">GO <span>·</span> TYPESCRIPT <span>·</span> SYSTEMS</p>
+          <div className="home-contact-links">
+            <a href="mailto:workwithnauman@gmail.com">Get in touch <span>↗</span></a>
+            <a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+            <a href="https://www.linkedin.com/in/nauman-hasan-53a66630/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+          </div>
         </div>
-        <div className="project-card-list">
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+        <figure className="home-portrait">
+          <img src="/images/Screenshot%202026-10-13%20at%2011.58.34%E2%80%AFPM.png" alt="Md Nauman Athar Hasan" />
+          <figcaption>Nauman Hasan <span>·</span> building and learning</figcaption>
+        </figure>
+      </section>
+
+      <section className="home-section" aria-labelledby="work-heading">
+        <div className="home-section-heading">
+          <div><p className="home-kicker">A FEW THINGS I’VE BUILT</p><h2 id="work-heading">Selected work</h2></div>
+          <Link to="/projects">All projects <span>↗</span></Link>
+        </div>
+        <div className="home-project-grid grid grid-cols-1 gap-4 md:grid-cols-3">
+          {featuredProjects.map((project, index) => (
+            <article className="home-project-card" key={project.slug}>
+              <div className="home-project-top"><span>0{index + 1}</span><span>{project.stack.slice(0, 2).join(" · ")}</span></div>
+              <h3><Link to="/projects" hash={project.slug}>{project.name}<span> ↗</span></Link></h3>
+              <p className="home-project-summary">{project.short}</p>
+              <p className="home-project-proof">{project.highlights[0]}</p>
+              <Link className="home-project-more" to="/projects" hash={project.slug}>How it works <span>→</span></Link>
+            </article>
           ))}
         </div>
       </section>
-      <section className="home-section" aria-labelledby="notes-heading">
-        <div className="section-heading">
-          <h2 id="notes-heading">Notes</h2>
-          <Link to="/notes">All notes</Link>
+
+      <section className="home-section home-notes-section" aria-labelledby="notes-heading">
+        <div className="home-section-heading">
+          <div><p className="home-kicker">THINKING IN PUBLIC</p><h2 id="notes-heading">Notes</h2></div>
+          <Link to="/notes">All notes <span>↗</span></Link>
         </div>
-        {sortedNotes.length === 0 ? (
-          <p>Brewing new notes soon.</p>
-        ) : (
-          <ul className="index-list">
-            {sortedNotes.map((item, index) => {
-              const showYear =
-                index === 0 || item.year !== sortedNotes[index - 1].year;
-              return (
-                <li className="group" key={item.viewSlug}>
-                  <a href={item.href}>
-                    <span className="index-row">
-                      {showYear ? (
-                        <span className="index-year">{item.year}</span>
-                      ) : null}
-                      <span
-                        className={`index-title-wrap${showYear ? "" : " index-row-indented"}`}
-                      >
-                        <span className="index-title">{item.title}</span>
-                      </span>
-                      <span
-                        className="index-views"
-                        data-view-count={item.viewSlug}
-                      >
-                        —
-                      </span>
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        <div className="home-notes-list">
+          {recentNotes.map((note) => (
+            <Link className="home-note-row" key={note.slug} to="/notes/$slug" params={{ slug: note.slug }}>
+              <span className="home-note-date">{note.pubDate.getFullYear()}</span>
+              <span className="home-note-title">{note.title}</span>
+              <span className="home-note-arrow">↗</span>
+            </Link>
+          ))}
+        </div>
+        <div className="home-reading-line">
+          <span>I keep a collection of useful references, papers, and docs.</span>
+          <a href="https://workwithnauman.raindrop.page/reads-72899412" target="_blank" rel="noopener noreferrer">Browse my reading list ↗</a>
+        </div>
+      </section>
+
+      <section className="home-bottom-note">
+        <p className="home-kicker">A LITTLE MORE</p>
+        <p>I’m curious about how software works beneath the surface. Most of these projects started with a question I wanted to answer by building something.</p>
+        <div><a href="https://medium.com/@mnah05" target="_blank" rel="noopener noreferrer">Medium ↗</a><a href="https://substack.com/@naumanhasan" target="_blank" rel="noopener noreferrer">Substack ↗</a></div>
       </section>
     </main>
   );
