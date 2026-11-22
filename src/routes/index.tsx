@@ -33,7 +33,6 @@ function Home() {
 
   return (
     <main className="home-page mx-auto w-full max-w-5xl px-6 pb-20 pt-8 sm:pt-12">
-      <div className="typewriter-masthead"><span>PERSONAL ARCHIVE</span><span>VOL. 01 — SYSTEMS & NOTES</span></div>
       <section className="home-hero grid grid-cols-1 items-center gap-10 sm:grid-cols-[1fr_13rem] sm:gap-16" aria-labelledby="intro-heading">
         <div>
           <p className="home-kicker">HASAN <span>·</span> BACKEND ENGINEER</p>
@@ -41,7 +40,6 @@ function Home() {
           <p className="home-intro-copy">
             Usually Go and TypeScript. I like getting close to the systems underneath: how they behave, where they break, and what it takes to make them reliable.
           </p>
-          <p className="home-stack">GO <span>·</span> TYPESCRIPT <span>·</span> SYSTEMS</p>
           <div className="home-contact-links">
             <a href="mailto:workwithnauman@gmail.com">Get in touch <span>↗</span></a>
             <a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
@@ -59,15 +57,12 @@ function Home() {
           <div><p className="home-kicker">A FEW THINGS I’VE BUILT</p><h2 id="work-heading">Selected work</h2></div>
           <Link to="/projects">All projects <span>↗</span></Link>
         </div>
-        <div className="home-project-grid grid grid-cols-1 gap-4 md:grid-cols-3">
-          {featuredProjects.map((project, index) => (
-            <article className="home-project-card" key={project.slug}>
-              <div className="home-project-top"><span>0{index + 1}</span><span>{project.stack.slice(0, 2).join(" · ")}</span></div>
-              <h3><Link to="/projects" hash={project.slug}>{project.name}<span> ↗</span></Link></h3>
-              <p className="home-project-summary">{project.short}</p>
-              <p className="home-project-proof">{project.highlights[0]}</p>
-              <Link className="home-project-more" to="/projects" hash={project.slug}>How it works <span>→</span></Link>
-            </article>
+        <div className="home-project-list">
+          {featuredProjects.map((project) => (
+            <Link className="home-project-row" key={project.slug} to="/projects" hash={project.slug}>
+              <span><strong>{project.name}</strong><small>{project.short}</small></span>
+              <span className="home-project-arrow">↗</span>
+            </Link>
           ))}
         </div>
       </section>
@@ -92,11 +87,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="home-bottom-note">
-        <p className="home-kicker">A LITTLE MORE</p>
-        <p>I’m curious about how software works beneath the surface. Most of these projects started with a question I wanted to answer by building something.</p>
-        <div><a href="https://medium.com/@mnah05" target="_blank" rel="noopener noreferrer">Medium ↗</a><a href="https://substack.com/@naumanhasan" target="_blank" rel="noopener noreferrer">Substack ↗</a></div>
-      </section>
     </main>
   );
 }
