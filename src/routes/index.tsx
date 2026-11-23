@@ -42,6 +42,7 @@ function Home() {
           </p>
           <div className="home-contact-links">
             <a href="mailto:workwithnauman@gmail.com">Get in touch <span>↗</span></a>
+            <Link to="/resume">View resume <span>↗</span></Link>
             <a href="https://github.com/mnah05" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
             <a href="https://www.linkedin.com/in/nauman-hasan-53a66630/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
           </div>
