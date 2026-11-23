@@ -14197,7 +14197,7 @@ interface FlagshipEvaluationError extends Error {}
  * Feature flags binding for evaluating feature flags from a Cloudflare Workers script.
  *
  * @example
- * ```typescript
+ * ```js
  * // Get a boolean flag value with a default
  * const enabled = await env.FLAGS.getBooleanValue('my-feature', false);
  *

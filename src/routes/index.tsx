@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       { title: "Hasan — Backend engineer & systems builder" },
       {
         name: "description",
-        content: "I work with Go and TypeScript, and build things to understand the systems underneath.",
+        content: "I work with Go, and build things to understand the systems underneath.",
       },
       { property: "og:title", content: "Hasan — Backend engineer & systems builder" },
       {
@@ -38,7 +38,7 @@ function Home() {
           <p className="home-kicker">HASAN <span>·</span> BACKEND ENGINEER</p>
           <h1 id="intro-heading">I work on whatever I find interesting enough to understand.</h1>
           <p className="home-intro-copy">
-            Usually Go and TypeScript. I like getting close to the systems underneath: how they behave, where they break, and what it takes to make them reliable.
+            Usually Go. I like getting close to the systems underneath: how they behave, where they break, and what it takes to make them reliable.
           </p>
           <div className="home-contact-links">
             <a href="mailto:workwithnauman@gmail.com">Get in touch <span>↗</span></a>

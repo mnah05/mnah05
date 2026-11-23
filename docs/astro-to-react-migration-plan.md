@@ -134,13 +134,13 @@ Rules:
 - [ ] Decide orphaned `src/styles/notes-index.css`: delete or wire into `NotesPage`.
 - Acceptance: baseline checklist saved in PR description.
 
-### Phase 1 — Scaffold Vite + TS + Router (0.5–1 day)
+### Phase 1 — Scaffold Vite + JS + Router (0.5–1 day)
 
-- [ ] `npm rm astro @astrojs/mdx @astrojs/sitemap`; `npm i react react-dom react-router-dom react-helmet-async`; `npm i -D typescript vite @vitejs/plugin-react @mdx-js/rollup gray-matter zod tsx @types/react @types/react-dom vite-plugin-sitemap`.
-- [ ] Add `index.html`, `vite.config.ts` (react + mdx plugins, `assetsInclude`, `publicDir: public`), new `tsconfig.json` (+ `tsconfig.node.json` for scripts), `src/vite-env.d.ts`.
+- [ ] `npm rm astro @astrojs/mdx @astrojs/sitemap`; `npm i react react-dom react-router-dom react-helmet-async`; `npm i -D vite @vitejs/plugin-react @mdx-js/rollup gray-matter zod tsx vite-plugin-sitemap`.
+- [ ] Add `index.html`, `vite.config.ts` (react + mdx plugins, `assetsInclude`, `publicDir: public`), `src/vite-env.d.ts`.
 - [ ] Add `src/main.tsx`, `src/App.tsx`, `src/app/router.tsx` with placeholder routes for all 9 URLs.
 - [ ] Keep `wrangler.jsonc` as-is except verify `build.command: npm run build` still outputs `dist/`.
-- Acceptance: `npm run dev` renders placeholder nav for all routes; `tsc --noEmit` clean.
+- Acceptance: `npm run dev` renders placeholder nav for all routes.
 
 ### Phase 2 — Port shell components (1–2 days)
 

@@ -9,9 +9,9 @@
 
 ## Commands and verification
 
-- Install with `npm ci`; `npm run dev` serves port 3000. `npm run build` runs route generation, client/server builds, then prerendering; a successful build is not a TypeScript check.
-- Run `npm run check` and `npm test` separately. Current typecheck blocker: missing `gray-matter` declarations in `src/lib/notes.ts` (TS7016).
-- `npm test` only covers view formatting, not the D1 API. Tests import `.ts` directly from `.mjs`, so use a Node version with native TypeScript support. Focus a test with `node --test --test-name-pattern="singularizes" src/lib/views.test.mjs`.
+- Install with `npm ci`; `npm run dev` serves port 3000. `npm run build` runs route generation, client/server builds, then prerendering; a successful build is not a type check.
+- Run `npm run check` and `npm test` separately. Current typecheck blocker: missing `gray-matter` declarations in `src/lib/notes.ts`.
+- `npm test` only covers view formatting, not the D1 API. Tests import source directly from `.mjs`, so use a Node version with native type support. Focus a test with `node --test --test-name-pattern="singularizes" src/lib/views.test.mjs`.
 - `npm run resume:pdf` requires `tectonic` and writes ignored `public/resume.pdf`. Build it before the site build/deploy when the downloadable PDF must be included; deployment does not generate it.
 
 ## Deployment

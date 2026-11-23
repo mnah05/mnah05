@@ -20,7 +20,7 @@ function About() {
     <NotesLayout title="About" pubDate={new Date("August 08 2021")}>
       <p>
         Hi, I&apos;m Md Nauman Athar Hasan. I build backend systems, developer
-        tools, and small web experiments. I usually work with Go, TypeScript,
+        tools, and small web experiments. I usually work with Go,
         and Cloudflare.
       </p>
       <p>

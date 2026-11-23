@@ -82,7 +82,7 @@ export const resume = {
     },
   ] satisfies Project[],
   skills: [
-    { category: "Languages", items: "Go, TypeScript, JavaScript, SQL" },
+    { category: "Languages", items: "Go, JavaScript, SQL" },
     {
       category: "Backend",
       items: "Go, Hono, Node.js, REST APIs, JWT Authentication, Clerk",
