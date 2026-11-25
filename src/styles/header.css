@@ -1,8 +1,8 @@
 .site-header {
   width: 100%;
-  max-width: var(--measure);
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 2rem 0;
 }
 
 .site-header nav,
@@ -14,15 +14,22 @@
 
 .site-header nav {
   justify-content: space-between;
+  min-height: 2.75rem;
 }
 
 .brand {
-  font-weight: 600;
+  font-size: .95rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .nav-links {
   font-size: 0.875rem;
+  gap: 1.35rem;
 }
+
+.nav-links a { transition: color .18s ease; }
 
 .site-header a {
   text-decoration: none;
@@ -31,4 +38,10 @@
 .site-header a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .site-header { padding: 1rem 1.25rem 0; }
+  .site-header nav { align-items: flex-start; }
+  .nav-links { justify-content: flex-end; flex-wrap: wrap; gap: .35rem .9rem; font-size: .8rem; }
 }

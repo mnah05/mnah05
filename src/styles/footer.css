@@ -2,11 +2,12 @@ footer {
   width: 100%;
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 1rem 1.5rem 2rem;
+  padding: 1.25rem 1.5rem 2rem;
   display: flex;
   font-size: 0.9rem;
-  text-align: center;
+  text-align: left;
   color: var(--muted);
+  border-top: 1px solid var(--border);
 }
 
 .footer-inner {
@@ -47,7 +48,6 @@ footer {
 
 .footer-links a,
 .footer-about a {
-  color: var(--muted);
   text-decoration: underline;
   text-decoration-color: var(--link-underline);
   text-underline-offset: 3px;
@@ -56,8 +56,7 @@ footer {
 
 .footer-links a:hover,
 .footer-about a:hover {
-  text-decoration-color: var(--ink);
-  color: var(--ink);
+  text-decoration-color: currentColor;
 }
 
 @media (max-width: 640px) {

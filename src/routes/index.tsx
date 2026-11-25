@@ -35,8 +35,8 @@ function Home() {
     <main className="home-page mx-auto w-full max-w-5xl px-6 pb-20 pt-8 sm:pt-12">
       <section className="home-hero grid grid-cols-1 items-center gap-10 sm:grid-cols-[1fr_13rem] sm:gap-16" aria-labelledby="intro-heading">
         <div>
-          <p className="home-kicker">HASAN <span>·</span> BACKEND ENGINEER</p>
-          <h1 id="intro-heading">I work on whatever I find interesting enough to understand.</h1>
+          <p className="home-kicker">Software engineer <span>·</span> Systems builder</p>
+          <h1 id="intro-heading">Nauman<br />Hasan</h1>
           <p className="home-intro-copy">
             Usually Go. I like getting close to the systems underneath: how they behave, where they break, and what it takes to make them reliable.
           </p>
